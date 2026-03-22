@@ -80,7 +80,7 @@ The project now includes a dedicated docs set in [`/docs`](./docs/README.md):
       homelab-foundations-cover.svg
       board-game-design-cover.svg
       local-models-mac-cover.svg
-      markdown-writing-cover.png
+      markdown-writing-cover.svg
 ```
 
 ## Content Model

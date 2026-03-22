@@ -1,26 +1,55 @@
-<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="900" viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Local Models for Agentic Coding on Mac</title>
+  <desc id="desc">A friendly but substantial guide to MLX, llama.cpp, and Ollama on Apple silicon</desc>
   <defs>
-    <linearGradient id="bg" x1="120" y1="98" x2="1386" y2="858" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#89EBFF"/>
-      <stop offset="0.52" stop-color="#2C6DF0"/>
-      <stop offset="1" stop-color="#08111D"/>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f4c81"/>
+      <stop offset="100%" stop-color="#62c0ff"/>
     </linearGradient>
-    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1268 166) rotate(140.381) scale(618.857 696.95)">
-      <stop stop-color="white" stop-opacity="0.24"/>
-      <stop offset="1" stop-color="white" stop-opacity="0"/>
+    <radialGradient id="glow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#9fe2ff" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#9fe2ff" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <rect width="1600" height="900" rx="40" fill="#07101A"/>
-  <rect width="1600" height="900" rx="40" fill="url(#bg)"/>
-  <rect width="1600" height="900" rx="40" fill="url(#glow)"/>
-  <rect x="86" y="82" width="236" height="236" rx="48" fill="rgba(255,255,255,0.14)"/>
-  <rect x="148" y="146" width="96" height="118" rx="20" fill="white"/>
-  <rect x="178" y="122" width="36" height="24" rx="8" fill="white"/>
-  <rect x="168" y="176" width="56" height="8" rx="4" fill="#2C6DF0"/>
-  <rect x="168" y="202" width="56" height="8" rx="4" fill="#2C6DF0"/>
-  <rect x="168" y="228" width="40" height="8" rx="4" fill="#2C6DF0"/>
-  <text x="118" y="484" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="70" font-weight="700">Local Models</text>
-  <text x="118" y="566" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="70" font-weight="700">for Agentic Coding</text>
-  <text x="118" y="648" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="70" font-weight="700">on Mac</text>
-  <text x="120" y="736" fill="rgba(255,255,255,0.8)" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="600" letter-spacing="4">MLX · OLLAMA · LLAMA.CPP</text>
+  <style>
+    .cover-kicker, .cover-title, .cover-subtitle {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+    }
+    .cover-kicker {
+      font-size: 22px;
+      letter-spacing: 0.04em;
+      fill: #dff4ff;
+      opacity: 0.9;
+    }
+    .cover-title {
+      font-size: 66px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      fill: white;
+    }
+    .cover-subtitle {
+      font-size: 27px;
+      font-weight: 520;
+      letter-spacing: -0.01em;
+      fill: #dff4ff;
+      opacity: 0.95;
+    }
+  </style>
+  <rect width="1200" height="900" rx="48" fill="url(#bg)"/>
+  <circle cx="1040" cy="140" r="210" fill="url(#glow)" opacity="0.55"/>
+  <circle cx="990" cy="700" r="260" fill="url(#glow)" opacity="0.18"/>
+  <circle cx="170" cy="760" r="220" fill="url(#glow)" opacity="0.12"/>
+  <rect x="48" y="48" width="1104" height="804" rx="40" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.14)"/>
+  <rect x="72" y="112" width="618" height="676" rx="34" fill="rgba(8,15,30,0.18)" stroke="rgba(255,255,255,0.1)"/>
+  <rect x="742" y="164" width="370" height="370" rx="44" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.16)"/>
+  <rect x="742" y="572" width="370" height="128" rx="32" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.14)"/>
+  <text x="72" y="94" class="cover-kicker">Personal Learning Hub</text>
+  <text x="72" y="208" class="cover-title">Local Models for</text><text x="72" y="286" class="cover-title">Agentic Coding on</text><text x="72" y="364" class="cover-title">Mac</text>
+  <text x="72" y="482" class="cover-subtitle">A friendly but substantial guide to MLX,</text><text x="72" y="516" class="cover-subtitle">llama.cpp, and Ollama on Apple silicon</text>
+  <g transform="translate(748 182)">
+    <circle cx="232" cy="120" r="44" fill="url(#glow)" opacity="0.75"/><path d="M232 78l10 28 28 10-28 10-10 28-10-28-28-10 28-10z" fill="white"/>
+  </g>
+  <text x="782" y="626" class="cover-kicker">Curated course</text>
+  <text x="782" y="666" class="cover-subtitle">Premium, self-paced learning</text>
 </svg>

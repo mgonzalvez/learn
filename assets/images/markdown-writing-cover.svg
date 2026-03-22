@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="1200" height="900" viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
-  <title id="title">Medium-Weight Worker Placement &amp; Tableau Design Workshop</title>
-  <desc id="desc">Design a solo-first strategy game with tight worker tension, satisfying engines, and a playable first prototype</desc>
+  <title id="title">Markdown Writing Workshop</title>
+  <desc id="desc">Write notes, docs, and everyday text with more confidence</desc>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#7f3b22"/>
-      <stop offset="100%" stop-color="#ffcf76"/>
+      <stop offset="0%" stop-color="#16463d"/>
+      <stop offset="100%" stop-color="#79d0b1"/>
     </linearGradient>
     <radialGradient id="glow" cx="50%" cy="50%" r="60%">
-      <stop offset="0%" stop-color="#ffe3aa" stop-opacity="0.95"/>
-      <stop offset="100%" stop-color="#ffe3aa" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#adeed7" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#adeed7" stop-opacity="0"/>
     </radialGradient>
   </defs>
   <style>
@@ -19,11 +19,11 @@
     .cover-kicker {
       font-size: 22px;
       letter-spacing: 0.04em;
-      fill: #fff5df;
+      fill: #e8fff6;
       opacity: 0.9;
     }
     .cover-title {
-      font-size: 58px;
+      font-size: 66px;
       font-weight: 700;
       letter-spacing: -0.04em;
       fill: white;
@@ -32,7 +32,7 @@
       font-size: 27px;
       font-weight: 520;
       letter-spacing: -0.01em;
-      fill: #fff5df;
+      fill: #e8fff6;
       opacity: 0.95;
     }
   </style>
@@ -45,8 +45,8 @@
   <rect x="742" y="164" width="370" height="370" rx="44" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.16)"/>
   <rect x="742" y="572" width="370" height="128" rx="32" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.14)"/>
   <text x="72" y="94" class="cover-kicker">Personal Learning Hub</text>
-  <text x="72" y="208" class="cover-title">Medium-Weight</text><text x="72" y="280" class="cover-title">Worker Placement &amp;</text><text x="72" y="352" class="cover-title">Tableau Design</text><text x="72" y="424" class="cover-title">Workshop</text>
-  <text x="72" y="536" class="cover-subtitle">Design a solo-first strategy game with</text><text x="72" y="570" class="cover-subtitle">tight worker tension, satisfying engines,…</text>
+  <text x="72" y="208" class="cover-title">Markdown Writing</text><text x="72" y="286" class="cover-title">Workshop</text>
+  <text x="72" y="404" class="cover-subtitle">Write notes, docs, and everyday text with</text><text x="72" y="438" class="cover-subtitle">more confidence</text>
   <g transform="translate(748 182)">
     <rect x="194" y="102" width="84" height="84" rx="18" fill="none" stroke="white" stroke-width="8"/><path d="M222 102v84M250 102v84M194 130h84M194 158h84" stroke="white" stroke-width="6" opacity="0.95"/>
   </g>

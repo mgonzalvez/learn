@@ -1,23 +1,55 @@
-<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="900" viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Homelab Foundations</title>
+  <desc id="desc">Build a reliable personal server stack step by step</desc>
   <defs>
-    <linearGradient id="bg" x1="188" y1="126" x2="1291" y2="844" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#54D9CB"/>
-      <stop offset="0.5" stop-color="#215BB9"/>
-      <stop offset="1" stop-color="#0A1730"/>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f1729"/>
+      <stop offset="100%" stop-color="#6c8cff"/>
     </linearGradient>
-    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1272 178) rotate(132.474) scale(640 689.269)">
-      <stop stop-color="white" stop-opacity="0.28"/>
-      <stop offset="1" stop-color="white" stop-opacity="0"/>
+    <radialGradient id="glow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#b9c6ff" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#b9c6ff" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <rect width="1600" height="900" rx="40" fill="#08101E"/>
-  <rect width="1600" height="900" rx="40" fill="url(#bg)"/>
-  <rect width="1600" height="900" rx="40" fill="url(#glow)"/>
-  <rect x="86" y="82" width="236" height="236" rx="48" fill="rgba(255,255,255,0.14)"/>
-  <rect x="148" y="162" width="90" height="24" rx="8" fill="white"/>
-  <rect x="148" y="206" width="124" height="24" rx="8" fill="white"/>
-  <rect x="148" y="250" width="78" height="24" rx="8" fill="white"/>
-  <text x="118" y="520" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="80" font-weight="700">Homelab</text>
-  <text x="118" y="612" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="80" font-weight="700">Foundations</text>
-  <text x="120" y="700" fill="rgba(255,255,255,0.78)" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="600" letter-spacing="4">PERSONAL INFRASTRUCTURE</text>
+  <style>
+    .cover-kicker, .cover-title, .cover-subtitle {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+    }
+    .cover-kicker {
+      font-size: 22px;
+      letter-spacing: 0.04em;
+      fill: #edf2ff;
+      opacity: 0.9;
+    }
+    .cover-title {
+      font-size: 66px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      fill: white;
+    }
+    .cover-subtitle {
+      font-size: 27px;
+      font-weight: 520;
+      letter-spacing: -0.01em;
+      fill: #edf2ff;
+      opacity: 0.95;
+    }
+  </style>
+  <rect width="1200" height="900" rx="48" fill="url(#bg)"/>
+  <circle cx="1040" cy="140" r="210" fill="url(#glow)" opacity="0.55"/>
+  <circle cx="990" cy="700" r="260" fill="url(#glow)" opacity="0.18"/>
+  <circle cx="170" cy="760" r="220" fill="url(#glow)" opacity="0.12"/>
+  <rect x="48" y="48" width="1104" height="804" rx="40" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.14)"/>
+  <rect x="72" y="112" width="618" height="676" rx="34" fill="rgba(8,15,30,0.18)" stroke="rgba(255,255,255,0.1)"/>
+  <rect x="742" y="164" width="370" height="370" rx="44" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.16)"/>
+  <rect x="742" y="572" width="370" height="128" rx="32" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.14)"/>
+  <text x="72" y="94" class="cover-kicker">Personal Learning Hub</text>
+  <text x="72" y="208" class="cover-title">Homelab</text><text x="72" y="286" class="cover-title">Foundations</text>
+  <text x="72" y="404" class="cover-subtitle">Build a reliable personal server stack</text><text x="72" y="438" class="cover-subtitle">step by step</text>
+  <g transform="translate(748 182)">
+    <rect x="194" y="102" width="84" height="84" rx="18" fill="none" stroke="white" stroke-width="8"/><path d="M222 102v84M250 102v84M194 130h84M194 158h84" stroke="white" stroke-width="6" opacity="0.95"/>
+  </g>
+  <text x="782" y="626" class="cover-kicker">Curated course</text>
+  <text x="782" y="666" class="cover-subtitle">Premium, self-paced learning</text>
 </svg>

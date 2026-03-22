@@ -4,7 +4,7 @@
   "title": "Markdown Writing Workshop",
   "subtitle": "Write notes, docs, and everyday text with more confidence",
   "description": "A deeper beginner-to-intermediate Markdown course built around the original Markdown philosophy, CommonMark, GitHub Flavored Markdown, and practical documentation guidance. The course teaches by example: short patterns, realistic mini-documents, troubleshooting habits, and practice that makes Markdown easier to use in daily life.",
-  "coverImage": "assets/images/markdown-writing-cover.png",
+  "coverImage": "assets/images/markdown-writing-cover.svg",
   "category": "Writing",
   "tags": [
     "markdown",

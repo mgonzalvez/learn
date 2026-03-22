@@ -23,11 +23,21 @@ const ICONS = {
 export function renderCourseCoverSvg({ title, subtitle = "", theme = "ocean", icon = "spark" }) {
   const palette = THEMES[theme] || THEMES.ocean;
   const iconMarkup = ICONS[icon] || ICONS.spark;
-  const lines = wrapTitle(title, 18, 3);
-  const subtitleMarkup = subtitle ? `<text x="40" y="246" font-size="20" fill="${palette.accent}" opacity="0.9">${escapeXml(subtitle)}</text>` : "";
+  const titleLines = wrapText(title, 18, 4);
+  const subtitleLines = wrapText(subtitle, 42, 2);
+  const titleFontSize = titleLines.length >= 4 ? 58 : 66;
+  const titleLineHeight = titleLines.length >= 4 ? 72 : 78;
+  const titleStartY = 208;
+  const subtitleStartY = titleStartY + titleLines.length * titleLineHeight + 40;
+  const subtitleMarkup = subtitleLines
+    .map(
+      (line, index) =>
+        `<text x="72" y="${subtitleStartY + index * 34}" class="cover-subtitle">${escapeXml(line)}</text>`,
+    )
+    .join("");
 
   return `<?xml version="1.0" encoding="UTF-8"?>
-<svg width="1200" height="675" viewBox="0 0 1200 675" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<svg width="1200" height="900" viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">${escapeXml(title)}</title>
   <desc id="desc">${escapeXml(subtitle || title)}</desc>
   <defs>
@@ -40,24 +50,59 @@ export function renderCourseCoverSvg({ title, subtitle = "", theme = "ocean", ic
       <stop offset="100%" stop-color="${palette.glow}" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <rect width="1200" height="675" rx="36" fill="url(#bg)"/>
-  <circle cx="1020" cy="120" r="180" fill="url(#glow)" opacity="0.6"/>
-  <circle cx="980" cy="520" r="220" fill="url(#glow)" opacity="0.22"/>
-  <rect x="40" y="40" width="1120" height="595" rx="30" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.16)"/>
-  <text x="40" y="88" font-size="22" fill="${palette.accent}" opacity="0.88">Personal Learning Hub</text>
-  ${lines
-    .map((line, index) => `<text x="40" y="${180 + index * 74}" font-size="62" font-weight="700" fill="white">${escapeXml(line)}</text>`)
+  <style>
+    .cover-kicker, .cover-title, .cover-subtitle {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+    }
+    .cover-kicker {
+      font-size: 22px;
+      letter-spacing: 0.04em;
+      fill: ${palette.accent};
+      opacity: 0.9;
+    }
+    .cover-title {
+      font-size: ${titleFontSize}px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      fill: white;
+    }
+    .cover-subtitle {
+      font-size: 27px;
+      font-weight: 520;
+      letter-spacing: -0.01em;
+      fill: ${palette.accent};
+      opacity: 0.95;
+    }
+  </style>
+  <rect width="1200" height="900" rx="48" fill="url(#bg)"/>
+  <circle cx="1040" cy="140" r="210" fill="url(#glow)" opacity="0.55"/>
+  <circle cx="990" cy="700" r="260" fill="url(#glow)" opacity="0.18"/>
+  <circle cx="170" cy="760" r="220" fill="url(#glow)" opacity="0.12"/>
+  <rect x="48" y="48" width="1104" height="804" rx="40" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.14)"/>
+  <rect x="72" y="112" width="618" height="676" rx="34" fill="rgba(8,15,30,0.18)" stroke="rgba(255,255,255,0.1)"/>
+  <rect x="742" y="164" width="370" height="370" rx="44" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.16)"/>
+  <rect x="742" y="572" width="370" height="128" rx="32" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.14)"/>
+  <text x="72" y="94" class="cover-kicker">Personal Learning Hub</text>
+  ${titleLines
+    .map(
+      (line, index) =>
+        `<text x="72" y="${titleStartY + index * titleLineHeight}" class="cover-title">${escapeXml(line)}</text>`,
+    )
     .join("")}
   ${subtitleMarkup}
-  <g transform="translate(720 80)">
-    <rect width="360" height="240" rx="36" fill="rgba(255,255,255,0.10)" stroke="rgba(255,255,255,0.18)"/>
+  <g transform="translate(748 182)">
     ${iconMarkup}
   </g>
+  <text x="782" y="626" class="cover-kicker">Curated course</text>
+  <text x="782" y="666" class="cover-subtitle">Premium, self-paced learning</text>
 </svg>`;
 }
 
-function wrapTitle(title, maxChars, maxLines) {
-  const words = String(title || "").split(/\s+/).filter(Boolean);
+function wrapText(text, maxChars, maxLines) {
+  const words = String(text || "").split(/\s+/).filter(Boolean);
+  if (!words.length) {
+    return [];
+  }
   const lines = [];
   let current = "";
   for (const word of words) {
