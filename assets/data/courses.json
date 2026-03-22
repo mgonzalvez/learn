@@ -1,0 +1,134 @@
+[
+  {
+    "id": "course-homelab",
+    "slug": "homelab-foundations",
+    "title": "Homelab Foundations",
+    "subtitle": "Build a reliable personal server stack step by step",
+    "description": "A deeper practical course on planning, deploying, backing up, and maintaining a personal server stack that stays useful after the setup excitement fades. The throughline is operational judgment: choose what to run, keep it reproducible, protect the data that matters, and make remote access safer than the usual port-forwarding trap.",
+    "coverImage": "assets/images/homelab-foundations-cover.svg",
+    "category": "Infrastructure",
+    "tags": [
+      "docker",
+      "storage",
+      "networking",
+      "ops"
+    ],
+    "difficulty": "Intermediate",
+    "estimatedHours": 3.4,
+    "moduleCount": 4,
+    "lessonCount": 8,
+    "featured": true,
+    "lastUpdated": "2026-03-22"
+  },
+  {
+    "id": "course-boardgame",
+    "slug": "board-game-design-workshop",
+    "title": "Board Game Design Workshop",
+    "subtitle": "From rough concept to playable prototype",
+    "description": "A more rigorous design course for turning a promising board game idea into a tested, teachable prototype. The course draws on respected game design and playtesting sources to teach core loops, player promise, decision pressure, structured iteration, and rules clarity without losing the playful spirit that makes tabletop design compelling.",
+    "coverImage": "assets/images/board-game-design-cover.svg",
+    "category": "Design",
+    "tags": [
+      "game-design",
+      "prototyping",
+      "playtesting",
+      "systems"
+    ],
+    "difficulty": "Intermediate",
+    "estimatedHours": 3.4,
+    "moduleCount": 4,
+    "lessonCount": 8,
+    "featured": true,
+    "lastUpdated": "2026-03-22"
+  },
+  {
+    "id": "course-local-models",
+    "slug": "local-models-agentic-mac",
+    "title": "Local Models for Agentic Coding on Mac",
+    "subtitle": "A friendly but substantial guide to MLX, llama.cpp, and Ollama on Apple silicon",
+    "description": "A deeper beginner-friendly course on local coding models for Apple silicon Macs. It starts with plain-language mental models, then steadily builds toward runtimes, GGUF and quantization choices, local serving, tool calling, and realistic coding-agent workflows grounded in MLX, llama.cpp, Ollama, and respected local-coding guidance.",
+    "coverImage": "assets/images/local-models-mac-cover.svg",
+    "category": "AI Engineering",
+    "tags": [
+      "mac",
+      "local-models",
+      "mlx",
+      "llama.cpp",
+      "ollama"
+    ],
+    "difficulty": "Beginner",
+    "estimatedHours": 3.4,
+    "moduleCount": 4,
+    "lessonCount": 8,
+    "featured": true,
+    "lastUpdated": "2026-03-22"
+  },
+  {
+    "id": "course-markdown",
+    "slug": "markdown-writing-workshop",
+    "title": "Markdown Writing Workshop",
+    "subtitle": "Write notes, docs, and everyday text with more confidence",
+    "description": "A deeper beginner-to-intermediate Markdown course built around the original Markdown philosophy, CommonMark, GitHub Flavored Markdown, and practical documentation guidance. The course teaches by example: short patterns, realistic mini-documents, troubleshooting habits, and practice that makes Markdown easier to use in daily life.",
+    "coverImage": "assets/images/markdown-writing-cover.png",
+    "category": "Writing",
+    "tags": [
+      "markdown",
+      "writing",
+      "notes",
+      "documentation",
+      "gfm"
+    ],
+    "difficulty": "Beginner",
+    "estimatedHours": 3.6,
+    "moduleCount": 4,
+    "lessonCount": 8,
+    "featured": true,
+    "lastUpdated": "2026-03-22"
+  },
+  {
+    "id": "course-git-github",
+    "slug": "git-to-github-confidence",
+    "title": "Git to GitHub with Confidence",
+    "subtitle": "Publish local projects, understand the workflow, and stop feeling fuzzy about branches and forks",
+    "description": "A practical beginner-level Git course for command-line-comfortable solo builders who already have local projects and want a calmer, more reliable way to publish and iterate on GitHub. It explains what Git is good for, why it beats drag-and-drop uploads, how to use essential commands confidently, how to connect with SSH, and how to think about main branches, branches, forks, and safe beta testing.",
+    "coverImage": "assets/images/git-github-upload-cover.svg",
+    "category": "Developer Tools",
+    "tags": [
+      "git",
+      "github",
+      "ssh",
+      "version-control",
+      "branches",
+      "forks"
+    ],
+    "difficulty": "Beginner",
+    "estimatedHours": 3.5,
+    "moduleCount": 4,
+    "lessonCount": 8,
+    "featured": true,
+    "lastUpdated": "2026-03-22"
+  },
+  {
+    "id": "course-worker-placement-tableau-design",
+    "slug": "medium-weight-worker-placement-tableau-design-workshop",
+    "title": "Medium-Weight Worker Placement & Tableau Design Workshop",
+    "subtitle": "Design a solo-first strategy game with tight worker tension, satisfying engines, and a playable first prototype",
+    "description": "Study what makes games like The Manhattan Project, Energy Empire, Viticulture, Everdell, Underwater Cities, and Paladins work, then turn those lessons into a solo-first worker placement and tableau-building design of your own.",
+    "coverImage": "assets/images/medium-weight-worker-placement-tableau-design-workshop-cover.svg",
+    "category": "Design",
+    "tags": [
+      "board-game-design",
+      "worker-placement",
+      "tableau-building",
+      "solo",
+      "balance",
+      "prototyping"
+    ],
+    "difficulty": "Intermediate",
+    "estimatedHours": 4,
+    "moduleCount": 4,
+    "lessonCount": 8,
+    "featured": true,
+    "lastUpdated": "2026-03-22"
+  }
+]

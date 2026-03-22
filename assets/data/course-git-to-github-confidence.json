@@ -1,0 +1,566 @@
+{
+  "id": "course-git-github",
+  "slug": "git-to-github-confidence",
+  "title": "Git to GitHub with Confidence",
+  "subtitle": "Publish local projects, understand the workflow, and stop feeling fuzzy about branches and forks",
+  "description": "A practical beginner-level Git course for command-line-comfortable solo builders who already have local projects and want a calmer, more reliable way to publish and iterate on GitHub. It explains what Git is good for, why it beats drag-and-drop uploads, how to use essential commands confidently, how to connect with SSH, and how to think about main branches, branches, forks, and safe beta testing.",
+  "coverImage": "assets/images/git-github-upload-cover.svg",
+  "category": "Developer Tools",
+  "tags": ["git", "github", "ssh", "version-control", "branches", "forks"],
+  "difficulty": "Beginner",
+  "estimatedHours": 8.1,
+  "modules": [
+    {
+      "id": "git-mental-models",
+      "title": "Why Git Exists and How to Think About It",
+      "description": "Build a clean mental model before memorizing commands.",
+      "lessons": [
+        {
+          "id": "git-lesson-01",
+          "slug": "why-git-beats-uploading-files-to-github",
+          "title": "Why Git Beats Uploading Files to GitHub by Hand",
+          "durationMinutes": 45,
+          "objectives": [
+            "Understand what Git is and what problem it solves for solo project work.",
+            "See why a Git workflow is safer and more informative than drag-and-drop uploads.",
+            "Build confidence that Git is not extra ceremony for its own sake."
+          ],
+          "content": "<p>If you already have local project folders and you started by uploading files directly into a GitHub repository, you have felt the surface appeal of the web UI: it is simple, immediate, and visible. But the web upload approach breaks down fast once a project starts changing in meaningful ways. Git exists because real projects are not just piles of files. They are histories of decisions.</p><p>Git is a version control system. In practical terms, that means it records snapshots of your project over time in a way that lets you see what changed, why it changed, and how to move safely from one state to another. A GitHub repository is not the same thing as Git itself. Git is the versioning engine you run locally. GitHub is one place where you can publish and share the repository.</p><h3>Why hand-uploading is weaker</h3><ul><li><strong>No calm local workflow:</strong> you are editing locally and publishing manually instead of working in a repeatable versioned process.</li><li><strong>Weak history:</strong> uploads can tell you that files changed, but they do not naturally build a clean habit of meaningful commits.</li><li><strong>Poor rollback confidence:</strong> Git makes it far easier to move back through a known history than a web-upload habit does.</li><li><strong>No staging layer:</strong> with Git, you can decide exactly which changes belong in the next commit.</li><li><strong>Less trustworthy experimentation:</strong> branches let you try things without immediately disturbing your main line of work.</li></ul><p>That last point matters a lot. Once you understand Git, you stop feeling like publishing is one big risky action. Instead, you work in smaller, safer units: inspect changes, stage intentionally, commit with a clear message, then push.</p><h3>Why Git is especially good for solo builders</h3><p>People often talk about Git as a collaboration tool, and it absolutely is one. But Git is also excellent for solo work. It gives you memory, safety, and structure. If you are building websites, prototypes, learning projects, scripts, experiments, or apps, Git helps you avoid the chaos of “Which version of this folder is the real one?”</p><p>A strong beginner mindset is this: Git is not there to impress anyone. It is there to make your project history visible and your changes less scary.</p><h3>A tiny scenario</h3><p>Imagine a small web app folder:</p><pre><code>focus-sprint/\n  index.html\n  styles.css\n  app.js</code></pre><p>You change the button styling, rewrite a timer function, and update some text. With raw uploads, that can become one fuzzy replacement event. With Git, you can do this instead:</p><pre><code>git status\ngit add styles.css app.js\ngit commit -m \"Refine timer controls and button styling\"\ngit push origin main</code></pre><p>Now the work has shape. That shape is the beginning of confidence.</p>",
+          "checklist": [
+            "Write your own one-sentence definition of Git.",
+            "Write your own one-sentence definition of GitHub.",
+            "List three reasons Git is stronger than uploading files by hand.",
+            "Identify one project of yours that would immediately benefit from real commit history."
+          ],
+          "reflectionQuestions": [
+            "Where has hand-uploading made one of your projects feel fuzzy, risky, or hard to trust?",
+            "If Git became one of your quiet default habits, what kind of fear or friction would you most want it to remove from your workflow?"
+          ],
+          "quiz": [
+            {
+              "prompt": "What is the clearest practical description of Git?",
+              "choices": [
+                "A website where you store code publicly",
+                "A version control system that tracks project history locally",
+                "A visual design tool for repository pages",
+                "A replacement for the command line"
+              ],
+              "correctIndex": 1,
+              "explanation": "Git is the local version control system; GitHub is a hosting and collaboration platform built around Git repositories."
+            },
+            {
+              "prompt": "Why is direct web uploading usually weaker than a Git workflow?",
+              "choices": [
+                "It makes it harder to build intentional history, staging, and rollback habits",
+                "It is impossible to use for text files",
+                "It always deletes your older versions permanently",
+                "It only works for private repositories"
+              ],
+              "correctIndex": 0,
+              "explanation": "The issue is not that web uploading never works; it is that Git provides much better structure, traceability, and control."
+            },
+            {
+              "prompt": "What is one of Git's biggest benefits for a solo builder?",
+              "choices": [
+                "It removes the need to think about project history",
+                "It guarantees perfect deployment behavior",
+                "It means you no longer need GitHub",
+                "It gives your project visible memory and safer iteration"
+              ],
+              "correctIndex": 3,
+              "explanation": "Git helps solo developers track, inspect, and recover changes more reliably."
+            }
+          ],
+          "resources": ["Pro Git", "Adding a file to a repository", "Git and GitHub for Beginners - Crash Course"],
+          "previousLessonId": null,
+          "nextLessonId": "git-lesson-02"
+        },
+        {
+          "id": "git-lesson-02",
+          "slug": "the-mental-model-working-tree-staging-commits-remotes",
+          "title": "The Mental Model: Working Tree, Staging Area, Commits, and Remotes",
+          "durationMinutes": 50,
+          "objectives": [
+            "Understand the essential Git objects and workflow in plain English.",
+            "Learn the difference between local history and remote publishing.",
+            "See how the staging area gives you control instead of confusion."
+          ],
+          "content": "<p>A lot of Git anxiety comes from trying commands before the mental model feels stable. The command line is not the scary part. The fuzzy model is. Once you understand the main layers, most beginner commands become much more logical.</p><h3>The five ideas to keep straight</h3><ol><li><strong>Working tree:</strong> the actual files in your project folder right now.</li><li><strong>Staging area:</strong> the set of changes you are intentionally preparing for the next commit.</li><li><strong>Commit:</strong> a recorded snapshot with a message explaining the change.</li><li><strong>Local repository:</strong> the Git history on your machine.</li><li><strong>Remote repository:</strong> the published copy on GitHub or another server.</li></ol><p>This matters because beginners often think a commit is automatically “on GitHub.” It is not. A commit is local until you push it to a remote.</p><h3>A simple flow</h3><pre><code>edit files locally\n-> check what changed with git status or git diff\n-> choose what to stage with git add\n-> create a snapshot with git commit\n-> publish the new commits with git push</code></pre><p>The staging area is the part many people skip over mentally, but it is one of Git's best features. It lets you decide what belongs together. If you changed a button color, fixed a typo, and half-started a refactor, you do not have to commit all of that as one blob. You can stage only the clean, ready part.</p><h3>Local versus remote</h3><p>This distinction is huge. Your machine can have work that GitHub has never seen. GitHub can also have work your machine has not fetched or pulled yet. That is why commands like <code>git push</code> and <code>git pull</code> exist. They are about syncing history between your local repository and the remote repository.</p><p>GitHub's docs on remote repositories are useful here because they clarify what a remote really is: not a magical sync state, but a named connection to another repository location. The default remote is often named <code>origin</code>.</p><h3>The smallest useful command set for this model</h3><pre><code>git status   # what changed?\ngit diff     # what exactly changed?\ngit add      # what do I want in the next commit?\ngit commit   # record the snapshot locally\ngit push     # publish local commits to GitHub\ngit pull     # bring remote changes down and integrate them</code></pre><p>Once this flow clicks, Git stops feeling like a list of incantations and starts feeling like a controlled publishing pipeline.</p>",
+          "checklist": [
+            "Write one sentence for working tree, staging area, commit, local repo, and remote repo.",
+            "Explain in your own words why a commit is not automatically on GitHub.",
+            "Describe one real situation where staging only part of your changes would be useful.",
+            "Memorize the basic flow: edit, inspect, stage, commit, push."
+          ],
+          "reflectionQuestions": [
+            "Which part of the Git mental model used to blur together in your head, and what feels clearer now?",
+            "If the staging area became second nature for you, what kind of messy commit habit would it help you leave behind?"
+          ],
+          "quiz": [
+            {
+              "prompt": "What is the staging area for?",
+              "choices": [
+                "It is GitHub's online deployment zone",
+                "It is where deleted repositories are stored",
+                "It is a place to choose which changes belong in the next commit",
+                "It is the same thing as the remote branch"
+              ],
+              "correctIndex": 2,
+              "explanation": "The staging area lets you intentionally compose the next commit from your local changes."
+            },
+            {
+              "prompt": "What is true about commits?",
+              "choices": [
+                "A commit is automatically published to GitHub the moment you create it",
+                "A commit is local first and reaches GitHub only when you push it",
+                "A commit skips your local repository entirely",
+                "A commit must include every modified file"
+              ],
+              "correctIndex": 1,
+              "explanation": "Commits are local snapshots first; pushing is what publishes them to a remote."
+            },
+            {
+              "prompt": "What is a remote in Git?",
+              "choices": [
+                "A named connection to another repository location such as GitHub",
+                "A GUI overlay for repository settings",
+                "The list of staged files",
+                "A special kind of branch that cannot be renamed"
+              ],
+              "correctIndex": 0,
+              "explanation": "A remote is a named repository location, often called `origin`, that your local repo can fetch from or push to."
+            }
+          ],
+          "resources": ["Pro Git", "About remote repositories"],
+          "previousLessonId": "git-lesson-01",
+          "nextLessonId": "git-lesson-03"
+        }
+      ]
+    },
+    {
+      "id": "getting-projects-online",
+      "title": "Getting Projects Online",
+      "description": "Go from local folder to published GitHub repository, with both command line and GitHub Desktop paths.",
+      "lessons": [
+        {
+          "id": "git-lesson-03",
+          "slug": "brand-new-web-app-to-first-push",
+          "title": "Brand-New Web App to First Push",
+          "durationMinutes": 60,
+          "objectives": [
+            "Initialize a brand-new local project as a Git repository.",
+            "Create the first clean commit and connect it to a GitHub repository.",
+            "Practice the essential commands in a realistic tiny web-app workflow."
+          ],
+          "content": "<p>This lesson gives you the simplest serious end-to-end workflow: create a small web app locally, initialize Git, commit it, connect it to GitHub, and push it. The exact project does not matter much. The point is to make the workflow feel repeatable.</p><h3>Practice project: tiny launch page</h3><pre><code>mini-launch-page/\n  index.html\n  styles.css\n  app.js</code></pre><p>Create the folder and files however you like. Then, from inside the project folder:</p><pre><code>git init\ngit status</code></pre><p><code>git init</code> creates the local repository. <code>git status</code> shows Git's current view of your working tree.</p><h3>Stage and make the first commit</h3><pre><code>git add index.html styles.css app.js\ngit commit -m \"Initial project scaffold\"</code></pre><p>This is already better than a raw upload, because you have created a named starting point in local history.</p><h3>Create the repository on GitHub</h3><p>Create a new empty GitHub repository from the web interface. For this workflow, it is simplest not to initialize it with a README if your local project already has the files you want to push first. GitHub's “adding locally hosted code” guidance follows this same pattern.</p><p>Once GitHub gives you the repository URL, add it as the remote:</p><pre><code>git remote add origin git@github.com:YOUR-USERNAME/mini-launch-page.git\ngit branch -M main\ngit push -u origin main</code></pre><p>The branch rename command matters because modern GitHub defaults to <code>main</code>. The <code>-u</code> flag tells Git to remember that your local <code>main</code> branch should track <code>origin/main</code>.</p><h3>What each command did</h3><ul><li><code>git remote add origin ...</code> connected your local repo to GitHub.</li><li><code>git branch -M main</code> renamed the current branch to <code>main</code>.</li><li><code>git push -u origin main</code> published your local commit and set the upstream tracking relationship.</li></ul><p>After this, the normal rhythm becomes much simpler:</p><pre><code>git status\ngit add .\ngit commit -m \"Describe the change\"\ngit push</code></pre><p>That is the first big confidence milestone: you can create a project locally and publish it without depending on the web UI as your main workflow.</p>",
+          "checklist": [
+            "Create a tiny local web app folder with three files.",
+            "Run `git init`, `git add`, and `git commit` successfully.",
+            "Create a matching empty repository on GitHub.",
+            "Connect `origin`, rename to `main`, and push the first commit."
+          ],
+          "reflectionQuestions": [
+            "Which step in this first full workflow feels most satisfying to you: the first commit, the first push, or seeing your local project become a real repository online?",
+            "What changed emotionally when the project history started on your machine before it appeared on GitHub?"
+          ],
+          "quiz": [
+            {
+              "prompt": "What does `git init` do?",
+              "choices": [
+                "It publishes the project to GitHub",
+                "It stages every file automatically",
+                "It creates a pull request",
+                "It creates a new local Git repository in the current folder"
+              ],
+              "correctIndex": 3,
+              "explanation": "`git init` starts version control locally; it does not publish anything by itself."
+            },
+            {
+              "prompt": "Why is it often best to create an empty GitHub repository for an already-prepared local project?",
+              "choices": [
+                "Because GitHub cannot store README files later",
+                "Because empty repositories do not need a default branch",
+                "Because it avoids unnecessary initial history conflicts with your first local push",
+                "Because SSH only works with empty repositories"
+              ],
+              "correctIndex": 2,
+              "explanation": "Starting with an empty remote keeps the first push straightforward when your local project already contains the real initial files."
+            },
+            {
+              "prompt": "What does `git push -u origin main` do?",
+              "choices": [
+                "It deletes the local branch after publishing",
+                "It publishes the local `main` branch and sets its upstream tracking branch",
+                "It renames the remote repository",
+                "It merges all branches into `main`"
+              ],
+              "correctIndex": 1,
+              "explanation": "The `-u` flag remembers the relationship so later pushes and pulls can usually be shorter."
+            },
+            {
+              "prompt": "Why use `git branch -M main` in a beginner workflow?",
+              "choices": [
+                "To force the current branch to use the modern default name `main`",
+                "To make GitHub Desktop install correctly",
+                "To add all modified files before a commit",
+                "To configure SSH authentication"
+              ],
+              "correctIndex": 0,
+              "explanation": "This keeps your local branch naming aligned with GitHub's common default branch conventions."
+            }
+          ],
+          "resources": ["Adding locally hosted code to GitHub", "Pro Git"],
+          "previousLessonId": "git-lesson-02",
+          "nextLessonId": "git-lesson-04"
+        },
+        {
+          "id": "git-lesson-04",
+          "slug": "existing-projects-ssh-github-desktop-and-webui",
+          "title": "Existing Projects, SSH, GitHub Desktop, and the Web UI",
+          "durationMinutes": 60,
+          "objectives": [
+            "Connect an already-existing local project to GitHub cleanly.",
+            "Understand SSH authentication well enough to prefer it confidently.",
+            "Know where GitHub Desktop and the GitHub web UI fit into a command-line-first workflow."
+          ],
+          "content": "<p>Not every project starts from zero. More often, you already have a local folder that matters, and you want to bring it into a calmer Git workflow. The command-line path is still straightforward.</p><h3>Existing project path</h3><pre><code>cd your-project-folder\ngit status</code></pre><p>If the folder is not already a Git repository, initialize it:</p><pre><code>git init\ngit add .\ngit commit -m \"Import existing project into Git\"</code></pre><p>If it is already a Git repository, inspect the existing remotes before doing anything else:</p><pre><code>git remote -v</code></pre><p>This is important because you may already have an <code>origin</code> configured. If you need to replace it, do that intentionally.</p><h3>Why SSH is worth learning</h3><p>HTTPS works, but SSH is often the smoother long-term command-line experience. GitHub's SSH setup docs are worth following carefully. The basic flow is:</p><pre><code>ssh-keygen -t ed25519 -C \"your_email@example.com\"\neval \"$(ssh-agent -s)\"\nssh-add ~/.ssh/id_ed25519\npbcopy &lt; ~/.ssh/id_ed25519.pub   # macOS\n# or\nxclip -sel clip &lt; ~/.ssh/id_ed25519.pub   # Linux, if installed</code></pre><p>Then add the public key to GitHub and test it:</p><pre><code>ssh -T git@github.com</code></pre><p>Once SSH works, your remote URL can look like this:</p><pre><code>git@github.com:YOUR-USERNAME/YOUR-REPO.git</code></pre><h3>Where GitHub Desktop fits</h3><p>GitHub Desktop is not “less real” than command-line Git. It is a GUI on top of Git workflows. For some tasks, especially publishing an existing project or visually inspecting file changes, it can be handy. The key is to use it as an aid, not as a substitute for understanding. If the command-line model is clear in your head, GitHub Desktop becomes a convenience instead of a mystery box.</p><h3>Where the web UI fits</h3><p>The web UI is still useful. It is good for:</p><ul><li>creating repositories</li><li>editing a small file in a pinch</li><li>reading commits and diffs</li><li>updating metadata, releases, and settings</li></ul><p>It is weaker as your main publishing workflow for an active local project. The web UI should be a helpful surface, not the place where your version control thinking begins and ends.</p>",
+          "checklist": [
+            "Run `git remote -v` on an existing project and make sure you understand what it shows.",
+            "Generate an SSH key if you do not already have one you trust.",
+            "Test SSH authentication with GitHub.",
+            "Write one sentence each for when you would prefer command line, GitHub Desktop, and the web UI."
+          ],
+          "reflectionQuestions": [
+            "Which part of GitHub's interface ecosystem now feels more like a tool choice than a source of confusion: command line, Desktop, or web UI?",
+            "What would make SSH feel like a quality-of-life improvement for you rather than just one more setup chore?"
+          ],
+          "quiz": [
+            {
+              "prompt": "Why check `git remote -v` before reconnecting an existing project?",
+              "choices": [
+                "It shows which remote URLs are already configured",
+                "It commits pending changes automatically",
+                "It tests your SSH key against GitHub",
+                "It renames the current branch to `main`"
+              ],
+              "correctIndex": 0,
+              "explanation": "You want to understand the current remote configuration before replacing or reusing it."
+            },
+            {
+              "prompt": "Why do many command-line users prefer SSH for GitHub remotes?",
+              "choices": [
+                "It is the only way to use GitHub Desktop",
+                "It makes Git ignore branch names",
+                "It removes the need to create repositories on GitHub",
+                "It usually creates a smoother authenticated push and pull workflow once set up"
+              ],
+              "correctIndex": 3,
+              "explanation": "SSH is often preferred because it creates a more durable, less interruption-prone command-line authentication experience."
+            },
+            {
+              "prompt": "What is the healthiest way to think about GitHub Desktop?",
+              "choices": [
+                "As something serious developers should never touch",
+                "As a replacement for understanding Git concepts",
+                "As a real Git tool that can be useful once the underlying workflow makes sense",
+                "As the only safe way to publish to GitHub"
+              ],
+              "correctIndex": 2,
+              "explanation": "GitHub Desktop is useful, but understanding the underlying Git flow keeps it from becoming a black box."
+            }
+          ],
+          "resources": ["Generating a new SSH key and adding it to the ssh-agent", "Adding an existing project to GitHub using GitHub Desktop", "Git and GitHub Tutorial for Beginners"],
+          "previousLessonId": "git-lesson-03",
+          "nextLessonId": "git-lesson-05"
+        }
+      ]
+    },
+    {
+      "id": "daily-solo-git-workflow",
+      "title": "Daily Solo Git Workflow",
+      "description": "Practice the commands and habits that make Git feel calm in day-to-day project work.",
+      "lessons": [
+        {
+          "id": "git-lesson-05",
+          "slug": "essential-commands-youll-actually-use",
+          "title": "Essential Commands You Will Actually Use",
+          "durationMinutes": 65,
+          "objectives": [
+            "Practice the command set that matters most for solo project work.",
+            "Understand what each command tells you and when to reach for it.",
+            "Build a simple, repeatable daily Git rhythm."
+          ],
+          "content": "<p>You do not need dozens of Git commands to become useful and confident. A small command set gets you very far if the mental model is solid and the habits are calm.</p><h3>The everyday set</h3><pre><code>git status\ngit diff\ngit add .\ngit add path/to/file\ngit commit -m \"message\"\ngit log --oneline --decorate --graph -10\ngit push\ngit pull</code></pre><p>Here is what they are really for:</p><ul><li><code>git status</code>: your dashboard for the current repository state.</li><li><code>git diff</code>: the reality check for what you actually changed.</li><li><code>git add</code>: choose what belongs in the next commit.</li><li><code>git commit -m</code>: record a meaningful snapshot locally.</li><li><code>git log --oneline --decorate --graph</code>: inspect history in a compact, useful way.</li><li><code>git push</code>: publish your local commits.</li><li><code>git pull</code>: bring remote history down and integrate it.</li></ul><h3>A practical daily rhythm</h3><pre><code>git status\ngit diff\ngit add app.js styles.css\ngit commit -m \"Improve hero layout and fix timer reset bug\"\ngit push</code></pre><p>If you are working solo on a repo you regularly update from one machine, this pattern is often enough. If you switch machines or work in a repository that also changed remotely, it becomes even more important to pull thoughtfully and inspect state before pushing more work.</p><h3>Commit messages matter</h3><p>Professional polish does not require fancy conventional commit syntax on day one. But it does require messages that explain the change. Compare:</p><pre><code>git commit -m \"stuff\"\n# versus\ngit commit -m \"Add mobile nav toggle and clean up header spacing\"</code></pre><p>The second message helps future-you immediately. Good commit messages are not performance art. They are navigation aids for your own project history.</p><h3>Two habits that make Git feel safer</h3><ol><li>Run <code>git status</code> before you act.</li><li>Run <code>git diff</code> before you commit.</li></ol><p>These two habits eliminate a surprising amount of avoidable confusion.</p>",
+          "checklist": [
+            "Run `git status`, `git diff`, `git add`, `git commit`, and `git push` in a practice repository.",
+            "Use `git log --oneline --decorate --graph -10` and read the output slowly.",
+            "Write three commit messages that sound like clear explanations instead of placeholders.",
+            "Create your own short daily Git checklist."
+          ],
+          "reflectionQuestions": [
+            "Which command feels most grounding to you now, the one that makes the whole workflow feel less vague?",
+            "How would your recent Git history look different if every commit message were something future-you would actually thank you for?"
+          ],
+          "quiz": [
+            {
+              "prompt": "What command is the best first reality check before most Git actions?",
+              "choices": [
+                "git merge",
+                "git status",
+                "git push",
+                "git clone"
+              ],
+              "correctIndex": 1,
+              "explanation": "`git status` is often the best first question: what state is this repository in right now?"
+            },
+            {
+              "prompt": "Why use `git diff` before committing?",
+              "choices": [
+                "It lets you inspect the exact changes you are about to record",
+                "It publishes the commit preview to GitHub",
+                "It automatically stages missing files",
+                "It resets the branch to the last commit"
+              ],
+              "correctIndex": 0,
+              "explanation": "`git diff` helps you see the actual content changes instead of trusting memory."
+            },
+            {
+              "prompt": "What makes a commit message useful?",
+              "choices": [
+                "It is short enough to avoid saying anything meaningful",
+                "It uses as many abbreviations as possible",
+                "It explains the change clearly enough to help future-you navigate history",
+                "It always starts with `update`"
+              ],
+              "correctIndex": 2,
+              "explanation": "A good commit message should help someone understand what changed and why the snapshot exists."
+            },
+            {
+              "prompt": "Why is `git log --oneline --decorate --graph` worth learning early?",
+              "choices": [
+                "It deletes duplicate commits from the repo",
+                "It is required before every push",
+                "It replaces the need for commit messages",
+                "It provides a compact readable view of recent history and branch shape"
+              ],
+              "correctIndex": 3,
+              "explanation": "That log view is a practical way to inspect history without drowning in detail."
+            }
+          ],
+          "resources": ["Pro Git", "Git and GitHub for Beginners - Crash Course"],
+          "previousLessonId": "git-lesson-04",
+          "nextLessonId": "git-lesson-06"
+        },
+        {
+          "id": "git-lesson-06",
+          "slug": "gitignore-safe-habits-and-common-mistakes",
+          "title": "`.gitignore`, Safe Habits, and Common Beginner Mistakes",
+          "durationMinutes": 70,
+          "objectives": [
+            "Understand why `.gitignore` is essential for clean repositories.",
+            "Learn the beginner mistakes most likely to create fear or mess.",
+            "Build safer solo habits around secrets, generated files, and accidental commits."
+          ],
+          "content": "<p>Beginner Git problems are often not abstract. They are practical and painfully familiar: accidentally committing build files, pushing secrets, wondering why a file is tracked when it should not be, or feeling nervous because the repository state looks unfamiliar.</p><h3>Why `.gitignore` matters</h3><p>A repository should usually track source, not every machine-specific or generated file. For a tiny web app, a simple `.gitignore` may look like this:</p><pre><code>node_modules/\n.env\n.DS_Store\ndist/\ncoverage/</code></pre><p>This prevents clutter and risk. If a file should stay local, generated, or secret, it probably should not live in your Git history.</p><h3>Common mistakes worth learning before they bite</h3><ul><li><strong>Committing secrets:</strong> API keys, tokens, private config, or `.env` files.</li><li><strong>Tracking generated files accidentally:</strong> build output, dependencies, machine files.</li><li><strong>Committing too much at once:</strong> unrelated changes mashed into one snapshot.</li><li><strong>Pushing without checking status or diff:</strong> a recipe for avoidable surprises.</li><li><strong>Assuming Git is angry when it is merely descriptive:</strong> the output often looks intimidating before you learn its language.</li></ul><h3>How to stay safer</h3><ol><li>Create `.gitignore` early.</li><li>Run `git status` often.</li><li>Run `git diff` before committing.</li><li>Use smaller, clearer commits.</li><li>Never treat secrets casually.</li></ol><h3>What if you already tracked something you should ignore?</h3><p>This is a classic beginner moment. Adding a file to `.gitignore` does not automatically untrack a file that Git already knows about. That is why understanding the tracked-versus-untracked distinction matters. If something important or sensitive was committed already, the right response depends on what it was. In a beginner course, the main habit to build is prevention: ignore early, inspect often, and do not commit secrets.</p><p>The best emotional takeaway from this lesson is that mistakes are common, but many of the worst ones become much less likely once you adopt a few clean habits.</p>",
+          "checklist": [
+            "Create or improve a `.gitignore` file for a small web project.",
+            "List three file types or folders you generally do not want tracked.",
+            "Write down your personal pre-commit safety checklist.",
+            "Audit one of your current repositories for anything that looks like it should not be in version control."
+          ],
+          "reflectionQuestions": [
+            "Which Git mistake are you most interested in preventing, not because it is glamorous, but because it would quietly save you stress?",
+            "What would make your repository feel cleaner, calmer, and more trustworthy the next time you open it?"
+          ],
+          "quiz": [
+            {
+              "prompt": "What is `.gitignore` for?",
+              "choices": [
+                "It permanently deletes files from your computer",
+                "It stores SSH keys for the repository",
+                "It tells Git which files or paths should usually be ignored rather than tracked",
+                "It forces every commit to skip the staging area"
+              ],
+              "correctIndex": 2,
+              "explanation": "`.gitignore` helps keep generated, machine-specific, or sensitive files out of normal version control."
+            },
+            {
+              "prompt": "Why is adding `.env` to `.gitignore` often a good idea?",
+              "choices": [
+                "Because Git cannot read text files with dots in their names",
+                "Because environment files often contain local secrets or machine-specific values",
+                "Because GitHub blocks all `.env` files automatically",
+                "Because `.env` files are required to stay empty"
+              ],
+              "correctIndex": 1,
+              "explanation": "Environment files commonly hold values you do not want committed publicly or even stored in repo history."
+            },
+            {
+              "prompt": "Which habit most directly reduces avoidable Git fear?",
+              "choices": [
+                "Skipping `git status` to save time",
+                "Making larger commits so you have fewer of them",
+                "Trusting memory instead of `git diff`",
+                "Checking state and changes before you commit or push"
+              ],
+              "correctIndex": 3,
+              "explanation": "Inspection habits turn Git from a source of surprise into a source of clarity."
+            },
+            {
+              "prompt": "Why is prevention emphasized so strongly for secrets?",
+              "choices": [
+                "Because removing sensitive data from history later can be more painful than keeping it out in the first place",
+                "Because secrets can safely live in Git as long as the repo is small",
+                "Because Git automatically encrypts all committed secrets",
+                "Because secret files cannot be deleted later"
+              ],
+              "correctIndex": 0,
+              "explanation": "The cleanest path is to avoid committing secrets at all rather than relying on cleanup later."
+            }
+          ],
+          "resources": ["Pro Git", "Adding a file to a repository"],
+          "previousLessonId": "git-lesson-05",
+          "nextLessonId": "git-lesson-07"
+        }
+      ]
+    },
+    {
+      "id": "branches-forks-and-safe-testing",
+      "title": "Branches, Forks, and Safe Testing",
+      "description": "Learn how to experiment without damaging your main line of work, and understand where forks really fit.",
+      "lessons": [
+        {
+          "id": "git-lesson-07",
+          "slug": "main-branch-branches-and-safe-beta-work",
+          "title": "Main Branch, Feature Branches, and Safe Beta Work",
+          "durationMinutes": 70,
+          "objectives": [
+            "Understand what the `main` branch represents in a solo workflow.",
+            "Use branches to develop alternate or beta versions without destabilizing production work.",
+            "Answer the practical question of how to test changes safely before merging them."
+          ],
+          "content": "<p>The <code>main</code> branch is usually the primary line of truth for your project. In a solo workflow, that often means one of two things: either it is the branch that represents your most stable published version, or it is the branch where you want integrated work to land once it is ready.</p><p>Branches are one of Git's best gifts to solo builders. They let you try something without immediately rewriting the main story of the repository. That means if you want to redesign a page, rewrite a feature, or try a beta concept, you do not need to do it straight on <code>main</code>.</p><h3>Simple branch workflow</h3><pre><code>git checkout -b beta-hero-redesign\n# make changes\ngit status\ngit add .\ngit commit -m \"Prototype beta hero redesign\"\ngit push -u origin beta-hero-redesign</code></pre><p>Now the experiment exists both locally and on GitHub without touching <code>main</code>.</p><h3>Should you use branches for beta work?</h3><p>Usually, yes. If the project is yours and you are working solo, branches are the simplest first answer. They are lighter than forks and stay inside the same repository history. You can inspect them, compare them, and merge them when ready.</p><h3>What about GitHub Pages?</h3><p>Here the answer becomes more nuanced. One repository normally has one GitHub Pages site. That means a branch is excellent for safe development history, but it does not automatically give you a second permanent public preview site in the same repo. If you want both a stable production Pages site and a separate live beta URL, the flat-site options usually become:</p><ul><li>a separate preview repository</li><li>a separate fork or sibling repo with its own Pages site</li><li>a hosting platform with branch previews</li></ul><p>So the best solo Git answer and the best live-preview hosting answer are related, but not identical. Use branches for safe Git work. Use a separate published surface if you need a second simultaneously live public version.</p><h3>The main beginner upgrade here</h3><p>You do not need to decide between “recklessly push to main” and “never experiment.” Branches let you experiment responsibly.</p>",
+          "checklist": [
+            "Create and switch to a practice branch with `git checkout -b ...`.",
+            "Make one tiny change, commit it, and push the branch to GitHub.",
+            "Write one sentence explaining what `main` means in your own workflow.",
+            "Decide whether your next beta experiment should live on a branch, a separate preview repo, or another hosting setup."
+          ],
+          "reflectionQuestions": [
+            "What kind of experiment would feel much safer to attempt if you trusted branches instead of feeling like every change had to happen directly on `main`?",
+            "Where in your own projects do you most want the freedom to prototype boldly without making production feel fragile?"
+          ],
+          "quiz": [
+            {
+              "prompt": "What is usually the best first tool for solo beta development in your own repository?",
+              "choices": [
+                "A feature branch inside the same repository",
+                "Deleting `main` and recreating it later",
+                "Only editing files in GitHub's web UI",
+                "Avoiding Git until the feature is finished"
+              ],
+              "correctIndex": 0,
+              "explanation": "Branches are usually the simplest and cleanest first mechanism for safe solo experimentation."
+            },
+            {
+              "prompt": "What is a healthy way to think about `main`?",
+              "choices": [
+                "As a branch you should never push to again",
+                "As a GitHub-only concept unrelated to local Git",
+                "As the branch that usually represents your primary line of truth or stable integrated work",
+                "As a temporary staging area before files exist locally"
+              ],
+              "correctIndex": 2,
+              "explanation": "`main` is usually the primary branch, not a mystical special mode."
+            },
+            {
+              "prompt": "Why is branch-based beta work not the same thing as live GitHub Pages preview hosting?",
+              "choices": [
+                "Because GitHub Pages only works with forks",
+                "Because Git branches can track safe history without automatically giving you a second live public site",
+                "Because branches cannot be pushed to GitHub",
+                "Because `main` and `beta` branches always share the same deployment URL by design"
+              ],
+              "correctIndex": 1,
+              "explanation": "Branching solves version-control safety first; public preview hosting is a separate deployment question."
+            },
+            {
+              "prompt": "What does `git checkout -b beta-hero-redesign` do?",
+              "choices": [
+                "Deletes the current branch and creates a new one",
+                "Pushes an existing branch to GitHub",
+                "Renames `main` to `beta-hero-redesign`",
+                "Creates and switches to a new branch in one step"
+              ],
+              "correctIndex": 3,
+              "explanation": "That command both creates the branch and moves you onto it immediately."
+            }
+          ],
+          "resources": ["Pro Git", "Working with forks"],
+          "previousLessonId": "git-lesson-06",
+          "nextLessonId": "git-lesson-08"
+        },
+        {
+          "id": "git-lesson-08",
+          "slug": "forks-when-they-help-and-what-to-learn-next",
+          "title": "Forks, When They Help, and What to Learn Next",
+          "durationMinutes": 65,
+          "objectives": [
+            "Understand what a fork is and why it is not the same thing as a branch.",
+            "Learn when forks are helpful for your current solo workflow and when they are overkill.",
+            "Leave with a clear next-step roadmap for more advanced solo Git practice."
+          ],
+          "content": "<p>A fork is a separate repository that starts as a connected copy of another repository. On GitHub, forks are especially common in open-source workflows where you want your own copy of someone else's project so you can make changes without having direct write access to the upstream repository.</p><p>That is already enough to see why forks and branches are not interchangeable. A branch is another line of development inside the same repository. A fork is another repository.</p><h3>So should you use a fork for solo beta versions?</h3><p>Sometimes, but usually not as your first answer. If the repository is yours and you simply want a safer place to experiment, branches are usually simpler. Forks become more interesting when you want one of these things:</p><ul><li>a clearly separate public repo for preview or experiments</li><li>a repo that tracks another upstream project</li><li>a separate space with its own settings, Pages site, or publishing workflow</li></ul><p>For your specific question, the cleanest answer is this: <strong>yes, a separate fork or sibling repository can be used for live online beta testing without affecting the production branch of your main repository</strong>, but for your own solo projects it is often conceptually cleaner to think of that as a separate published repo strategy rather than as the default Git workflow. Branches are your everyday safe iteration tool. Separate repos or forks are your separate-public-surface tool.</p><h3>Beginner confidence summary</h3><ul><li>Git gives your project history, not just storage.</li><li>GitHub is where you can publish and inspect that history.</li><li>The command line is powerful because it makes the workflow explicit.</li><li>SSH is worth learning for smoother long-term use.</li><li>`.gitignore` and small commits prevent a lot of pain.</li><li>Branches are your first answer for safe experimentation.</li><li>Forks are more about separate repository lines, often relative to an upstream repo, and can also be used for separate public preview spaces when that is useful.</li></ul><h3>Optional next-level solo Git course</h3><p>If this beginner course gets you to calm, repeatable publishing, the natural sequel is not “more commands for the sake of more commands.” It is better solo practice. A strong next-level course could include:</p><ol><li><strong>Commit Craft:</strong> atomic commits, message quality, and history hygiene</li><li><strong>Undo and Recovery:</strong> reset, restore, revert, reflog, and getting unstuck safely</li><li><strong>Branch Strategy for Real Projects:</strong> long-lived branches, release branches, and disciplined integration</li><li><strong>Repository Maintenance:</strong> tags, releases, cleaning history mistakes, and protecting production habits</li></ol><p>That is where Git starts feeling not just usable, but elegant.</p>",
+          "checklist": [
+            "Write your own definition of a branch and a fork.",
+            "Decide when you would use a branch, a separate preview repo, or a fork-like upstream workflow.",
+            "Answer your own question: if you need a separate live public beta, what is the clearest setup for your current projects?",
+            "Write down the next advanced Git topic you most want to learn."
+          ],
+          "reflectionQuestions": [
+            "What finally feels less mystical now: Git itself, GitHub itself, or the relationship between branches, remotes, and published project versions?",
+            "If you could design your ideal calm solo Git workflow from this point forward, what would its habits and boundaries be?"
+          ],
+          "quiz": [
+            {
+              "prompt": "What is the clearest distinction between a branch and a fork?",
+              "choices": [
+                "A branch is for private work; a fork is for public work only",
+                "A branch exists only on GitHub; a fork exists only locally",
+                "A branch cannot be pushed remotely",
+                "A branch is inside one repository; a fork is a separate repository"
+              ],
+              "correctIndex": 3,
+              "explanation": "Branches are alternate lines of history within one repo, while forks are separate repositories."
+            },
+            {
+              "prompt": "For your own solo project, what is usually the simplest first answer for safe feature experimentation?",
+              "choices": [
+                "A fork of every repository immediately",
+                "A branch in the same repository",
+                "Direct pushes only to `main`",
+                "Only the GitHub web editor"
+              ],
+              "correctIndex": 1,
+              "explanation": "Branches are usually the cleanest first move for solo experimentation in your own repo."
+            },
+            {
+              "prompt": "When might a separate fork or sibling repo be useful for solo work?",
+              "choices": [
+                "When you want to avoid using branches forever",
+                "When you need `git status` to work",
+                "When you want a separate public surface, Pages site, or upstream-tracking relationship",
+                "When you want GitHub to stop showing commit history"
+              ],
+              "correctIndex": 2,
+              "explanation": "Separate repositories make more sense when you need a truly separate publishing or upstream structure."
+            }
+          ],
+          "resources": ["Working with forks", "Git and GitHub Tutorial for Beginners"],
+          "previousLessonId": "git-lesson-07",
+          "nextLessonId": null
+        }
+      ]
+    }
+  ]
+}

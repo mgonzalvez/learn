@@ -1,0 +1,599 @@
+{
+  "id": "course-markdown",
+  "slug": "markdown-writing-workshop",
+  "title": "Markdown Writing Workshop",
+  "subtitle": "Write notes, docs, and everyday text with more confidence",
+  "description": "A deeper beginner-to-intermediate Markdown course built around the original Markdown philosophy, CommonMark, GitHub Flavored Markdown, and practical documentation guidance. The course teaches by example: short patterns, realistic mini-documents, troubleshooting habits, and practice that makes Markdown easier to use in daily life.",
+  "coverImage": "assets/images/markdown-writing-cover.png",
+  "category": "Writing",
+  "tags": [
+    "markdown",
+    "writing",
+    "notes",
+    "documentation",
+    "gfm"
+  ],
+  "difficulty": "Beginner",
+  "estimatedHours": 12,
+  "modules": [
+    {
+      "id": "markdown-basics",
+      "title": "Markdown Basics",
+      "description": "Start with the core habits that make plain text more structured and more readable.",
+      "lessons": [
+        {
+          "id": "markdown-lesson-01",
+          "slug": "why-markdown-feels-so-useful",
+          "title": "Why Markdown Feels So Useful",
+          "durationMinutes": 40,
+          "objectives": [
+            "Understand Markdown as readable plain text with lightweight structure.",
+            "See how small syntax choices make notes and docs easier to scan.",
+            "Start using Markdown immediately for real everyday writing."
+          ],
+          "content": "<p>The easiest way to learn Markdown is to stop asking what it is in theory and start noticing what it does for ordinary writing. Markdown lets plain text carry structure without becoming visually cluttered. You can read the raw file directly and still understand it before it is rendered anywhere. That is the original appeal John Gruber emphasized, and it remains the reason Markdown has lasted.</p><p>Start with a simple before-and-after comparison.</p><pre><code>meeting notes\nemail Jamie\ncheck backup logs\nreview homepage copy</code></pre><p>Now the same note with light structure:</p><pre><code># Meeting Notes\n\n- Email Jamie\n- Check backup logs\n- Review homepage copy</code></pre><p>Nothing about that is fancy. But the second version is easier to scan, easier to keep, and easier to expand. Markdown works because it adds just enough visible structure to make the writing more usable.</p><p>Another tiny example:</p><pre><code>I need to remember the deployment window.</code></pre><p>Becomes:</p><pre><code>I need to remember the **deployment window**.</code></pre><p>That is enough to change what the eye catches first. Markdown often wins through small improvements like this.</p><h3>Use it where you already write</h3><p>The fastest way to build skill is to convert one real note from your life. A shopping list, a reading note, a project outline, a personal checklist, a quick journal entry. Markdown is strongest when it becomes a writing habit, not a syntax trivia hobby.</p><p>Here is a tiny practical template you can steal today:</p><pre><code># Today\n\n## Must do\n- Send invoice\n- Call plumber\n\n## Nice to do\n- Clean desk\n- Read 10 pages</code></pre><p>If you keep writing things like this, Markdown stops feeling like a language you have to remember and starts feeling like a default way to organize thought.</p>",
+          "checklist": [
+            "Convert one plain-text note you actually use into Markdown.",
+            "Add one heading and one short list to that note.",
+            "Use bold once to highlight a phrase that matters.",
+            "Save one Markdown file for a real personal use case."
+          ],
+          "reflectionQuestions": [
+            "Which note in your life would instantly become calmer to look at if you gave it one heading and three bullets?",
+            "Does Markdown feel more like formatting to you so far, or more like a way of making your thinking easier to revisit?"
+          ],
+          "quiz": [
+            {
+              "prompt": "What is one of Markdown's biggest strengths?",
+              "choices": [
+                "It hides structure until a browser opens the file",
+                "It replaces plain text with a complex markup system",
+                "The raw source stays readable even before rendering",
+                "It works only for programmers"
+              ],
+              "correctIndex": 2,
+              "explanation": "Markdown succeeds partly because the source remains useful as plain text."
+            },
+            {
+              "prompt": "What does Markdown add most directly to plain text?",
+              "choices": [
+                "Lightweight structure that improves readability",
+                "Spreadsheet calculations",
+                "Automatic spelling correction",
+                "Database-style sorting"
+              ],
+              "correctIndex": 0,
+              "explanation": "Markdown's core job is to make ordinary text easier to structure and scan."
+            },
+            {
+              "prompt": "What is the best way to start building Markdown skill?",
+              "choices": [
+                "Memorize every edge case before writing anything",
+                "Use it in one real note or document you already care about",
+                "Wait until you need a large README",
+                "Focus only on rendered output instead of the source text"
+              ],
+              "correctIndex": 1,
+              "explanation": "The fastest learning usually comes from using Markdown in everyday writing right away."
+            }
+          ],
+          "resources": [
+            "John Gruber's Markdown Syntax",
+            "CommonMark Tutorial"
+          ],
+          "previousLessonId": null,
+          "nextLessonId": "markdown-lesson-02"
+        },
+        {
+          "id": "markdown-lesson-02",
+          "slug": "headings-paragraphs-and-emphasis",
+          "title": "Headings, Paragraphs, and Emphasis",
+          "durationMinutes": 55,
+          "objectives": [
+            "Use headings, paragraphs, italics, and bold in a way that improves real documents.",
+            "Understand the difference between a line break and a paragraph break.",
+            "Build a small Markdown note that already feels clean and readable."
+          ],
+          "content": "<p>If Markdown had a core toolkit, this lesson would be most of it. Headings, paragraphs, and emphasis appear everywhere: notes, guides, READMEs, journals, issue templates, and study summaries. When these basics feel natural, the rest of Markdown becomes much easier to learn.</p><h3>Headings</h3><p>The most common heading style is the hash-based style:</p><pre><code># Main Title\n## Section Title\n### Smaller Section</code></pre><p>Markdown also supports underline-style headings, which you may still see in older documents:</p><pre><code>Main Title\n==========\n\nSection Title\n-------------</code></pre><p>For everyday writing, the hash style is usually faster and easier to maintain.</p><h3>Paragraphs and line breaks</h3><p>This is where beginners often get tripped up. A single press of Enter does not usually create a new paragraph. A blank line does.</p><pre><code>This is the first paragraph.\n\nThis is the second paragraph.</code></pre><p>Compare that with this:</p><pre><code>This is still\none paragraph in many renderers.</code></pre><p>The difference matters because raw Markdown often looks like a series of short lines, but the renderer may still treat them as one paragraph.</p><h3>Emphasis</h3><pre><code>*italic*\n**bold**\n***bold and italic***</code></pre><p>Use emphasis sparingly. Bold is strong when it helps the eye find the key idea. If everything is emphasized, nothing really is.</p><h3>Build a tiny document</h3><pre><code># Reading Notes\n\nI finished the **first chapter** today.\n\n## Main idea\n\nThe author keeps returning to *clarity over complexity*.\n\n## Question\n\nHow would this change my current workflow?</code></pre><p>This is already real writing. It has a title, sections, paragraphs, and selective emphasis. You can use this exact pattern for books, meetings, project updates, and personal reflection.</p>",
+          "checklist": [
+            "Create a small Markdown file with a title and at least two subsections.",
+            "Separate paragraphs with blank lines instead of only line breaks.",
+            "Use italics once and bold once with clear intent.",
+            "Write a 6-10 line note that still looks clean in raw text."
+          ],
+          "reflectionQuestions": [
+            "What kind of note would feel noticeably more thoughtful if you gave it a title, one subsection, and a single highlighted phrase?",
+            "Which are you more likely to overuse in your own writing: bold for urgency or line breaks for paragraphing?"
+          ],
+          "quiz": [
+            {
+              "prompt": "How do you normally create a new paragraph in Markdown?",
+              "choices": [
+                "By adding two semicolons",
+                "By leaving a blank line",
+                "By pressing Tab",
+                "By placing a heading marker on the next line"
+              ],
+              "correctIndex": 1,
+              "explanation": "Paragraphs are usually separated by blank lines, not by a single wrapped line break."
+            },
+            {
+              "prompt": "Which syntax creates bold text?",
+              "choices": [
+                "##bold##",
+                "//bold//",
+                "<bold>",
+                "**bold**"
+              ],
+              "correctIndex": 3,
+              "explanation": "Double asterisks or double underscores mark strong emphasis in Markdown."
+            },
+            {
+              "prompt": "Why is the hash-style heading often the easiest default?",
+              "choices": [
+                "It is fast to type and easy to maintain as the document changes",
+                "It is the only heading style supported anywhere",
+                "It automatically creates a table of contents",
+                "It forces shorter headings"
+              ],
+              "correctIndex": 0,
+              "explanation": "ATX headings are simple, readable, and easy to revise."
+            }
+          ],
+          "resources": [
+            "John Gruber's Markdown Syntax",
+            "CommonMark Tutorial"
+          ],
+          "previousLessonId": "markdown-lesson-01",
+          "nextLessonId": "markdown-lesson-03"
+        }
+      ]
+    },
+    {
+      "id": "everyday-structure",
+      "title": "Everyday Structure",
+      "description": "Use Markdown for lists, quotes, links, commands, and notes that resemble real work.",
+      "lessons": [
+        {
+          "id": "markdown-lesson-03",
+          "slug": "lists-blockquotes-and-line-breaks",
+          "title": "Lists, Blockquotes, and Line Breaks",
+          "durationMinutes": 60,
+          "objectives": [
+            "Write clean unordered and ordered lists, including simple nesting.",
+            "Use blockquotes for excerpts, prompts, and callouts.",
+            "Understand line-break behavior well enough to avoid common formatting surprises."
+          ],
+          "content": "<p>Lists are where Markdown starts feeling truly practical. Most people make lists constantly: tasks, groceries, reading plans, travel prep, meeting takeaways, setup steps. Markdown gives those lists a format that is easy to write and easy to revisit later.</p><h3>Unordered lists</h3><pre><code>- Apples\n- Tea\n- Backup drive</code></pre><h3>Ordered lists</h3><pre><code>1. Open the notes file\n2. Review the agenda\n3. Send the summary</code></pre><h3>Nested lists</h3><pre><code>- Weekend plan\n  - Grocery store\n  - Laundry\n  - Read chapter 3</code></pre><p>Nested lists depend on indentation, so if a nested item renders strangely, spacing is one of the first things to check.</p><h3>Blockquotes</h3><p>Blockquotes are useful for more than quoting famous people. They are handy for saved excerpts, reminders, journal prompts, or highlighted takeaways.</p><pre><code>> This is the quote I want to remember.</code></pre><pre><code>> Key takeaway\n>\n> Keep the plan simple enough to execute on a tired day.</code></pre><h3>Line breaks versus paragraphs</h3><p>Markdown does not usually treat every line break as a new paragraph. That means these two examples behave differently:</p><pre><code>This is one paragraph\nwrapped onto two lines.</code></pre><pre><code>This is one paragraph.\n\nThis is another paragraph.</code></pre><p>The second version uses a blank line, so it becomes a new paragraph. This one habit prevents a surprising amount of confusion.</p><h3>Build a useful example</h3><pre><code># Weekend Reset\n\n## Errands\n- Pick up coffee\n- Drop off package\n\n## Reminder\n> Keep the errands list short enough that it still feels pleasant.\n\n## Order\n1. Leave by 10:00\n2. Do the return first\n3. Reward yourself with lunch</code></pre><p>This is the kind of everyday structure that makes Markdown feel worth using.</p>",
+          "checklist": [
+            "Write one unordered list and one ordered list about a real topic from your life.",
+            "Create a nested list with at least one sub-item.",
+            "Add one blockquote to a note or journal entry.",
+            "Test the difference between a wrapped line and a blank-line paragraph break."
+          ],
+          "reflectionQuestions": [
+            "Which recurring list in your life would be easiest to improve with Markdown right away: tasks, packing, groceries, reading, or project steps?",
+            "What kind of thought in your own notes deserves the visual dignity of a blockquote instead of being buried in a paragraph?"
+          ],
+          "quiz": [
+            {
+              "prompt": "What character marks a blockquote in Markdown?",
+              "choices": [
+                "#",
+                "*",
+                ">",
+                "&"
+              ],
+              "correctIndex": 2,
+              "explanation": "Blockquotes start with the greater-than character."
+            },
+            {
+              "prompt": "What is the most common cause of a nested list rendering strangely?",
+              "choices": [
+                "Using too many vowels",
+                "Missing indentation or inconsistent spacing",
+                "Having a heading above the list",
+                "Writing the list in lowercase"
+              ],
+              "correctIndex": 1,
+              "explanation": "Spacing and indentation often determine whether nested list items are parsed correctly."
+            },
+            {
+              "prompt": "What usually creates a new paragraph in Markdown?",
+              "choices": [
+                "A blank line",
+                "A single wrapped line break",
+                "A hyphen at the start of a line",
+                "A blockquote marker"
+              ],
+              "correctIndex": 0,
+              "explanation": "Blank lines separate paragraphs in normal Markdown usage."
+            },
+            {
+              "prompt": "Why are blockquotes useful beyond quoted text?",
+              "choices": [
+                "They automatically create headings",
+                "They replace list syntax",
+                "They only work in GitHub comments",
+                "They can also highlight prompts, takeaways, and reminders"
+              ],
+              "correctIndex": 3,
+              "explanation": "Blockquotes are flexible containers for highlighted text, not just formal quotations."
+            }
+          ],
+          "resources": [
+            "John Gruber's Markdown Syntax",
+            "CommonMark Tutorial",
+            "CommonMark Spec"
+          ],
+          "previousLessonId": "markdown-lesson-02",
+          "nextLessonId": "markdown-lesson-04"
+        },
+        {
+          "id": "markdown-lesson-04",
+          "slug": "links-code-and-reference-style-writing",
+          "title": "Links, Code, and Reference-Style Writing",
+          "durationMinutes": 70,
+          "objectives": [
+            "Write inline links, reference links, inline code, and code blocks with confidence.",
+            "Choose link and code styles based on readability and document type.",
+            "Practice combining several Markdown features into realistic notes and setup docs."
+          ],
+          "content": "<p>Markdown becomes especially useful once you start mixing links and code into ordinary writing. This is where notes turn into usable setup guides, project docs, and technical checklists.</p><h3>Inline links</h3><pre><code>[OpenAI](https://openai.com)</code></pre><p>Inline links are usually the easiest choice for short notes and short documents because they keep the source clear.</p><h3>Reference-style links</h3><pre><code>[OpenAI][openai-site]\n\n[openai-site]: https://openai.com</code></pre><p>Reference links are helpful when the document is long, uses the same link several times, or would become cluttered with many full URLs in the body.</p><h3>Inline code</h3><pre><code>Use `git status` before committing.</code></pre><h3>Code blocks</h3><pre><code>    docker compose pull\n    docker compose up -d</code></pre><p>Many modern tools also support fenced code blocks, which we will cover more fully in a later lesson:</p><pre><code>```bash\ndocker compose pull\ndocker compose up -d\n```</code></pre><h3>Build a realistic mini-doc</h3><pre><code># Setup Notes\n\nRead the [Docker docs](https://docs.docker.com/).\n\nRun `docker compose up -d` after editing the file.\n\n## Commands\n\n    docker compose pull\n    docker compose up -d\n\n## Related links\n- [Compose Reference](https://docs.docker.com/compose/compose-file/)</code></pre><p>This is the kind of document Markdown was born for: readable in source form, practical when rendered, and easy to keep updating over time.</p><p>One more useful habit: if your document contains many commands, treat inline code and code blocks as part of the reading experience. They help the eye separate instructions, labels, and literal text.</p>",
+          "checklist": [
+            "Write one inline link and one reference-style link.",
+            "Mark one command as inline code in a sentence.",
+            "Add one multi-line code example to a practice file.",
+            "Create a mini setup note that combines a heading, a link, and a code example."
+          ],
+          "reflectionQuestions": [
+            "Which would immediately improve one of your own documents more: cleaner links, clearer commands, or a better way to separate instructions from literal code?",
+            "When you imagine your ideal README or learning note, what kinds of examples do you most want it to hold elegantly?"
+          ],
+          "quiz": [
+            {
+              "prompt": "Which link style is usually easiest for a short document?",
+              "choices": [
+                "Reference-style links only",
+                "Inline links",
+                "Raw URLs everywhere",
+                "HTML anchor tags only"
+              ],
+              "correctIndex": 1,
+              "explanation": "Inline links are often the clearest default for shorter writing."
+            },
+            {
+              "prompt": "What marks inline code in Markdown?",
+              "choices": [
+                "Backticks",
+                "Asterisks",
+                "Parentheses",
+                "Angle brackets"
+              ],
+              "correctIndex": 0,
+              "explanation": "Backticks are the standard way to mark inline code spans."
+            },
+            {
+              "prompt": "When are reference-style links especially helpful?",
+              "choices": [
+                "Only when writing HTML files",
+                "Only when the document contains no headings",
+                "When a longer document would get cluttered by many inline URLs",
+                "Never; they are obsolete everywhere"
+              ],
+              "correctIndex": 2,
+              "explanation": "Reference links are a readability choice, especially in longer or link-heavy documents."
+            },
+            {
+              "prompt": "Why are code blocks useful in Markdown documents?",
+              "choices": [
+                "They automatically execute commands",
+                "They remove the need for headings",
+                "They only matter in GitHub repositories",
+                "They separate literal commands or examples from the surrounding prose"
+              ],
+              "correctIndex": 3,
+              "explanation": "Code blocks help readers visually distinguish examples and commands from normal text."
+            }
+          ],
+          "resources": [
+            "John Gruber's Markdown Syntax",
+            "MDN Markdown Writing Guide"
+          ],
+          "previousLessonId": "markdown-lesson-03",
+          "nextLessonId": "markdown-lesson-05"
+        }
+      ]
+    },
+    {
+      "id": "modern-markdown-conventions",
+      "title": "Modern Markdown Conventions",
+      "description": "Understand CommonMark behavior, GitHub-style features, and the practical differences between renderers.",
+      "lessons": [
+        {
+          "id": "markdown-lesson-05",
+          "slug": "commonmark-why-renderers-differ",
+          "title": "CommonMark and Why Renderers Differ",
+          "durationMinutes": 55,
+          "objectives": [
+            "Understand why Markdown can behave differently across tools.",
+            "See what CommonMark adds beyond the original syntax description.",
+            "Build simple troubleshooting habits for odd rendering behavior."
+          ],
+          "content": "<p>Markdown is popular partly because it is simple, but that simplicity created ambiguity. John Gruber's original syntax guide gave Markdown its philosophy and core patterns, yet it did not define every edge case in a fully formal way. Over time, different tools made different decisions about how some documents should be parsed. That is one reason Markdown sometimes surprises people.</p><p>CommonMark exists to make behavior more explicit and testable. The specification includes a large collection of examples that show how specific inputs should be parsed. For learners, the key point is practical: CommonMark reduces guessing. It helps explain why one renderer might behave differently from another and what kinds of structures are more reliable.</p><h3>A few examples that often confuse people</h3><p>Nested lists:</p><pre><code>1. First item\n2. Second item\n   - nested bullet\n   - another nested bullet</code></pre><p>Spacing and blank lines:</p><pre><code>- item one\n- item two</code></pre><pre><code>- item one\n\n- item two</code></pre><p>Link reference definitions:</p><pre><code>[site][main]\n\n[main]: https://example.com</code></pre><p>These are not exotic edge cases. They show up in real writing. CommonMark helps by turning 'I hope this works' into 'I know how this parser family usually treats the structure.'</p><h3>A calm troubleshooting habit</h3><ol><li>Reduce the problem to the smallest example that still breaks.</li><li>Check spacing, indentation, and blank lines first.</li><li>Compare the behavior to a CommonMark example or tutorial pattern.</li><li>Simplify the structure if necessary.</li></ol><p>This habit matters because Markdown almost never throws a dramatic syntax error. It just renders a little differently than you expected. A calm testing habit turns that from a mystery into a quick fix.</p>",
+          "checklist": [
+            "Test one nested list and one blank-line variation in your preferred editor.",
+            "Create a tiny scratch file for Markdown experiments.",
+            "Practice reducing one confusing example to the smallest version that still reproduces the issue.",
+            "Read one CommonMark example involving a structure you use often."
+          ],
+          "reflectionQuestions": [
+            "How much less frustrating would Markdown feel if you treated odd rendering as something to test calmly rather than as proof that you are 'bad at syntax'?",
+            "Which tool or editor do you most want to trust for your Markdown writing, and what would help you trust it more?"
+          ],
+          "quiz": [
+            {
+              "prompt": "Why was CommonMark created?",
+              "choices": [
+                "To remove headings from Markdown",
+                "To replace all original Markdown writing",
+                "To require HTML knowledge for simple notes",
+                "To make Markdown behavior more clearly specified and testable"
+              ],
+              "correctIndex": 3,
+              "explanation": "CommonMark helps resolve ambiguities that caused renderer differences."
+            },
+            {
+              "prompt": "What is a strong first troubleshooting move when Markdown renders strangely?",
+              "choices": [
+                "Rewrite the entire document in HTML immediately",
+                "Assume the renderer is always wrong",
+                "Reduce the example and inspect spacing, indentation, and blank lines",
+                "Add more formatting until something changes"
+              ],
+              "correctIndex": 2,
+              "explanation": "Small reproducible examples make Markdown troubleshooting much easier."
+            },
+            {
+              "prompt": "Why can two Markdown tools render the same text differently?",
+              "choices": [
+                "Because headings are illegal in some renderers",
+                "Because Markdown historically left some behaviors ambiguous",
+                "Because raw text can never be parsed consistently",
+                "Because CommonMark bans code blocks"
+              ],
+              "correctIndex": 1,
+              "explanation": "Ambiguity in older Markdown behavior led different tools to make different choices."
+            }
+          ],
+          "resources": [
+            "CommonMark Spec",
+            "CommonMark Tutorial"
+          ],
+          "previousLessonId": "markdown-lesson-04",
+          "nextLessonId": "markdown-lesson-06"
+        },
+        {
+          "id": "markdown-lesson-06",
+          "slug": "gfm-tables-task-lists-and-fenced-code",
+          "title": "GitHub Flavored Markdown: Tables, Task Lists, and Fenced Code",
+          "durationMinutes": 70,
+          "objectives": [
+            "Learn the GitHub-style Markdown features that appear in modern workflows.",
+            "Use tables, task lists, fenced code blocks, and strikethrough appropriately.",
+            "Know when these conveniences help and when simpler Markdown is better."
+          ],
+          "content": "<p>Once the basics feel solid, GitHub Flavored Markdown gives you some very useful extras. These are not part of the original core Markdown idea in the same way, but they are common enough that learning them can noticeably expand what you can do in notes, READMEs, project plans, and issue templates.</p><h3>Task lists</h3><pre><code>- [ ] Draft outline\n- [x] Review notes\n- [ ] Publish update</code></pre><h3>Tables</h3><pre><code>| Tool | Purpose | Status |\n| --- | --- | --- |\n| Restic | Backups | Using |\n| Tailscale | Remote access | Testing |</code></pre><h3>Fenced code blocks</h3><pre><code>```bash\ngit status\ngit add .\ngit commit -m \"Update docs\"\n```</code></pre><h3>Strikethrough</h3><pre><code>~~Old plan~~</code></pre><p>These features are practical because they reflect how people actually work. Task lists are excellent for checkable progress. Tables help when you need light comparison. Fenced code blocks are usually easier to read and maintain than indented code blocks, especially when you want to show the language. Strikethrough is useful for revisions and visible change.</p><p>That said, not every document needs every feature. A simple note is often better as a heading plus bullets than as an elaborate table. One of the marks of growing Markdown maturity is choosing the simplest structure that still serves the writing well.</p><h3>Mini example</h3><pre><code># Launch Checklist\n\n## Tasks\n- [x] Finish copy\n- [ ] Review screenshots\n- [ ] Publish page\n\n## Commands\n```bash\nnpm run build\nnpm run deploy\n```\n\n## Owners\n| Task | Owner |\n| --- | --- |\n| Copy review | Sam |\n| Screenshots | Mia |</code></pre><p>This is exactly the kind of practical, mixed-format document that makes modern Markdown powerful.</p>",
+          "checklist": [
+            "Create a task list with at least three items.",
+            "Make one small table comparing tools, books, tasks, or options you actually care about.",
+            "Write one fenced code block with a language label.",
+            "Use strikethrough once in a revision note or planning file."
+          ],
+          "reflectionQuestions": [
+            "Which GFM feature do you expect to reach for most in your own life: task lists, tables, fenced code, or strikethrough for visible revision?",
+            "Where might a simple list serve you better than a table, even if a table feels more sophisticated?"
+          ],
+          "quiz": [
+            {
+              "prompt": "What makes fenced code blocks especially handy?",
+              "choices": [
+                "They execute automatically in most editors",
+                "They are the only way to show code in Markdown",
+                "They replace paragraph spacing rules",
+                "They are usually easier to read and can include a language label"
+              ],
+              "correctIndex": 3,
+              "explanation": "Fenced blocks are flexible, readable, and often better for modern tooling."
+            },
+            {
+              "prompt": "What is a strong use case for task lists?",
+              "choices": [
+                "Writing long narrative essays",
+                "Replacing every normal bullet list",
+                "Tracking checkable progress in notes, issues, or plans",
+                "Showing external hyperlinks"
+              ],
+              "correctIndex": 2,
+              "explanation": "Task lists are best when completion state matters."
+            },
+            {
+              "prompt": "When is a table a good Markdown choice?",
+              "choices": [
+                "When you want to avoid all alignment concerns",
+                "When you need a light comparison or small structured grid of information",
+                "Whenever a single bullet list would work better",
+                "Only for code output"
+              ],
+              "correctIndex": 1,
+              "explanation": "Tables are useful for compact comparisons, though they are not always the simplest option."
+            },
+            {
+              "prompt": "What is a sign of growing Markdown judgment?",
+              "choices": [
+                "Choosing the simplest structure that still serves the writing well",
+                "Adding every supported feature to every document",
+                "Replacing all headings with tables",
+                "Avoiding plain lists forever"
+              ],
+              "correctIndex": 0,
+              "explanation": "Good Markdown is often modest, readable, and well matched to the document's purpose."
+            }
+          ],
+          "resources": [
+            "GitHub Flavored Markdown Spec",
+            "MDN Markdown Writing Guide"
+          ],
+          "previousLessonId": "markdown-lesson-05",
+          "nextLessonId": "markdown-lesson-07"
+        }
+      ]
+    },
+    {
+      "id": "building-a-markdown-habit",
+      "title": "Building a Markdown Habit",
+      "description": "Move from syntax knowledge to repeatable personal use in notes, docs, and everyday systems.",
+      "lessons": [
+        {
+          "id": "markdown-lesson-07",
+          "slug": "markdown-for-notes-readmes-and-personal-systems",
+          "title": "Markdown for Notes, READMEs, and Personal Systems",
+          "durationMinutes": 60,
+          "objectives": [
+            "Use Markdown patterns that transfer directly into notes, READMEs, and personal knowledge systems.",
+            "Build reusable structures for recurring documents.",
+            "Increase the likelihood that Markdown becomes part of your daily writing life."
+          ],
+          "content": "<p>Knowing syntax is not the same as using Markdown often. The real shift happens when you start recognizing repeatable document shapes. Most people do not need endless custom formatting. They need a few dependable templates that fit recurring writing jobs.</p><h3>Useful patterns to reuse</h3><p><strong>Daily note:</strong></p><pre><code># 2026-03-22\n\n## Top priorities\n- Finish draft\n- Review feedback\n\n## Notes\n- Call with team moved to Thursday.\n\n## Wins\n- Cleaned up the homepage copy.</code></pre><p><strong>Reading note:</strong></p><pre><code># Book Title\n\n## Big idea\n\nThe strongest idea in this chapter is...\n\n## Quotes\n> \"Small repeated habits beat occasional grand effort.\"\n\n## Questions\n- How could I apply this next week?</code></pre><p><strong>README starter:</strong></p><pre><code># Project Name\n\nShort description.\n\n## Setup\n1. Install dependencies\n2. Run the app\n\n## Commands\n```bash\nnpm install\nnpm run dev\n```</code></pre><p>These patterns are intentionally modest. They are easy to remember and easy to reuse. That is exactly why they help habits stick.</p><p>One of MDN's lessons for writers is that Markdown is often most powerful when it supports consistency. If the same kinds of notes keep using similar shapes, your writing becomes easier to produce and easier to revisit. Reuse is a feature, not a failure of creativity.</p><p>The best way to increase personal Markdown use is to remove decision fatigue. Pick two or three templates. Use them repeatedly. Let the syntax become boring in the best possible way.</p>",
+          "checklist": [
+            "Create one daily note template, one reading note template, or one README template you would actually use.",
+            "Choose two recurring writing tasks where Markdown will be your default format.",
+            "Save those templates in a place you can reuse quickly.",
+            "Use one template for a real document today."
+          ],
+          "reflectionQuestions": [
+            "Which kind of Markdown template would most reduce friction in your life right now: a daily note, a project note, a reading note, or a README skeleton?",
+            "If Markdown became quietly normal for you over the next month, what kinds of documents would start to feel more organized almost by accident?"
+          ],
+          "quiz": [
+            {
+              "prompt": "What most helps Markdown become a real habit?",
+              "choices": [
+                "Constantly redesigning your note format from scratch",
+                "Studying only edge cases and never writing real notes",
+                "Using Markdown only for public repositories",
+                "A few reusable document patterns you return to often"
+              ],
+              "correctIndex": 3,
+              "explanation": "Habit grows when Markdown solves recurring writing problems with low friction."
+            },
+            {
+              "prompt": "Why are templates so useful for Markdown practice?",
+              "choices": [
+                "They prevent personal style from emerging",
+                "They only matter for technical documentation",
+                "They reduce decision fatigue and make reuse easier",
+                "They remove the need to understand headings or lists"
+              ],
+              "correctIndex": 2,
+              "explanation": "Reusable structures help Markdown become a default rather than an occasional experiment."
+            },
+            {
+              "prompt": "What does consistency contribute to Markdown writing?",
+              "choices": [
+                "It makes documents easier to produce and easier to revisit later",
+                "It removes all need for editing",
+                "It forces every document to use tables",
+                "It matters only when publishing online"
+              ],
+              "correctIndex": 0,
+              "explanation": "Consistent shapes support clarity and habit formation."
+            }
+          ],
+          "resources": [
+            "MDN Markdown Writing Guide",
+            "CommonMark Tutorial"
+          ],
+          "previousLessonId": "markdown-lesson-06",
+          "nextLessonId": "markdown-lesson-08"
+        },
+        {
+          "id": "markdown-lesson-08",
+          "slug": "your-own-markdown-conventions-and-style-guide",
+          "title": "Your Own Markdown Conventions and Style Guide",
+          "durationMinutes": 65,
+          "objectives": [
+            "Create a small personal style guide for how you will use Markdown.",
+            "Choose conventions that improve consistency without becoming rigid.",
+            "Leave the course with a clear plan for continued practice."
+          ],
+          "content": "<p>Once you know the basics, the next upgrade is not more syntax. It is consistency. A personal Markdown style guide can be tiny, but it helps you stop re-deciding the same things over and over. Do you prefer hash headings? Will you use inline links for short docs and reference links for longer ones? When do you use tables? How do you title daily notes? These are small choices, but small repeated choices become writing habits.</p><p>Your style guide does not need to sound official. It can be one Markdown file with rules you find helpful. For example:</p><pre><code># My Markdown Conventions\n\n## Headings\n- Use hash headings only.\n- Keep headings short and descriptive.\n\n## Links\n- Use inline links by default.\n- Use reference links only in long docs.\n\n## Code\n- Use inline code for commands.\n- Use fenced blocks for multi-line examples.\n\n## Notes\n- Daily notes start with the date as the title.\n- Tasks use GFM task lists.</code></pre><p>This kind of guide makes your writing more consistent and therefore easier to keep up. It also gives you a place to store decisions like 'I prefer tables only for small comparisons' or 'I avoid multiple heading levels in short notes.'</p><p>The deeper value is that Markdown becomes part of how you think on the page. Instead of wondering how to format something each time, you already have a gentle house style. That frees attention for the content itself.</p><p>A nice closing practice is to pick one month-long experiment. Maybe all meeting notes go in Markdown. Maybe every reading note uses the same template. Maybe every small project gets a README. Repetition is what turns syntax into fluency.</p>",
+          "checklist": [
+            "Create a small personal Markdown style guide with decisions about headings, links, code blocks, and note templates.",
+            "Choose one month-long Markdown habit experiment.",
+            "List three document types where you will deliberately use Markdown more often.",
+            "Write one rule that helps you keep Markdown simple instead of over-designed."
+          ],
+          "reflectionQuestions": [
+            "If your Markdown files started to feel like rooms in the same house rather than unrelated scraps, what conventions would help create that feeling?",
+            "What is one gentle rule you could adopt that would make you more likely to keep writing in Markdown instead of abandoning it when life gets busy?"
+          ],
+          "quiz": [
+            {
+              "prompt": "Why create a personal Markdown style guide?",
+              "choices": [
+                "To learn every obscure syntax feature before writing again",
+                "To make your Markdown look identical to everyone else's",
+                "To reduce repeated formatting decisions and improve consistency",
+                "To avoid templates entirely"
+              ],
+              "correctIndex": 2,
+              "explanation": "A personal guide helps you build repeatable habits and cleaner document conventions."
+            },
+            {
+              "prompt": "What is a healthy scope for a personal Markdown style guide?",
+              "choices": [
+                "A formal book-length standard with no flexibility",
+                "A small practical set of decisions you will actually use",
+                "Only a list of favorite fonts",
+                "A file with no examples or rules"
+              ],
+              "correctIndex": 1,
+              "explanation": "The best personal guides are lightweight enough to be used, not admired from a distance."
+            },
+            {
+              "prompt": "What turns Markdown knowledge into fluency?",
+              "choices": [
+                "Memorizing specifications without writing",
+                "Switching formats every week",
+                "Avoiding conventions so every file feels new",
+                "Repeated use in real documents over time"
+              ],
+              "correctIndex": 3,
+              "explanation": "Fluency comes from repeated practical use much more than from passive knowledge."
+            },
+            {
+              "prompt": "Which closing habit is most likely to increase your personal Markdown use?",
+              "choices": [
+                "Pick one month-long experiment and apply Markdown to recurring documents",
+                "Wait until the perfect note-taking system appears",
+                "Use Markdown only when a boss requires it",
+                "Treat Markdown as a topic to admire rather than a tool to practice"
+              ],
+              "correctIndex": 0,
+              "explanation": "A small repeated experiment is one of the best ways to turn Markdown into part of daily writing."
+            }
+          ],
+          "resources": [
+            "John Gruber's Markdown Syntax",
+            "CommonMark Spec",
+            "GitHub Flavored Markdown Spec",
+            "MDN Markdown Writing Guide"
+          ],
+          "previousLessonId": "markdown-lesson-07",
+          "nextLessonId": null
+        }
+      ]
+    }
+  ]
+}

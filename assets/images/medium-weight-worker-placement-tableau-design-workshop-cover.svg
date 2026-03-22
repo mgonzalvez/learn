@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="675" viewBox="0 0 1200 675" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Medium-Weight Worker Placement &amp; Tableau Design Workshop</title>
+  <desc id="desc">Design a solo-first strategy game with tight worker tension, satisfying engines, and a playable first prototype</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7b2f1f"/>
+      <stop offset="100%" stop-color="#ff9160"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#ffc6a8" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#ffc6a8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="675" rx="36" fill="url(#bg)"/>
+  <circle cx="1020" cy="120" r="180" fill="url(#glow)" opacity="0.6"/>
+  <circle cx="980" cy="520" r="220" fill="url(#glow)" opacity="0.22"/>
+  <rect x="40" y="40" width="1120" height="595" rx="30" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.16)"/>
+  <text x="40" y="88" font-size="22" fill="#fff1e8" opacity="0.88">Personal Learning Hub</text>
+  <text x="40" y="180" font-size="62" font-weight="700" fill="white">Medium-Weight</text><text x="40" y="254" font-size="62" font-weight="700" fill="white">Worker Placement &amp;</text><text x="40" y="328" font-size="62" font-weight="700" fill="white">Tableau Design Wo…</text>
+  <text x="40" y="246" font-size="20" fill="#fff1e8" opacity="0.9">Design a solo-first strategy game with tight worker tension, satisfying engines, and a playable first prototype</text>
+  <g transform="translate(720 80)">
+    <rect width="360" height="240" rx="36" fill="rgba(255,255,255,0.10)" stroke="rgba(255,255,255,0.18)"/>
+    <rect x="194" y="102" width="84" height="84" rx="18" fill="none" stroke="white" stroke-width="8"/><path d="M222 102v84M250 102v84M194 130h84M194 158h84" stroke="white" stroke-width="6" opacity="0.95"/>
+  </g>
+</svg>

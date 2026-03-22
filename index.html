@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Learning Hub</title>
+    <meta
+      name="description"
+      content="A static personal learning dashboard with courses, progress tracking, notes, bookmarks, and search."
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script>
+      (function () {
+        const key = "plh-theme-preference";
+        const stored = localStorage.getItem(key);
+        const theme = stored || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
+    <script type="module" src="assets/js/app.js"></script>
+  </head>
+  <body data-page="dashboard">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div id="site-shell"></div>
+  </body>
+</html>

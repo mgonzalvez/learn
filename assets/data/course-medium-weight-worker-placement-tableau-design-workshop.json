@@ -1,0 +1,608 @@
+{
+  "id": "course-worker-placement-tableau-design",
+  "slug": "medium-weight-worker-placement-tableau-design-workshop",
+  "title": "Medium-Weight Worker Placement & Tableau Design Workshop",
+  "subtitle": "Design a solo-first strategy game with tight worker tension, satisfying engines, and a playable first prototype",
+  "description": "Study what makes games like The Manhattan Project, Energy Empire, Viticulture, Everdell, Underwater Cities, and Paladins work, then turn those lessons into a solo-first worker placement and tableau-building design of your own.",
+  "coverImage": "assets/images/medium-weight-worker-placement-tableau-design-workshop-cover.svg",
+  "category": "Design",
+  "tags": [
+    "board-game-design",
+    "worker-placement",
+    "tableau-building",
+    "solo",
+    "balance",
+    "prototyping"
+  ],
+  "difficulty": "Intermediate",
+  "estimatedHours": 4,
+  "featured": true,
+  "lastUpdated": null,
+  "sourceType": "markdown",
+  "sourcePath": "authoring/courses/medium-weight-worker-placement-tableau-design-workshop",
+  "modules": [
+    {
+      "id": "module-01-read-the-benchmarks",
+      "title": "Read the Benchmarks",
+      "description": "Learn what the Manhattan Project family and adjacent classics are actually doing well under the hood.",
+      "lessons": [
+        {
+          "id": "medium-weight-worker-placement-tableau-design-workshop--what-makes-the-manhattan-project-family-worth-studying",
+          "slug": "what-makes-the-manhattan-project-family-worth-studying",
+          "title": "What Makes the Manhattan Project Family Worth Studying",
+          "durationMinutes": 25,
+          "objectives": [
+            "Identify the design traits that make The Manhattan Project and Energy Empire strong study material for your own design work.",
+            "Distinguish between copying a game's surface and learning from its structural strengths.",
+            "Define the target feel for a medium-weight worker placement and tableau-building game you want to build."
+          ],
+          "content": "<p>The Manhattan Project and The Manhattan Project: Energy Empire are useful anchor games because they are not merely &quot;worker placement plus cards.&quot; They each use worker placement to create pressure, then let each player build a personal engine that changes what future turns feel like. That combination is the heart of this course.</p><p>The original Manhattan Project is sharper and more confrontational. The rules structure makes players choose between placing workers and retrieving workers, which means tempo is not synchronized. You can keep pressing if you still have labor to place, but that also means you are revealing your priorities and exposing yourself to the table. The game also pushes interaction harder through espionage, air strikes, and the use of opponents&#39; buildings. That creates a design lesson: medium-weight euros become memorable when the action spaces are not the entire game. The personal tableau matters just as much.</p><p>Energy Empire keeps the family DNA but changes the emotional profile. Luke Laurie describes it as sharing the main-board-plus-building approach while shifting away from the stronger take-that feel of the original. The actual rulebook makes that shift even clearer. Each turn is either a <strong>Work</strong> turn or a <strong>Generate</strong> turn, and if you Generate, your next turn must be Work. Work turns revolve around placing a Worker on one of the 13 main-board locations and then activating same-type structures from your tableau. Generate turns revolve around reclaiming pieces, refining oil, rolling energy dice, and then dealing with pollution based on the highest die rolled. That means the game&#39;s tempo pressure is not abstract. It is built directly into the turn rhythm.</p><p>Instead of centering military escalation, Energy Empire centers modernization, pollution, and global impacts. Occupied spaces can still be used, but only if you build the tallest stack by placing energy beneath your worker. Players may even overstack on purpose to make the location more expensive for later players. This is a very instructive move for a solo-first designer: the game preserves tension without requiring direct hostility.</p><p>That change matters because it shows one of the clearest design forks in this genre:</p><table><thead><tr><th>Fork</th><th>Strong version</th><th>Weak version</th></tr></thead><tbody><tr><td>Space tension</td><td>Choosing an action feels costly because timing matters</td><td>Spaces are occupied, but players can shrug and do something nearly equivalent</td></tr><tr><td>Tableau growth</td><td>New cards change future priorities and combos</td><td>Cards mostly drip extra resources without changing decisions</td></tr><tr><td>Interaction</td><td>Players feel the table through denial, races, pressure, and competition</td><td>Everyone mostly solves their own puzzle with minimal consequences</td></tr><tr><td>Scoring</td><td>Points reward a coherent engine and timing decisions</td><td>Points come from many disconnected sources that flatten identity</td></tr></tbody></table><p>If you want to design in the neighborhood of these games, you are not trying to clone their themes, iconography, or exact action menus. You are trying to learn why their turns feel consequential. The key questions are:</p><ol><li>Why does a placement matter right now?</li><li>Why does building this card matter later?</li><li>Why does the table care what I just did?</li><li>Why does my engine feel like <em>my</em> engine rather than a pile of generic efficiency pieces?</li></ol><blockquote class=\"md-callout md-callout-tip\"><p><strong>Tip.</strong></p><p>When studying benchmark games, do not ask &quot;What actions do they have?&quot; first. Ask &quot;What pressures do their actions create?&quot;</p></blockquote><p>A good medium-weight design usually gives the player a feeling of competence without full certainty. They can read the board, imagine a plan, and see opportunities. But they cannot do everything. Their worker count, resource capacity, card timing, and turn order create productive friction. That friction is what makes the genre satisfying.</p><p>For your own project, define the target feel before you define the whole system. Maybe you want:</p><ul><li>industrial growth under environmental pressure</li><li>rebuilding a ruined colony through civic investment</li><li>magical guilds competing for influence while building institutions</li><li>solo survival plus expansion in a frontier region</li></ul><p>The key is that the worker placement layer should create tactical timing pressure, while the tableau layer should create strategic identity. Energy Empire&#39;s rulebook reinforces this by restricting phase-two structure activations to the same binder type as the board location you visited that turn, while still allowing your Nation card on any Work turn. That is a crisp example of systems having different jobs while still talking to each other. If both layers are doing the same job, the game will feel flatter than its complexity suggests.</p>",
+          "checklist": [
+            "Write a one-sentence design takeaway from the original Manhattan Project.",
+            "Write a one-sentence design takeaway from Energy Empire.",
+            "Name one kind of interaction you want in your design and one kind you want to avoid.",
+            "Define the emotional promise of your game in one sentence: \"Players will feel like...\""
+          ],
+          "reflectionQuestions": [
+            "Which shift appeals to you more for your own game: the sharper confrontation of The Manhattan Project or the broader pressure system of Energy Empire, and why?",
+            "If your future design became memorable for one thing only, what would you most want players to remember: the action tension, the engine growth, the solo challenge, or the thematic arc?"
+          ],
+          "quiz": [
+            {
+              "prompt": "Why are The Manhattan Project and Energy Empire especially useful benchmark games for this course?",
+              "choices": [
+                "Because they are the only worker placement games with personal boards",
+                "Because they combine contested action selection with player-built engines that change future turns",
+                "Because they avoid all interaction and focus only on efficiency",
+                "Because their themes can be safely copied into new designs"
+              ],
+              "correctIndex": 1,
+              "explanation": "The important lesson is the combination of pressure on the board and growth in the tableau, not their exact themes or components."
+            },
+            {
+              "prompt": "What is the healthiest way to study a benchmark game?",
+              "choices": [
+                "Copy its action spaces and rename them",
+                "Copy its scoring numbers because they are already balanced",
+                "Identify the pressures, tradeoffs, and emotional texture the systems create",
+                "Ignore the game entirely once you know the theme does not match yours"
+              ],
+              "correctIndex": 2,
+              "explanation": "Studying the structural reasons a game feels good is much more valuable than copying visible content."
+            },
+            {
+              "prompt": "What is one important design lesson in Energy Empire's occupied-space system?",
+              "choices": [
+                "Blocking should always be total and absolute",
+                "Every action should be free if another player already used it",
+                "Players should never be punished for taking contested actions",
+                "You can preserve tension by making contested actions more expensive rather than fully unavailable"
+              ],
+              "correctIndex": 3,
+              "explanation": "Energy Empire shows a softer but still meaningful form of worker-placement pressure that is especially interesting for solo-first or lower-conflict designs."
+            }
+          ],
+          "resources": [
+            "The Manhattan Project Game Rules",
+            "The Manhattan Project FAQ",
+            "Manhattan Project: Energy Empire",
+            "How to Design a Worker Placement Game Part 4: Energy Empire"
+          ],
+          "previousLessonId": null,
+          "nextLessonId": "medium-weight-worker-placement-tableau-design-workshop--common-patterns-in-the-best-medium-weight-comparison-games"
+        },
+        {
+          "id": "medium-weight-worker-placement-tableau-design-workshop--common-patterns-in-the-best-medium-weight-comparison-games",
+          "slug": "common-patterns-in-the-best-medium-weight-comparison-games",
+          "title": "Common Patterns in the Best Medium-Weight Comparison Games",
+          "durationMinutes": 26,
+          "objectives": [
+            "Recognize recurring structural strengths across standout worker placement and tableau-building games.",
+            "Learn what Viticulture, Everdell, Underwater Cities, and Paladins each contribute to the design conversation.",
+            "Build a shortlist of design patterns worth borrowing in principle, not by imitation."
+          ],
+          "content": "<p>Once you move beyond the Manhattan Project family, a useful pattern appears: the best medium-weight games do not merely pile mechanisms together. They assign clear jobs to each mechanism.</p><p>Viticulture uses seasonal structure and visitor cards to make timing feel gentle but meaningful. The board is divided by season, so a worker is not simply choosing <em>what</em> to do, but <em>when</em> in the year to do it. The cards do not exist merely to add variety; they give players tactical pivots and alternative lines. This teaches an important lesson: your tableau or card layer does not always need to be the primary engine. It can be the flexibility layer that helps the core placement system stay fresh.</p><p>Everdell makes the tableau emotionally central. Your city grows card by card, and the worker placement system helps feed, accelerate, and frame those card decisions. The result is a game where players care deeply about combos, but still feel the board as a race for key resources and locations. This is instructive if you want a more welcoming presentation: a game can feel cozy or inviting while still rewarding tight sequencing.</p><p>Underwater Cities is especially valuable because it links action selection to card timing rather than treating them as separate lanes. Matching the color of the action and the card matters. That means the tableau system is not just an engine that pays later; it is entangled with the action system itself. This is one of the best models to study if you want each turn to feel integrated rather than modular.</p><p>Paladins of the West Kingdom pushes toward the heavier side of medium-weight, but it is extremely useful for understanding role specialization and internal tension. Different worker colors, the round paladin, and a dense personal board combine to make each round feel like a constrained puzzle with long-term consequences. It proves that a personal tableau can be far more than passive bonuses; it can be the real geography of the design.</p><p>Across these games, a few common strengths keep showing up:</p><h3>Pattern 1: The action spaces are not generic</h3><p>Strong action spaces are not interchangeable. They create a real question:</p><ul><li>now or later?</li><li>early or contested?</li><li>broad gain or narrow setup?</li><li>public pressure or private efficiency?</li></ul><p>If your action row could be rearranged without changing the game much, it is probably too flat.</p><h3>Pattern 2: The tableau changes decision quality, not only income</h3><p>A weak tableau says, &quot;Gain one extra wood every round.&quot;</p><p>A stronger tableau says, &quot;This card makes a previously awkward path finally coherent,&quot; or &quot;This card changes what resources I value,&quot; or &quot;This card turns a blocked space into an opportunity.&quot;</p><p>That difference is huge. The best tableaus do not merely pay. They reshape what the player wants.</p><h3>Pattern 3: Constraint is part of the fun</h3><p>Medium-weight games are not fun because players can do everything. They are fun because the system withholds enough capacity that players must prioritize. Different worker types, hand limits, city caps, storage limits, round structure, seasonal splits, and action matching are all ways of creating meaningful constraint.</p><h3>Pattern 4: Interaction can be indirect and still strong</h3><p>Not every good worker placement game needs attack actions. Racing for spaces, shared markets, card denial, timing windows, achievements, and contested tempo all produce genuine interaction. For solo-first design, this matters a lot. You want meaningful pressure without requiring cruelty as the main dramatic tool.</p><blockquote class=\"md-callout md-callout-tip\"><p><strong>Tip.</strong></p><p>When comparing benchmark games, ask: what is the <em>minimum</em> system that creates each game&#39;s signature feeling?</p></blockquote><p>That question stops you from overbuilding. For example:</p><ul><li>Viticulture&#39;s signature is not &quot;lots of cards.&quot; It is seasonal tempo plus visitor opportunism.</li><li>Everdell&#39;s signature is not &quot;cute art.&quot; It is card-combo joy plus a city cap that forces hard choices.</li><li>Underwater Cities&#39; signature is not &quot;science fiction.&quot; It is integrated action-card matching.</li><li>Paladins&#39; signature is not simply &quot;worker colors.&quot; It is layered constraint plus focused round identity.</li></ul><p>For your design, you do not need all of these strengths at once. In fact, trying to include every admired feature usually creates sludge. Choose two or three signature pressures and build around them.</p>",
+          "checklist": [
+            "Write down the one most useful lesson you want to borrow from Viticulture, Everdell, Underwater Cities, and Paladins.",
+            "Circle one pattern you want to emphasize in your game: timing, combo growth, action-card integration, or specialized workers.",
+            "List two kinds of constraint your game will use on purpose.",
+            "Name one \"cool feature\" you are now less tempted to include because it would dilute the design."
+          ],
+          "reflectionQuestions": [
+            "Which comparison game feels closest to your design instincts right now, and what does that reveal about the experience you want to build?",
+            "If your game could be praised for one structural virtue, what would you rather hear: \"every placement mattered\" or \"my tableau felt amazing to build\"?"
+          ],
+          "quiz": [
+            {
+              "prompt": "What is a shared strength across the benchmark comparison games in this lesson?",
+              "choices": [
+                "They all use direct attack as the main source of tension",
+                "They all make the tableau more important than action selection",
+                "They give different jobs to their systems instead of letting every mechanism do everything",
+                "They avoid constraints so that players feel free every turn"
+              ],
+              "correctIndex": 2,
+              "explanation": "Good medium-weight designs tend to assign distinct roles to action spaces, cards, timing structure, and scoring rather than stacking unfocused subsystems."
+            },
+            {
+              "prompt": "What is a stronger sign of a healthy tableau?",
+              "choices": [
+                "It gives small passive bonuses but rarely changes your priorities",
+                "It increases upkeep and bookkeeping every round",
+                "It changes what lines become attractive and how you value future turns",
+                "It replaces the need for a shared board entirely"
+              ],
+              "correctIndex": 2,
+              "explanation": "The best tableaus reshape planning and identity, not just resource drip."
+            },
+            {
+              "prompt": "Why is indirect interaction important for a solo-first designer to study?",
+              "choices": [
+                "Because solo games should remove all competition from the system",
+                "Because pressure can come from races, denial, tempo, and shared markets without relying on harsh conflict",
+                "Because direct interaction is always bad design",
+                "Because solo modes only work if the multiplayer game has no interaction"
+              ],
+              "correctIndex": 1,
+              "explanation": "Indirect interaction often adapts more gracefully to solo systems and broader player preferences while still keeping the game alive and contested."
+            }
+          ],
+          "resources": [
+            "Viticulture Essential Edition",
+            "Everdell",
+            "Underwater Cities",
+            "Paladins of the West Kingdom",
+            "How to Design a Worker Placement Game Part 1"
+          ],
+          "previousLessonId": "medium-weight-worker-placement-tableau-design-workshop--what-makes-the-manhattan-project-family-worth-studying",
+          "nextLessonId": "medium-weight-worker-placement-tableau-design-workshop--designing-the-worker-placement-layer"
+        }
+      ]
+    },
+    {
+      "id": "module-02-build-the-core-system",
+      "title": "Build the Core System",
+      "description": "Design the action economy, tableau engine, and tension structure that make this style sing.",
+      "lessons": [
+        {
+          "id": "medium-weight-worker-placement-tableau-design-workshop--designing-the-worker-placement-layer",
+          "slug": "designing-the-worker-placement-layer",
+          "title": "Designing the Worker Placement Layer",
+          "durationMinutes": 32,
+          "objectives": [
+            "Design action spaces that create tension, tempo, and identity instead of feeling like a list of chores.",
+            "Understand several ways to make worker placement interactive without making it miserable.",
+            "Draft the first version of your board's core action economy."
+          ],
+          "content": "<p>Worker placement is easy to imitate badly. The common weak version is a row of actions that all sound reasonable but do not create pressure. Players gather wood here, stone there, cards somewhere else, and maybe build with another action. The problem is not that these actions exist. The problem is that they do not force prioritization.</p><p>The best worker placement systems make each placement valuable for a reason. In the original Manhattan Project, action tempo matters because the board is shared, retrieval is asynchronous, and opponent tableaus can become relevant through espionage. In Energy Empire, occupied spaces remain accessible, but only if your new stack is the tallest in that location. Because a stack may contain any amount of energy but only one worker, the game turns contest into a visible tax race. That means tension stays alive even when the board is not using hard blocking everywhere.</p><p>There are several good tension tools. You do not need all of them.</p><h3>Tool 1: Hard blocking</h3><p>One worker takes the space. Everyone else must pivot.</p><p>Use this when:</p><ul><li>you want sharp timing races</li><li>the number of critical actions is intentionally limited</li><li>the game should feel more knife-edge</li></ul><p>Risk:</p><ul><li>can feel punishing if alternatives are weak</li><li>can make solo conversion awkward if your bot must simply steal actions at random</li></ul><h3>Tool 2: Escalating cost</h3><p>Players may still use the space, but it gets more expensive after the first user. Energy Empire&#39;s tallest-stack rule is the clearest benchmark here: if a location already contains a worker, you must stack enough energy under your worker to exceed the current height, and you may intentionally overpay to make the location harder for later players.</p><p>Use this when:</p><ul><li>you want pressure without dead turns</li><li>you want solo pressure that feels legible</li><li>you want the game to reward efficient preparation</li></ul><p>Risk:</p><ul><li>if the surcharge is too small, tension vanishes</li><li>if the surcharge is too large, it behaves like hard blocking with extra bookkeeping</li></ul><h3>Tool 3: Worker-type requirements</h3><p>The space is available only if the right kind of worker or specialist is available. Paladins is a strong reference for how this creates internal tension.</p><p>Use this when:</p><ul><li>you want different action families to feel distinct</li><li>you want planning around recruitment or conversion</li><li>you want &quot;I can do this, but not with <em>this</em> worker&quot; moments</li></ul><p>Risk:</p><ul><li>if overused, it creates fiddly frustration instead of meaningful planning</li></ul><h3>Tool 4: Seasonal, round, or phase partitioning</h3><p>Viticulture demonstrates how splitting the board by season makes timing itself part of the design. Players are not only choosing actions; they are choosing windows.</p><p>Use this when:</p><ul><li>you want a natural rhythm</li><li>you want the board to tell a story across a round</li><li>you want workers to feel tied to a cycle</li></ul><p>Risk:</p><ul><li>if each phase has too many weak actions, the split adds structure without drama</li></ul><h3>Tool 5: Rewarding contested spaces more highly</h3><p>Instead of making all early spaces equally valuable, give two or three spaces clear importance. This tells players where the drama lives.</p><p>The Energy Empire rulebook also highlights another useful principle: your main-board action should do more than grant a resource. It should often determine what kind of tableau activations are legal afterward. In that game, a Government placement unlocks Government structures for phase two, an Industry placement unlocks Industry structures, and so on. That is a strong way to keep the board and tableau talking to each other.</p><p>For a medium-weight prototype, a strong starting board often has:</p><ul><li>2 to 3 core economy spaces</li><li>2 conversion spaces</li><li>1 card or blueprint acquisition space</li><li>1 build/construct action</li><li>1 tempo or initiative action</li><li>1 cleanup or mitigation action</li></ul><p>That is enough to create real structure without turning the board into a menu novella.</p><p>Here is a useful first-board sketch:</p><table><thead><tr><th>Space family</th><th>Job in the system</th><th>Example question it creates</th></tr></thead><tbody><tr><td>Gather</td><td>Fuels your next two turns</td><td>Do I stabilize now or rush the build line?</td></tr><tr><td>Convert</td><td>Turns base resources into better ones</td><td>Is this the moment to upgrade or am I too early?</td></tr><tr><td>Build</td><td>Adds tableau pieces</td><td>Which engine lane am I committing to?</td></tr><tr><td>Acquire cards</td><td>Expands possibility space</td><td>Do I need flexibility or immediate power?</td></tr><tr><td>Tempo</td><td>Changes turn order, discounts, or worker timing</td><td>Is control worth a lower raw action?</td></tr><tr><td>Repair / clean up</td><td>Prevents pressure from snowballing</td><td>Can I afford to ignore this another round?</td></tr></tbody></table><blockquote class=\"md-callout md-callout-tip\"><p><strong>Tip.</strong></p><p>Every action space should threaten to be someone&#39;s favorite and someone else&#39;s painful miss.</p></blockquote><p>If a space is never urgent, it is probably not doing enough. If every space is urgent all the time, the game becomes mud. Good boards have hot spots and supporting actions.</p><p>For your own design, draft the first version of your action layer with one sentence per space:</p><ul><li>what is the action for?</li><li>why would a player want it now?</li><li>what does it compete with?</li></ul><p>If you cannot answer those three questions cleanly, the action probably is not ready.</p><p>One more benchmark lesson from Energy Empire&#39;s Generate turn is worth stealing in spirit: tension does not only come from placement. It can also come from your energy economy. In the rulebook, players choose when to stop working, recover workers, refine up to four oil into temporary petroleum dice, roll any number of dice, and then accept pollution based on the highest die result. That means your action system can be stronger if its downstream recovery phase also asks a real strategic question.</p>",
+          "checklist": [
+            "Sketch 7 to 9 action spaces for your first board.",
+            "Mark each space as hard blocked, tax-contested, worker-restricted, or phase-restricted.",
+            "Identify the 2 or 3 spaces that should create the most table drama.",
+            "Remove one action from your draft board that feels merely \"useful\" rather than necessary."
+          ],
+          "reflectionQuestions": [
+            "Does your current design instinct lean toward sharp denial, softer pressure, or internal worker constraints, and what does that say about the experience you want?",
+            "Which kind of tension would make your solo mode easier to build cleanly without draining the multiplayer game of life?"
+          ],
+          "quiz": [
+            {
+              "prompt": "What is a common failure mode of weak worker placement boards?",
+              "choices": [
+                "They contain too few actions to support strategy",
+                "They focus too much on player interaction",
+                "They offer reasonable-sounding actions that do not create real prioritization",
+                "They use any kind of blocking at all"
+              ],
+              "correctIndex": 2,
+              "explanation": "The problem is usually not the number of actions, but that too few of them create urgency, opportunity cost, or distinct pressure."
+            },
+            {
+              "prompt": "Why is escalating cost often attractive for solo-first design?",
+              "choices": [
+                "Because it removes all need for action tension",
+                "Because it preserves contest and pressure without requiring absolute denial",
+                "Because it guarantees easier balancing than hard blocking",
+                "Because it makes worker types unnecessary"
+              ],
+              "correctIndex": 1,
+              "explanation": "Softer contest systems can adapt well to solo while still making timing and preparation matter."
+            },
+            {
+              "prompt": "What is a strong test for whether an action space belongs on the board?",
+              "choices": [
+                "It sounds thematic",
+                "It produces a resource no other action produces",
+                "It can be explained in one sentence",
+                "It creates a meaningful \"why now?\" question"
+              ],
+              "correctIndex": 3,
+              "explanation": "Useful action spaces do not just exist; they create timing pressure and tradeoffs."
+            },
+            {
+              "prompt": "What is the best reason to keep only a few highly contested spaces on the board?",
+              "choices": [
+                "To make every turn obvious",
+                "To ensure everyone always chooses the same actions",
+                "To concentrate drama and keep the board from feeling equally flat everywhere",
+                "To reduce the need for a tableau system"
+              ],
+              "correctIndex": 2,
+              "explanation": "Hot spots give the action system shape and help players read where the key decisions live."
+            }
+          ],
+          "resources": [
+            "The Manhattan Project Game Rules",
+            "Manhattan Project: Energy Empire",
+            "How to Design a Worker Placement Game Part 2",
+            "Paladins of the West Kingdom",
+            "Viticulture Essential Edition"
+          ],
+          "previousLessonId": "medium-weight-worker-placement-tableau-design-workshop--common-patterns-in-the-best-medium-weight-comparison-games",
+          "nextLessonId": "medium-weight-worker-placement-tableau-design-workshop--designing-the-tableau-and-conversion-engine"
+        },
+        {
+          "id": "medium-weight-worker-placement-tableau-design-workshop--designing-the-tableau-and-conversion-engine",
+          "slug": "designing-the-tableau-and-conversion-engine",
+          "title": "Designing the Tableau and Conversion Engine",
+          "durationMinutes": 31,
+          "objectives": [
+            "Design a tableau that changes player priorities instead of only paying passive income.",
+            "Understand how engine-building, conversion chains, and card identity reinforce each other.",
+            "Draft the main tableau lanes for your own game."
+          ],
+          "content": "<p>In this genre, the tableau is where your game stops being &quot;the board everyone shares&quot; and starts becoming &quot;the machine I am building.&quot; That is why weak tableau design is so damaging. If the tableau only adds small bonuses, the game feels like a worker placement game with extra paperwork.</p><p>The Manhattan Project family provides a clear model: the main board gives access, but your personal structures increasingly shape what your turns are about. Energy Empire pushes this further by giving players multiple structure families and a broader civic-industrial feeling. Luke Laurie even describes the game as having three board regions that match three card types, meaning the tableau is not one amorphous stack of upgrades. It has lanes.</p><p>That idea is extremely valuable. Good tableaus often separate into meaningful lanes such as:</p><ul><li>production</li><li>conversion</li><li>mitigation</li><li>scoring</li><li>tempo</li><li>card cycling or selection</li></ul><p>You do not need six lanes. In fact, for a first prototype, three clear lanes is often plenty.</p><h3>The three healthiest jobs for tableau cards</h3><h3>1. Enable</h3><p>These cards unlock or improve what you can do.</p><p>Examples:</p><ul><li>build in a cheaper way</li><li>store more of a resource</li><li>ignore a placement tax once per round</li><li>treat one worker type as another for a specific action</li></ul><h3>2. Convert</h3><p>These cards turn your raw economy into better outputs.</p><p>Examples:</p><ul><li>coal into power</li><li>berries into points</li><li>labor into research</li><li>pollution into a late-game discount if cleaned efficiently</li></ul><h3>3. Reward</h3><p>These cards pay you for building around a plan.</p><p>Examples:</p><ul><li>points for science tags</li><li>endgame points for diversified districts</li><li>bonuses for clean energy infrastructure</li><li>tempo rewards for completing contracts</li></ul><p>If a card does not enable, convert, or reward in a meaningful way, it is at risk of being filler.</p><p>Underwater Cities is a useful comparison because it shows how cards can feel fused to action timing rather than appended to it. Everdell is useful because players love the feeling of building synergies and card families into a city with identity. The lesson is not &quot;put lots of combo text on cards.&quot; The lesson is that cards should make the next turns feel different.</p><h3>Avoiding bland tableau growth</h3><p>Here are some common weak patterns:</p><ul><li>cards that all just add one more resource</li><li>cards that are only better versions of earlier cards</li><li>cards that score in isolation without asking anything of the system</li><li>cards that create complexity without changing player incentives</li></ul><p>Here are stronger alternatives:</p><ul><li>cards that make crowded spaces attractive</li><li>cards that reward specializing <em>or</em> deliberately diversifying</li><li>cards that transform a liability into an engine</li><li>cards that make the timing of retrieval, cleanup, or storage genuinely interesting</li></ul><p>For a Manhattan Project / Energy Empire inspired design, one especially strong pattern is the <strong>conversion arc</strong>:</p><ol><li>workers access resources or infrastructure</li><li>tableau cards make those inputs more flexible</li><li>the player converts them into bigger strategic outputs</li><li>scoring rewards the line they built around</li></ol><p>That arc feels good because each layer matters. The board gathers. The tableau shapes. The scoring validates.</p><blockquote class=\"md-callout md-callout-tip\"><p><strong>Tip.</strong></p><p>A tableau should not merely answer &quot;What do I get?&quot; It should answer &quot;What kind of player am I becoming in this game?&quot;</p></blockquote><p>When drafting your own tableau, try this first-pass structure:</p><table><thead><tr><th>Lane</th><th>Design purpose</th><th>Example card idea</th></tr></thead><tbody><tr><td>Infrastructure</td><td>Makes core actions smoother</td><td>&quot;Once per round, pay one less energy when using an occupied industrial space.&quot;</td></tr><tr><td>Conversion</td><td>Turns base resources into premium outputs</td><td>&quot;Spend 2 metal and 1 worker to generate 1 reactor part and 1 research.&quot;</td></tr><tr><td>Policy / scoring</td><td>Rewards a direction</td><td>&quot;Score 2 points each time you build a civic card after you have 3 clean-energy tags.&quot;</td></tr></tbody></table><p>Notice how each lane speaks to a different design need.</p><p>If you are designing solo first, this is even more important. Solo players need a clear feeling of engine authorship. If the bot supplies all the drama and the tableau feels generic, the solo game becomes procedural instead of satisfying.</p>",
+          "checklist": [
+            "Draft 12 to 18 first-pass cards across 3 tableau lanes.",
+            "Label each card as enable, convert, or reward.",
+            "Remove any card that only adds a passive trickle without changing decisions.",
+            "Identify one liability in your game that a clever tableau card could transform into opportunity."
+          ],
+          "reflectionQuestions": [
+            "What kind of engine sounds more exciting for you to build right now: a clean streamlined specialist engine or a flexible cross-lane combo engine?",
+            "If your tableau became famous for one quality, would you rather it feel elegant, explosive, or deeply adaptable?"
+          ],
+          "quiz": [
+            {
+              "prompt": "What is the main risk of a weak tableau in this genre?",
+              "choices": [
+                "It makes workers too important",
+                "It causes the board to become more interactive",
+                "It adds maintenance and bonuses without meaningfully changing player priorities",
+                "It creates too many scoring opportunities"
+              ],
+              "correctIndex": 2,
+              "explanation": "A weak tableau creates more overhead than identity. Strong tableaus reshape choices and future turns."
+            },
+            {
+              "prompt": "Which trio captures three especially useful jobs for tableau cards?",
+              "choices": [
+                "Decorate, randomize, and replace",
+                "Gather, block, and end the game",
+                "Enable, convert, and reward",
+                "Teach, simplify, and automate"
+              ],
+              "correctIndex": 2,
+              "explanation": "Those three jobs keep cards focused on system function instead of filler text."
+            },
+            {
+              "prompt": "Why is lane structure helpful when designing a tableau?",
+              "choices": [
+                "It guarantees perfect balance",
+                "It prevents players from building combos",
+                "It makes every card independent of the board",
+                "It gives cards clearer roles and helps the engine develop identity instead of feeling like one big pile"
+              ],
+              "correctIndex": 3,
+              "explanation": "Distinct lanes make the tableau easier to develop, read, and balance."
+            },
+            {
+              "prompt": "What is a strong sign that a card is worth keeping?",
+              "choices": [
+                "It adds text even if players ignore it",
+                "It changes what the player wants to do with future actions or resources",
+                "It only works in one niche corner case",
+                "It is the most complicated card in the deck"
+              ],
+              "correctIndex": 1,
+              "explanation": "Strong cards change incentives, not just numbers."
+            }
+          ],
+          "resources": [
+            "Manhattan Project: Energy Empire",
+            "Underwater Cities",
+            "Everdell",
+            "How to Design a Worker Placement Game Part 4: Energy Empire"
+          ],
+          "previousLessonId": "medium-weight-worker-placement-tableau-design-workshop--designing-the-worker-placement-layer",
+          "nextLessonId": "medium-weight-worker-placement-tableau-design-workshop--solo-first-architecture-and-pressure-design"
+        }
+      ]
+    },
+    {
+      "id": "module-03-make-solo-and-balance-work",
+      "title": "Make Solo and Balance Work",
+      "description": "Build solo pressure, pacing, scoring, and interaction in ways that hold up under repeated play.",
+      "lessons": [
+        {
+          "id": "medium-weight-worker-placement-tableau-design-workshop--solo-first-architecture-and-pressure-design",
+          "slug": "solo-first-architecture-and-pressure-design",
+          "title": "Solo-First Architecture and Pressure Design",
+          "durationMinutes": 32,
+          "objectives": [
+            "Design a solo mode that preserves the core logic of your multiplayer game instead of feeling bolted on.",
+            "Learn how to create pressure, tempo, and denial for one player without drowning them in upkeep.",
+            "Define the solo identity of your game before writing a detailed bot."
+          ],
+          "content": "<p>You said you design for solo play first. Good. That changes the design job in an important way: you are not merely making a multiplayer euro and then asking how to simulate another player later. You are deciding from the beginning what kind of pressure the system must generate when only one human is at the table.</p><p>The most common solo-design mistake in this genre is building a lovely multiplayer puzzle and then stapling on a bot whose main job is &quot;block random spaces.&quot; Sometimes that works well enough. Often it does not. The solo mode feels arbitrary, over-scripted, or detached from the logic that makes the multiplayer game interesting.</p><p>The better question is this: <strong>what pressures must exist in solo for the game to still feel like itself?</strong></p><p>For a worker placement and tableau game, these pressures often include:</p><ul><li>contested access</li><li>tempo deadlines</li><li>scarcity of card opportunities</li><li>score races or milestone races</li><li>maintenance costs or negative consequences if ignored</li></ul><p>Energy Empire is a useful anchor because it already softens contest through energy payments and environmental pressure instead of relying only on direct hostility. The solo rules sharpen that lesson. The solo game uses the 2-player setup as a base, adds neutral workers to the three markets plus Power Plant and Clean Up, trims the structure markets to only left and right slots, removes two achievements, reduces the available dice mix, and shrinks the Global Impact track to just two pollution tokens per space. That is a strong example of solo design through selective constraint rather than through a giant opponent script.</p><h3>Three good solo-first approaches</h3><h3>1. System pressure first</h3><p>The board itself creates urgency through:</p><ul><li>rising costs</li><li>pollution</li><li>crises</li><li>event timers</li><li>expiring milestones</li></ul><p>This is elegant because it keeps the solo player focused on the same decisions the multiplayer game cares about.</p><h3>2. Focused opponent pressure</h3><p>A bot or automa primarily does a few things well:</p><ul><li>takes or taxes key spaces</li><li>races achievements</li><li>alters card availability</li><li>creates a score target</li></ul><p>This is often better than giving the bot a fake full tableau. Energy Empire&#39;s official solo mode does exactly this: it does not ask you to run a simulated empire turn by turn. Instead it reshapes the environment and gives you clear objective gates.</p><h3>3. Hybrid pressure</h3><p>The system creates baseline urgency, while the bot creates specific competition.</p><p>This is often the sweet spot for medium-weight solo design.</p><h3>What a solo bot should <em>not</em> usually do</h3><ul><li>perform every subsystem at full fidelity</li><li>require the player to maintain a second full strategic puzzle</li><li>use random blocking with no thematic or structural logic</li><li>take long turns that interrupt the player&#39;s flow</li></ul><p>Automa design is at its best when it preserves the heart of the decision space while compressing administration. If your solo opponent is clever but exhausting, it has missed the point.</p><h3>A practical solo-first blueprint</h3><p>For your first prototype, define solo in four sentences:</p><ol><li>The solo player is trying to achieve: <code>__________</code></li><li>The game pressures them through: <code>__________</code></li><li>The opponent/system interferes by: <code>__________</code></li><li>The loss condition or target line is: <code>__________</code></li></ol><p>Example:</p><ul><li>build the strongest clean-energy state by round 8</li><li>while containing pollution and civic unrest</li><li>while a bot claims high-value spaces and accelerates global-impact cards</li><li>and finish above 65 points with pollution below 6</li></ul><p>That already gives you something testable.</p><p>The Energy Empire solo objectives are especially instructive because they are multi-criteria rather than merely &quot;beat a score.&quot; To win, the player must reach the last space of the United Nations track, earn at least 20 points from achievements, and finish with 100 or more total points. That is a great reminder that solo victory conditions can focus the design on the experience you want to emphasize.</p><blockquote class=\"md-callout md-callout-tip\"><p><strong>Tip.</strong></p><p>The first solo question is not &quot;How does the bot take turns?&quot; It is &quot;What tension is missing when another human is not here?&quot;</p></blockquote><p>If you answer that well, the bot design becomes easier.</p><h3>Solo-first ideas you can steal in spirit</h3><ul><li>a global-impact deck that advances when certain action families are overused</li><li>a rival track that claims one premium action family each round</li><li>an urgency dial that makes late cleanup or repair increasingly expensive</li><li>objective cards that ask the solo player to specialize while the board keeps tempting them to diversify</li><li>a multi-part victory condition that forces the solo player to build a rounded engine instead of optimizing a single exploit</li></ul><p>These all create pressure without forcing the player to administrate a giant shadow game.</p>",
+          "checklist": [
+            "Write the four-sentence solo blueprint for your game.",
+            "Decide whether your solo mode is system-pressure, focused-opponent, or hybrid.",
+            "List the 3 most important pressures a solo player must feel.",
+            "Cut one imagined bot feature that sounds impressive but would create extra upkeep."
+          ],
+          "reflectionQuestions": [
+            "When you imagine playing your own game solo, what kind of pressure sounds most satisfying: outracing a rival, surviving system stress, or building the cleanest engine under constraint?",
+            "What part of your multiplayer design would feel most hollow if the solo mode failed to preserve it?"
+          ],
+          "quiz": [
+            {
+              "prompt": "What is the healthiest first question in solo-first design?",
+              "choices": [
+                "How many bot actions should happen per round?",
+                "What icon color should the solo deck use?",
+                "What important tension disappears when no human opponent is present?",
+                "How can the bot fully mimic a human player turn by turn?"
+              ],
+              "correctIndex": 2,
+              "explanation": "Solo design starts by identifying missing pressure, not by immediately scripting fake behavior."
+            },
+            {
+              "prompt": "What is a common weakness of a bolted-on solo bot?",
+              "choices": [
+                "It makes the game too thematic",
+                "It usually creates too many achievements",
+                "It blocks or acts randomly without preserving the real logic of the design",
+                "It creates clear goals for the player"
+              ],
+              "correctIndex": 2,
+              "explanation": "A weak solo system feels arbitrary and detached from what makes the multiplayer game interesting."
+            },
+            {
+              "prompt": "Why is hybrid pressure often strong in medium-weight solo design?",
+              "choices": [
+                "Because it removes the need for any scoring target",
+                "Because the system can create baseline urgency while a lighter bot creates focused competition",
+                "Because it guarantees all players will prefer solo",
+                "Because it makes card design unnecessary"
+              ],
+              "correctIndex": 1,
+              "explanation": "Hybrid systems often preserve tension while avoiding the burden of simulating an entire second player."
+            }
+          ],
+          "resources": [
+            "Manhattan Project: Energy Empire",
+            "Automa Factory: The Automa Approach",
+            "How to Design a Worker Placement Game Part 4: Energy Empire"
+          ],
+          "previousLessonId": "medium-weight-worker-placement-tableau-design-workshop--designing-the-tableau-and-conversion-engine",
+          "nextLessonId": "medium-weight-worker-placement-tableau-design-workshop--balance-pacing-and-what-usually-goes-wrong"
+        },
+        {
+          "id": "medium-weight-worker-placement-tableau-design-workshop--balance-pacing-and-what-usually-goes-wrong",
+          "slug": "balance-pacing-and-what-usually-goes-wrong",
+          "title": "Balance, Pacing, and What Usually Goes Wrong",
+          "durationMinutes": 31,
+          "objectives": [
+            "Identify common balance and pacing failures in medium-weight worker placement and tableau games.",
+            "Learn a practical framework for testing economy, scoring, tension, and dead turns.",
+            "Define the metrics you want to track in your own prototype."
+          ],
+          "content": "<p>Balance is not just about making numbers equal. It is about making strategies feel viable, timing feel tense, and outcomes feel earned. In this genre, the most common problems are usually structural before they are numerical.</p><h3>What often goes wrong</h3><h3>1. The early game is too inert</h3><p>Players spend too many turns gathering basic resources before the game becomes interesting. This is common when the first build is too expensive or too many prerequisite actions stand between setup and identity.</p><p>Fix directions:</p><ul><li>give one early card or board action that accelerates engine identity</li><li>reduce the number of mandatory starter chores</li><li>let first builds matter sooner</li></ul><h3>2. One conversion loop is obviously superior</h3><p>If one path turns 2 basic resources into points or premium resources more cleanly than the others, experienced players will converge on it quickly.</p><p>Fix directions:</p><ul><li>reduce its ceiling</li><li>add setup friction</li><li>strengthen other lines with timing or flexibility advantages</li><li>make its payoffs more vulnerable to contest</li></ul><h3>3. Cleanup or mitigation is always boring</h3><p>If pollution, maintenance, or repair exists, but players resent interacting with it every game, the design has probably framed a tax instead of a tension source.</p><p>Fix directions:</p><ul><li>make cleanup unlock something valuable</li><li>let some cards turn mitigation into engine progress</li><li>ensure neglect is tempting but not dominant</li></ul><h3>4. The tableau becomes runaway</h3><p>One player&#39;s engine reaches lift-off too early and the rest of the game becomes confirmation rather than contest.</p><p>Fix directions:</p><ul><li>reduce compounding</li><li>make engine peaks arrive later</li><li>add shared races or scoring windows</li><li>create limited premium opportunities so trailing players can still pivot</li></ul><h3>5. Players have too many nearly equivalent choices</h3><p>This creates analysis paralysis without excitement.</p><p>Fix directions:</p><ul><li>cut redundant spaces</li><li>compress card text</li><li>create clearer strategic identities between lines</li><li>sharpen contested action value</li></ul><p>The original Manhattan Project&#39;s stronger interaction helps restrain some of these problems because table pressure can disrupt linear engines. Energy Empire demonstrates another route: system pressure through global impacts and pollution. The rulebook makes that especially clear because every time a space on the Global Impact track empties, the game immediately scores an environment row, resets one structure market, and resolves a special global event before play continues. Both games are useful reminders that the design needs a way to push back.</p><h3>Balance is easier when you track the right things</h3><p>From strong playtesting practice, here are the most useful early metrics for this genre:</p><table><thead><tr><th>Metric</th><th>Why it matters</th></tr></thead><tbody><tr><td>Turn count or round count</td><td>Tells you if engine growth and end conditions are aligned</td></tr><tr><td>First meaningful build turn</td><td>Reveals whether the opening is too slow</td></tr><tr><td>Final score spread</td><td>Shows whether outcomes are razor-thin, healthy, or runaway</td></tr><tr><td>Pollution / penalty totals</td><td>Reveals whether the risk system matters or is ignorable</td></tr><tr><td>Frequency of blocked-or-taxed key spaces</td><td>Shows whether the board is actually producing tension</td></tr><tr><td>Winning path notes</td><td>Reveals whether one line dominates</td></tr><tr><td>Global event timing</td><td>Shows whether the crisis system is just noise or genuinely shaping plans</td></tr></tbody></table><p>If you only ask &quot;Did people have fun?&quot; you will miss too much.</p><h3>A practical balance loop</h3><ol><li>Choose one question before a test.</li><li>Track the numbers that answer that question.</li><li>Write down the <em>problem</em>, not only your guessed solution.</li><li>Change one or two things, not twelve.</li><li>Re-test the same question.</li></ol><p>Examples:</p><ul><li>&quot;Are players getting their second tableau card too late?&quot;</li><li>&quot;Is cleanup always a desperation move rather than a strategic choice?&quot;</li><li>&quot;Is the specialist-worker line outperforming the generalist line?&quot;</li></ul><blockquote class=\"md-callout md-callout-tip\"><p><strong>Tip.</strong></p><p>In medium-weight euros, pacing problems are often disguised balance problems, and balance problems are often disguised structural problems.</p></blockquote><p>That means you should resist the urge to change only point values when the real issue is turn tempo, access friction, or option shape.</p>",
+          "checklist": [
+            "Pick 5 metrics you will track in your first prototype tests.",
+            "Write one suspected balance question for each of your three major engine lines.",
+            "Identify one negative-pressure system in your game and decide how to make it strategically interesting.",
+            "Choose one thing you will *not* try to balance numerically until the structure feels stable."
+          ],
+          "reflectionQuestions": [
+            "Which failure worries you more in your own design: runaway engines, weak interaction, or a boring opening?",
+            "If players described your first prototype as \"interesting, but the pacing felt off,\" what do you think would most likely be causing that?"
+          ],
+          "quiz": [
+            {
+              "prompt": "What is a common sign that a pacing problem exists?",
+              "choices": [
+                "Players understand the rules quickly",
+                "The game has multiple scoring paths",
+                "It takes too long before players feel their engine identity actually begins",
+                "Cleanup actions exist"
+              ],
+              "correctIndex": 2,
+              "explanation": "A slow or inert opening often signals that meaningful play starts too late."
+            },
+            {
+              "prompt": "Why is it dangerous to treat balance as only a numbers problem?",
+              "choices": [
+                "Because numbers never matter in euro games",
+                "Because players dislike point tracks",
+                "Because dominant strategies often emerge from structure, tempo, access, and compounding, not just point values",
+                "Because worker placement cannot be balanced"
+              ],
+              "correctIndex": 2,
+              "explanation": "Structure often creates the imbalance that numbers merely reveal."
+            },
+            {
+              "prompt": "What is the best first response when a mitigation system feels boring?",
+              "choices": [
+                "Remove all pressure from the game",
+                "Ask how mitigation could become strategically attractive instead of feeling like a pure tax",
+                "Double the penalties until players respect it",
+                "Add more icons to the mitigation cards"
+              ],
+              "correctIndex": 1,
+              "explanation": "Negative systems work better when engaging with them can produce meaningful strategic tradeoffs."
+            },
+            {
+              "prompt": "What is a strong playtesting habit for balance work?",
+              "choices": [
+                "Change many systems after every test",
+                "Trust your instinct instead of recording numbers",
+                "Ask only whether people enjoyed the session",
+                "Track a few meaningful metrics tied to a specific design question"
+              ],
+              "correctIndex": 3,
+              "explanation": "Measured iteration is much stronger than vague reaction or massive untracked changes."
+            }
+          ],
+          "resources": [
+            "The Manhattan Project Game Rules",
+            "Refining Your Game",
+            "How to Playtest like a Boss",
+            "How to Design a Worker Placement Game Part 2"
+          ],
+          "previousLessonId": "medium-weight-worker-placement-tableau-design-workshop--solo-first-architecture-and-pressure-design",
+          "nextLessonId": "medium-weight-worker-placement-tableau-design-workshop--prototype-sprint-build-your-first-playable"
+        }
+      ]
+    },
+    {
+      "id": "module-04-prototype-and-refine",
+      "title": "Prototype and Refine",
+      "description": "Turn the design into a first playable build, then test, cut, sharpen, and iterate with purpose.",
+      "lessons": [
+        {
+          "id": "medium-weight-worker-placement-tableau-design-workshop--prototype-sprint-build-your-first-playable",
+          "slug": "prototype-sprint-build-your-first-playable",
+          "title": "Prototype Sprint Build Your First Playable",
+          "durationMinutes": 31,
+          "objectives": [
+            "Turn your design notes into a first playable prototype with enough structure to test meaningfully.",
+            "Use a practical scope limit so the game is alive without being overloaded.",
+            "Create concrete component, action, and scoring drafts for your first build."
+          ],
+          "content": "<p>This is the lesson where you stop admiring systems and start making one. The goal is <em>not</em> to produce your final game. The goal is to produce a first playable prototype that is coherent enough to reveal real problems.</p><p>For this genre, a strong first playable is usually smaller than you want and more honest than you fear.</p><h3>Recommended first-playable scope</h3><p>Aim for:</p><ul><li>1 main board</li><li>3 tableau lanes</li><li>12 to 18 cards</li><li>7 to 9 core action spaces</li><li>1 pressure system</li><li>1 clear end condition</li><li>1 solo mode pressure method</li></ul><p>Avoid adding at first:</p><ul><li>multiple expansions worth of content</li><li>six resource types</li><li>ten card tags</li><li>a huge event deck</li><li>specialized exceptions on every card</li></ul><p>If the first playable already contains all your &quot;cool ideas,&quot; testing will become muddy. You want to discover whether the spine works.</p><h3>A practical build sequence</h3><h3>Step 1: Write the player loop</h3><p>In plain English:</p><ol><li>place a worker</li><li>gain or convert resources</li><li>build or improve part of the tableau</li><li>manage pressure or race objectives</li><li>repeat until the end trigger</li></ol><p>If you cannot express the player loop clearly, your prototype is not ready.</p><h3>Step 2: Choose three engine identities</h3><p>Example:</p><ul><li>Industrial surge: strong production, high pollution</li><li>Civic efficiency: steadier growth, mitigation and policy rewards</li><li>Science and modernization: better conversions, tighter setup needs</li></ul><p>These do not need perfect balance yet. They need to be distinct enough to test.</p><h3>Step 3: Define the pressure system</h3><p>Pick one:</p><ul><li>pollution track</li><li>unrest track</li><li>maintenance demand</li><li>crisis deck</li><li>rival-progress track</li></ul><p>The pressure should create decisions, not only punishment.</p><h3>Step 4: Draft the scoring model</h3><p>A solid first-pass scoring model often includes:</p><ul><li>points for built tableau cards</li><li>points for achieved milestones</li><li>points for one or two engine-specific payoffs</li><li>penalty points for neglected pressure</li></ul><p>This is enough to see whether the system pulls players toward specialization, diversification, or pure efficiency.</p><h3>Step 5: Write a first solo rule in one paragraph</h3><p>Example:</p><blockquote><p>At the end of each round, reveal one rival card. It blocks or taxes a key action family, advances one global-pressure track, and claims the leftmost available milestone if eligible.</p></blockquote><p>That is a testable start.</p><h3>Concrete concept prompts</h3><p>If you want ideas, use these as seeds rather than finished pitches:</p><ul><li><strong>Frontier Power Grid</strong>: build an energy network on a dangerous frontier while balancing industrial growth and ecological backlash.</li><li><strong>Arcology Council</strong>: place specialists in a vertical city to develop districts, institutions, and public support before crises spiral.</li><li><strong>Mythic Guildworks</strong>: manage workshops, apprentices, and magical infrastructure while dangerous byproducts accumulate.</li><li><strong>Harbor Rebuild Authority</strong>: develop trade, civic services, and engineering projects while storms and political pressure keep changing priorities.</li></ul><p>Each can support worker placement, tableau lanes, and solo-first pressure naturally.</p><blockquote class=\"md-callout md-callout-tip\"><p><strong>Tip.</strong></p><p>Your first prototype does not need to prove the game is great. It needs to prove what question you are asking.</p></blockquote>",
+          "checklist": [
+            "Write your player loop in 5 steps or fewer.",
+            "Choose your 3 tableau lanes and name them.",
+            "Draft 7 to 9 action spaces with one-sentence purposes.",
+            "Pick your pressure system and your end trigger.",
+            "Write a one-paragraph solo rule that creates pressure without lots of upkeep."
+          ],
+          "reflectionQuestions": [
+            "Which of your design ideas feels strong enough to prototype immediately, and which one is probably still \"cool in theory\" rather than ready?",
+            "If you had to cut your current idea down to the smallest version that still feels exciting, what would remain?"
+          ],
+          "quiz": [
+            {
+              "prompt": "What is the main goal of a first playable prototype?",
+              "choices": [
+                "To prove the game is already balanced",
+                "To impress publishers with final production values",
+                "To reveal whether the core system actually produces the experience you want",
+                "To include every mechanic you might use later"
+              ],
+              "correctIndex": 2,
+              "explanation": "The first playable is a learning tool. Its job is to surface truth quickly."
+            },
+            {
+              "prompt": "Why is smaller scope usually better for the first playable?",
+              "choices": [
+                "Because medium-weight games should stay simple forever",
+                "Because solo modes cannot handle bigger systems",
+                "Because tighter scope makes it easier to see whether the spine of the design works",
+                "Because card effects are not useful early in development"
+              ],
+              "correctIndex": 2,
+              "explanation": "A focused prototype reveals problems more clearly than a sprawling one."
+            },
+            {
+              "prompt": "What is a strong sign that your design concept is ready to prototype?",
+              "choices": [
+                "You have dozens of card ideas",
+                "You know the final art direction",
+                "You can clearly explain the player loop, pressure system, and engine identity",
+                "You have already built a second expansion"
+              ],
+              "correctIndex": 2,
+              "explanation": "Clarity in the core loop and pressures matters more than content volume."
+            }
+          ],
+          "resources": [
+            "The Manhattan Project Prototype Rules Overview",
+            "How to Design a Worker Placement Game Part 1",
+            "How to Design a Worker Placement Game Part 2",
+            "How to Playtest like a Boss"
+          ],
+          "previousLessonId": "medium-weight-worker-placement-tableau-design-workshop--balance-pacing-and-what-usually-goes-wrong",
+          "nextLessonId": "medium-weight-worker-placement-tableau-design-workshop--playtest-sharply-avoid-cloning-and-know-your-next-moves"
+        },
+        {
+          "id": "medium-weight-worker-placement-tableau-design-workshop--playtest-sharply-avoid-cloning-and-know-your-next-moves",
+          "slug": "playtest-sharply-avoid-cloning-and-know-your-next-moves",
+          "title": "Playtest Sharply Avoid Cloning and Know Your Next Moves",
+          "durationMinutes": 29,
+          "objectives": [
+            "Learn how to test this kind of game efficiently without getting lost in a sea of opinions.",
+            "Develop a practical anti-clone discipline so your game learns from benchmarks without becoming one.",
+            "Leave with concrete next steps for the next four to six weeks of design work."
+          ],
+          "content": "<p>Now that you have a first playable, your work changes shape. The question is no longer &quot;Can I imagine a good game?&quot; It becomes &quot;What evidence do I need, and what should I change next?&quot;</p><h3>How to playtest this genre well</h3><p>Worker placement and tableau games can hide problems for several sessions because players enjoy exploring new cards and spaces even when the underlying structure is shaky. That is why your tests should be targeted.</p><p>Good first-test questions:</p><ul><li>Are two or three spaces obviously more important than the rest?</li><li>Does the tableau meaningfully change priorities by turn three or four?</li><li>Is the solo pressure too passive, too mean, or too admin-heavy?</li><li>Does cleanup or mitigation produce interesting tension?</li><li>Is one engine line clearly more flexible than the others?</li><li>Do the crisis or event triggers arrive early enough to matter but late enough to feel earned?</li></ul><p>Strong practice from design literature says to enter each test with one to three explicit questions, track the data that answers them, and write down problems separately from proposed fixes. That discipline matters even more in a medium-weight design because there are many tempting levers to pull.</p><h3>How not to accidentally clone your benchmarks</h3><p>This matters. If you love The Manhattan Project family, you can drift into derivative design without noticing.</p><p>Here is a healthy anti-clone checklist:</p><h3>Do not copy the action menu one-to-one</h3><p>If your board has obvious equivalents of the benchmark spaces in the same relationships, you are too close.</p><h3>Do not copy the emotional arc</h3><p>Ask whether your game creates its own rhythm. Is your pressure system distinct? Is your scoring story different? Is your solo tension distinctive?</p><h3>Do not copy signature subsystems unless they are transformed</h3><p>If you borrow:</p><ul><li>asynchronous retrieval</li><li>occupied-space surcharges</li><li>pollution pressure</li><li>espionage use of opponents&#39; tableaus</li><li>multi-part solo win conditions</li></ul><p>then ask what new design job that borrowed subsystem is doing in <em>your</em> game.</p><h3>Do copy underlying design principles</h3><p>Copying principles is healthy:</p><ul><li>make placements consequential</li><li>give the tableau identity</li><li>let pressure systems matter</li><li>create multiple viable plans</li><li>reward timing, not only accumulation</li></ul><p>That is design literacy, not theft.</p><blockquote class=\"md-callout md-callout-tip\"><p><strong>Tip.</strong></p><p>If someone described your game in one sentence and it sounded like &quot;Energy Empire, but with...&quot; you probably need another round of structural differentiation.</p></blockquote><h3>Your next four to six weeks</h3><p>Here is a practical roadmap:</p><table><thead><tr><th>Week</th><th>Focus</th></tr></thead><tbody><tr><td>1</td><td>Build and solo-test the first playable by yourself 3 to 5 times</td></tr><tr><td>2</td><td>Run 2 focused solo revisions and 1 multiplayer sanity test</td></tr><tr><td>3</td><td>Track which action spaces and engine lines are underused or dominant</td></tr><tr><td>4</td><td>Cut one weak subsystem and sharpen one promising subsystem</td></tr><tr><td>5</td><td>Rewrite the rulebook draft and test from the rulebook if possible, especially the solo setup and win conditions</td></tr><tr><td>6</td><td>Decide whether the design is becoming more itself or more derivative</td></tr></tbody></table><p>If you follow that with discipline, you will learn far more than by endlessly adding cards.</p><h3>A final creative standard</h3><p>The goal is not to create &quot;a game that is kind of like some games I enjoy.&quot; The goal is to create a game whose mechanisms reinforce a distinct player fantasy and pressure profile:</p><ul><li><em>why</em> does your board fight back?</li><li><em>why</em> does your tableau feel worth building?</li><li><em>why</em> does solo play feel purposeful?</li><li><em>why</em> does this design deserve to exist next to the games you admire?</li></ul><p>Those are grown-up design questions. They are also the fun ones.</p>",
+          "checklist": [
+            "Write the 3 specific questions for your first real prototype tests.",
+            "List the 2 benchmark features you are intentionally *not* copying directly.",
+            "Write one sentence explaining what makes your game's pressure profile distinct.",
+            "Schedule the next 3 tests you want to run: solo, multiplayer, and rules-teach."
+          ],
+          "reflectionQuestions": [
+            "What part of your current design feels most original already, and what part still leans too heavily on your benchmark inspirations?",
+            "If a smart player finished your prototype and said \"this has a real identity,\" what would you most hope they were responding to?"
+          ],
+          "quiz": [
+            {
+              "prompt": "What is the healthiest way to avoid accidentally cloning a benchmark game?",
+              "choices": [
+                "Refuse to study benchmark games closely",
+                "Change the theme and keep the systems the same",
+                "Borrow principles and pressures while making sure your core rhythm and subsystem jobs are genuinely your own",
+                "Add more complexity until the similarities are hidden"
+              ],
+              "correctIndex": 2,
+              "explanation": "Originality usually comes from a distinct structure and pressure profile, not from cosmetic changes or unnecessary complication."
+            },
+            {
+              "prompt": "Why should your first playtests use explicit questions?",
+              "choices": [
+                "Because otherwise people will not have fun",
+                "Because it makes the game seem more professional",
+                "Because targeted questions make feedback and data far more useful",
+                "Because players should only discuss one part of the game"
+              ],
+              "correctIndex": 2,
+              "explanation": "Clear questions turn a session into usable design evidence."
+            },
+            {
+              "prompt": "What is a strong sign that your design still needs differentiation?",
+              "choices": [
+                "Players understand it quickly",
+                "The easiest short description sounds like \"Energy Empire, but...\" or \"Viticulture with...\"",
+                "The prototype uses worker placement",
+                "The solo mode has a pressure deck"
+              ],
+              "correctIndex": 1,
+              "explanation": "If the game's identity is still mostly comparative, it probably has not found its own structural voice yet."
+            }
+          ],
+          "resources": [
+            "Refining Your Game",
+            "How to Playtest like a Boss",
+            "How to Design a Worker Placement Game Part 4: Energy Empire",
+            "Automa Factory: The Automa Approach"
+          ],
+          "previousLessonId": "medium-weight-worker-placement-tableau-design-workshop--prototype-sprint-build-your-first-playable",
+          "nextLessonId": null
+        }
+      ]
+    }
+  ]
+}

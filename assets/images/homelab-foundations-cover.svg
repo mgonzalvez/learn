@@ -1,0 +1,23 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="188" y1="126" x2="1291" y2="844" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#54D9CB"/>
+      <stop offset="0.5" stop-color="#215BB9"/>
+      <stop offset="1" stop-color="#0A1730"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1272 178) rotate(132.474) scale(640 689.269)">
+      <stop stop-color="white" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" rx="40" fill="#08101E"/>
+  <rect width="1600" height="900" rx="40" fill="url(#bg)"/>
+  <rect width="1600" height="900" rx="40" fill="url(#glow)"/>
+  <rect x="86" y="82" width="236" height="236" rx="48" fill="rgba(255,255,255,0.14)"/>
+  <rect x="148" y="162" width="90" height="24" rx="8" fill="white"/>
+  <rect x="148" y="206" width="124" height="24" rx="8" fill="white"/>
+  <rect x="148" y="250" width="78" height="24" rx="8" fill="white"/>
+  <text x="118" y="520" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="80" font-weight="700">Homelab</text>
+  <text x="118" y="612" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="80" font-weight="700">Foundations</text>
+  <text x="120" y="700" fill="rgba(255,255,255,0.78)" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="600" letter-spacing="4">PERSONAL INFRASTRUCTURE</text>
+</svg>

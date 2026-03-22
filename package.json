@@ -1,0 +1,13 @@
+{
+  "name": "personal-learning-hub",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:courses": "node scripts/build-course-data.mjs",
+    "build:dist": "node scripts/build-dist.mjs",
+    "build": "node scripts/build-course-data.mjs && node scripts/validate-site.mjs && node scripts/build-dist.mjs",
+    "validate": "node scripts/validate-site.mjs",
+    "new:course": "node scripts/new-course.mjs",
+    "generate:cover": "node scripts/generate-course-cover.mjs"
+  }
+}

@@ -1,0 +1,594 @@
+{
+  "id": "course-boardgame",
+  "slug": "board-game-design-workshop",
+  "title": "Board Game Design Workshop",
+  "subtitle": "From rough concept to playable prototype",
+  "description": "A more rigorous design course for turning a promising board game idea into a tested, teachable prototype. The course draws on respected game design and playtesting sources to teach core loops, player promise, decision pressure, structured iteration, and rules clarity without losing the playful spirit that makes tabletop design compelling.",
+  "coverImage": "assets/images/board-game-design-cover.svg",
+  "category": "Design",
+  "tags": [
+    "game-design",
+    "prototyping",
+    "playtesting",
+    "systems"
+  ],
+  "difficulty": "Intermediate",
+  "estimatedHours": 16,
+  "modules": [
+    {
+      "id": "core-loop-and-player-experience",
+      "title": "Core Loop and Player Experience",
+      "description": "Define what players repeatedly do, what emotions that creates, and what your game is truly promising.",
+      "lessons": [
+        {
+          "id": "boardgame-lesson-01",
+          "slug": "finding-the-core-loop",
+          "title": "Finding the Core Loop",
+          "durationMinutes": 55,
+          "objectives": [
+            "Describe the repeated player action pattern that gives a game its identity.",
+            "Separate thematic flavor from mechanical behavior well enough to evaluate design choices.",
+            "Use the core loop as a filtering tool for future mechanics."
+          ],
+          "content": "<p>The core loop is the answer to a deceptively simple question: what do players keep doing in this game, and why does that rhythm stay interesting? If you can name the repeated cycle clearly, the rest of the design becomes easier to shape. If you cannot, new mechanics tend to pile on without improving the game's identity.</p><p>A useful way to surface the loop is to describe the turn in verbs instead of nouns. Draft, place, negotiate, risk, reveal, build, deny, score. Verbs reveal behavior. They expose what players are actually being asked to care about. A theme can make those verbs more vivid, but it cannot rescue a loop that is mechanically vague or emotionally flat.</p><p>Strong design writing often begins by stripping away decoration. Imagine your game without the setting, art, or lore. What remains? If the answer is still compelling, you probably have a real system. If the answer becomes mushy, the design may still be leaning on theme to cover weak interaction.</p><h3>Loop clarity creates design leverage</h3><p>Jamey Stegmaier's writing on mechanisms points toward a powerful design truth: good mechanisms support meaningful choices and understandable tension. That starts with a loop players can actually feel. A worker-placement loop feels different from a deduction loop because the repeated actions teach players what kind of attention matters. Once the loop is clear, you can ask whether a new rule strengthens that feeling or merely adds furniture.</p><h3>A quick loop sketch</h3><pre><code>Players:\n1. gain limited resources\n2. spend them on contested actions\n3. improve a small engine\n4. race to convert engine output into points\n\nEmotional rhythm:\nanticipation -> tradeoff -> payoff -> new pressure</code></pre><p>The loop sketch above is not yet a full game, but it is enough to start evaluating candidate mechanisms. Does a proposed combat system intensify the loop or distract from it? Does a market add interesting tradeoffs or slow the cadence? A clear loop helps you answer those questions with less guesswork.</p><p>Your first version of the core loop does not need to be perfect. It does need to be short enough that you can hold it in your head during playtesting. The more compactly you can describe the loop, the more effectively you can protect the design from feature drift.</p>",
+          "checklist": [
+            "Write your game's core loop in three to five verbs.",
+            "Describe the emotional rhythm of one satisfying turn.",
+            "Restate the loop once without theme language.",
+            "Identify one new mechanism idea that currently does not strengthen the loop."
+          ],
+          "reflectionQuestions": [
+            "If your game were taught with all theme stripped away and the table still leaned in, what would they be leaning in for?",
+            "Which part of your current design feels like the heartbeat of the game, and which part feels like costume jewelry?"
+          ],
+          "quiz": [
+            {
+              "prompt": "Why is describing a game's loop in verbs so useful?",
+              "choices": [
+                "It guarantees the final rulebook will be short.",
+                "It reveals what players actually do and what attention the game demands.",
+                "It makes artwork decisions easier than playtesting.",
+                "It prevents the need for balancing."
+              ],
+              "correctIndex": 1,
+              "explanation": "Verb language surfaces behavior and decision structure rather than theme packaging."
+            },
+            {
+              "prompt": "What is a warning sign that theme may be doing too much design work?",
+              "choices": [
+                "Players can summarize the turn structure cleanly.",
+                "The core loop remains interesting even without setting details.",
+                "The emotional rhythm of a turn is easy to describe.",
+                "The game becomes vague once the flavor text is removed."
+              ],
+              "correctIndex": 3,
+              "explanation": "If the design loses its identity when theme is removed, the mechanical loop may still be underdeveloped."
+            },
+            {
+              "prompt": "What does a loop sketch help you do next?",
+              "choices": [
+                "Evaluate whether new mechanisms strengthen or distract from the design",
+                "Skip early prototyping entirely",
+                "Finalize component art direction immediately",
+                "Choose a publisher before the game exists"
+              ],
+              "correctIndex": 0,
+              "explanation": "The loop sketch becomes a filter for candidate mechanics and future iteration."
+            }
+          ],
+          "resources": [
+            "What Makes a Good Game Mechanism?",
+            "The Workshopping Skill"
+          ],
+          "previousLessonId": null,
+          "nextLessonId": "boardgame-lesson-02"
+        },
+        {
+          "id": "boardgame-lesson-02",
+          "slug": "defining-the-player-promise",
+          "title": "Defining the Player Promise",
+          "durationMinutes": 60,
+          "objectives": [
+            "Define the kind of experience your game is promising players.",
+            "Use audience and session expectations to shape rules density and pacing.",
+            "Cut features that dilute the promise even if they are clever on their own."
+          ],
+          "content": "<p>Every game makes a promise. It might promise tense tactical scrambles, satisfying engine growth, loud social bluffing, or elegant long-term planning. Players feel that promise before they can articulate it. It lives in the first few turns, in the tempo of decisions, and in the kinds of tradeoffs the system rewards. When a design feels muddy, it is often because the game is making several incompatible promises at once.</p><p>The player promise matters because it tells you what kind of complexity belongs in the game. A design that promises breezy momentum should be suspicious of exceptions, long lookup chains, or bookkeeping-heavy maintenance turns. A design that promises deep strategic planning needs enough information, consequence, and decision horizon to reward that attention. The right amount of complexity is not universal. It is relative to the experience you are asking players to want.</p><p>Daniel Cook's writing on workshopping is useful here because it frames design as a constraint-solving activity. Your promise is one of those constraints. It gives you permission to reject features that are interesting in the abstract but wrong for this specific game. That discipline is one of the fastest ways to improve coherence.</p><h3>Write the promise as an invitation</h3><p>Try this sentence stem: <strong>This game invites players to...</strong> Then finish it in plain language. For example:</p><ul><li><strong>...outmaneuver each other in a tight spatial race.</strong></li><li><strong>...build a lopsided little engine and feel it finally click.</strong></li><li><strong>...bluff boldly, laugh loudly, and recover quickly from setbacks.</strong></li></ul><p>That invitation should imply pacing, tension, and audience. It should also make certain feature ideas easier to reject. If your game promises elegance, but you keep adding subsystems because they are individually neat, the promise can save you from your own enthusiasm.</p><p>A powerful test is to ask what would disappoint the right player. If the box, pitch, or teach suggests one experience and the actual turns deliver another, the design breaks trust. The promise is not marketing fluff. It is a design contract.</p>",
+          "checklist": [
+            "Write a one-sentence player promise beginning with 'This game invites players to...'.",
+            "Identify the intended audience in terms of desired mood, patience, and decision appetite.",
+            "List one feature you should cut because it weakens the promise.",
+            "State what would disappoint a player who loved the pitch but played the current prototype."
+          ],
+          "reflectionQuestions": [
+            "If the perfect audience for your game sat down tonight, what kind of fun would they be hoping for in the first ten minutes?",
+            "Which rule or subsystem in your design feels talented but disloyal to the experience you actually want to deliver?"
+          ],
+          "quiz": [
+            {
+              "prompt": "Why is a player promise valuable during design?",
+              "choices": [
+                "It ensures the game can target every audience at once.",
+                "It removes the need for blind playtests.",
+                "It helps you judge whether mechanics and complexity support the intended experience.",
+                "It guarantees the game will be commercially successful."
+              ],
+              "correctIndex": 2,
+              "explanation": "A promise acts as a design constraint that keeps rules, pacing, and difficulty coherent."
+            },
+            {
+              "prompt": "What should happen to a clever feature that weakens the promise?",
+              "choices": [
+                "Question it aggressively or cut it.",
+                "Keep it because novelty matters more than coherence.",
+                "Hide it late in the rulebook so players notice less.",
+                "Add a second feature to balance it out."
+              ],
+              "correctIndex": 0,
+              "explanation": "Coherence matters more than isolated cleverness in a finished design."
+            },
+            {
+              "prompt": "Which design choice best matches a game that promises breezy momentum?",
+              "choices": [
+                "Dense exception handling and heavy upkeep",
+                "Tight turns and rules that are quick to execute once learned",
+                "Frequent pauses for calculation-heavy edge cases",
+                "A scoring system that only makes sense after the fourth round"
+              ],
+              "correctIndex": 1,
+              "explanation": "If the promise is momentum, the rules must preserve flow instead of stalling it."
+            }
+          ],
+          "resources": [
+            "The Workshopping Skill",
+            "What Makes a Good Game Mechanism?"
+          ],
+          "previousLessonId": "boardgame-lesson-01",
+          "nextLessonId": "boardgame-lesson-03"
+        }
+      ]
+    },
+    {
+      "id": "mechanisms-and-constraints",
+      "title": "Mechanisms and Constraints",
+      "description": "Create real decision pressure, not just more activity.",
+      "lessons": [
+        {
+          "id": "boardgame-lesson-03",
+          "slug": "mechanics-that-create-decision-pressure",
+          "title": "Mechanics That Create Decision Pressure",
+          "durationMinutes": 70,
+          "objectives": [
+            "Differentiate busy turns from meaningful decisions.",
+            "Create tradeoffs through scarcity, timing, information, and positional pressure.",
+            "Spot false choices and nearly automatic turns."
+          ],
+          "content": "<p>Players do not remember how many options they had. They remember whether the options mattered. Meaningful decision pressure appears when players must choose among valuable but incompatible possibilities. The more a turn asks, 'What will you sacrifice to get what you want?' the more likely it is to feel strategic rather than procedural.</p><p>Scarcity is one of the cleanest engines for decision pressure. Limited actions, contested spaces, time pressure, hand size, and incomplete information all create tension when they intersect with player goals. Scarcity by itself is not enough, though. A game can be constrained and still dull if the scarce things do not produce interesting consequences.</p><p>Stegmaier's discussion of mechanisms points toward a useful design check: does the mechanism generate meaningful choices, intuitive consequences, and emotional tension? If a mechanic looks novel but often produces an obvious best move, it may be adding activity rather than depth.</p><h3>Find the strongest tradeoff in the game</h3><p>Ask yourself: on a typical turn, what two good things can a player not have at the same time? That tradeoff is often the seed of the game's strategic identity. Examples:</p><ul><li>Expand now or score now</li><li>Claim a strong action space early or wait for better information</li><li>Build efficiency or deny an opponent</li><li>Play safely or chase a swingy high-upside line</li></ul><p>If you cannot answer this question cleanly, the design may still be under-constrained.</p><h3>Audit for false choices</h3><p>False choices are options that appear numerous but collapse into one sensible move for skilled players. They can arise because a currency is too abundant, a dominant strategy is too reliable, or the consequences of an action are too weak. Playtesting should actively hunt for these. A system becomes more interesting when it asks better questions, not simply when it offers more buttons to press.</p><p>This is where design discipline starts feeling like craft. You are not merely inventing mechanisms. You are shaping the quality of thought the game demands from players.</p>",
+          "checklist": [
+            "Identify the two strongest forms of scarcity in your design.",
+            "Write down one central tradeoff that should matter on most turns.",
+            "Name one action that currently looks almost always correct.",
+            "Describe what players are trying to optimize and what they must give up to do it."
+          ],
+          "reflectionQuestions": [
+            "At your current table, where does a player feel a genuine gulp of uncertainty before acting, and where do they mostly go through the motions?",
+            "If you could sharpen one tradeoff until it became the signature tension of the game, which one would you choose?"
+          ],
+          "quiz": [
+            {
+              "prompt": "What usually makes a decision feel meaningful?",
+              "choices": [
+                "A long rules explanation before each turn",
+                "A large deck of random events",
+                "Many actions that lead to the same outcome",
+                "Choosing among valuable options that cannot all be taken"
+              ],
+              "correctIndex": 3,
+              "explanation": "Meaningful choices come from tradeoffs and opportunity cost, not from raw option count."
+            },
+            {
+              "prompt": "Why is scarcity useful in game design?",
+              "choices": [
+                "It removes the need for balancing rewards.",
+                "It guarantees all players feel pressure the same way.",
+                "It can create tension when players must prioritize under constraint.",
+                "It makes every mechanism intuitive."
+              ],
+              "correctIndex": 2,
+              "explanation": "Scarcity matters because it forces prioritization and often creates valuable tension."
+            },
+            {
+              "prompt": "What is a false choice?",
+              "choices": [
+                "An option that looks varied but is strategically obvious or low-consequence",
+                "A choice with no thematic flavor",
+                "A decision made under time pressure",
+                "A rule that players forget during the teach"
+              ],
+              "correctIndex": 0,
+              "explanation": "False choices create the appearance of depth without genuine strategic tension."
+            },
+            {
+              "prompt": "What question often reveals whether a game is truly under constraint?",
+              "choices": [
+                "How many components can I add next?",
+                "What two good things can a player not have at the same time?",
+                "Can the game support a solo mode immediately?",
+                "How soon can I start publisher outreach?"
+              ],
+              "correctIndex": 1,
+              "explanation": "Strong tradeoff questions reveal whether players are actually being asked to prioritize."
+            }
+          ],
+          "resources": [
+            "What Makes a Good Game Mechanism?",
+            "The Workshopping Skill"
+          ],
+          "previousLessonId": "boardgame-lesson-02",
+          "nextLessonId": "boardgame-lesson-04"
+        },
+        {
+          "id": "boardgame-lesson-04",
+          "slug": "economies-risks-and-rewards",
+          "title": "Economies, Risks, and Rewards",
+          "durationMinutes": 70,
+          "objectives": [
+            "Map the real currencies and reward loops in a game system.",
+            "Tune risk and reliability so multiple styles of play can be viable.",
+            "Notice when early leads or efficient engines create runaway problems."
+          ],
+          "content": "<p>Every game economy teaches players what the game truly values. Points, tempo, cards, board position, worker actions, turn order, information, and social leverage can all function as currencies. Players learn the real ones quickly. If the rulebook says one thing matters but the reward structure teaches another, the economy will win.</p><p>One useful design habit is to map currencies explicitly. Which resources convert into which other resources? Which conversions are most efficient? Which rewards are immediate and which are delayed? Many balancing problems become easier to diagnose once you stop seeing the game as a cloud of mechanics and start seeing it as an economy with exchange rates.</p><p>Risk enters when different paths offer different volatility profiles. A satisfying design often lets players choose between reliable incremental progress and swingier, potentially explosive plays. That choice only feels interesting if the probabilities, costs, and consequences are legible enough for players to form a plan. Pure chaos is not strategic risk. It is noise.</p><h3>Watch for reward loops that close too cleanly</h3><p>Runaway leaders often emerge when one advantage produces not just more points, but more opportunities, more denial power, and more action flexibility. Some momentum is healthy. Too much can make the game feel decided before it is emotionally over. The best fixes are often structural rather than cosmetic: reduce compounding, open comeback space, or make leading positions more contestable.</p><h3>Economy design questions</h3><ul><li>What currencies do players actually care about by midgame?</li><li>What actions convert one currency into another most efficiently?</li><li>Is there a low-risk plan, a high-risk plan, and at least one reactive plan?</li><li>Does an early lead unlock too many future advantages?</li></ul><p>The deeper lesson is that economy design is behavior design. Players follow incentives. If you want a certain kind of play, reward it in a way the system can actually sustain.</p>",
+          "checklist": [
+            "List the real currencies in your game and how they convert into each other.",
+            "Identify one low-risk line, one high-risk line, and one reactive line of play.",
+            "Test whether an early advantage compounds into too much future control.",
+            "Write down one player behavior your current reward structure is teaching."
+          ],
+          "reflectionQuestions": [
+            "If a clever stranger exploited your game's economy more ruthlessly than you expected, where would they probably find the softest seam?",
+            "What kind of risk in your game feels exciting and expressive, and what kind merely feels annoying or blurry?"
+          ],
+          "quiz": [
+            {
+              "prompt": "Why should designers map currencies explicitly?",
+              "choices": [
+                "To see what the system truly rewards and how value flows through play",
+                "To guarantee players use every action equally",
+                "To eliminate all momentum from the game",
+                "To prevent theme from influencing perception"
+              ],
+              "correctIndex": 0,
+              "explanation": "Currency maps reveal conversion rates, hidden incentives, and the behaviors the system encourages."
+            },
+            {
+              "prompt": "What makes strategic risk different from pure noise?",
+              "choices": [
+                "Strategic risk is always random; noise is always deterministic.",
+                "Strategic risk is legible enough that players can choose among volatility profiles.",
+                "Strategic risk can only exist in heavy games.",
+                "Strategic risk always favors the losing player."
+              ],
+              "correctIndex": 1,
+              "explanation": "Risk is interesting when players can evaluate it and decide whether to take it."
+            },
+            {
+              "prompt": "Why are runaway leader loops dangerous?",
+              "choices": [
+                "They make games end too fast every time.",
+                "They remove all emotion from play immediately.",
+                "They stop players from understanding the rules.",
+                "They can make the game feel decided well before the experience catches up to the score."
+              ],
+              "correctIndex": 3,
+              "explanation": "Compounding advantages can flatten tension and reduce meaningful comeback opportunities."
+            },
+            {
+              "prompt": "What is the best way to understand what your economy teaches players?",
+              "choices": [
+                "Ask only what the theme says the game is about.",
+                "Count how many resources exist in the box.",
+                "Watch which actions and conversions the reward structure makes attractive.",
+                "Assume every player style is equally rewarded by default."
+              ],
+              "correctIndex": 2,
+              "explanation": "Players learn from incentives more than from designer intention statements."
+            }
+          ],
+          "resources": [
+            "What Makes a Good Game Mechanism?"
+          ],
+          "previousLessonId": "boardgame-lesson-03",
+          "nextLessonId": "boardgame-lesson-05"
+        }
+      ]
+    },
+    {
+      "id": "prototyping-and-testing",
+      "title": "Prototyping and Testing",
+      "description": "Build the cheapest useful version and gather evidence instead of vibes.",
+      "lessons": [
+        {
+          "id": "boardgame-lesson-05",
+          "slug": "building-a-prototype-for-learning",
+          "title": "Building a Prototype for Learning",
+          "durationMinutes": 55,
+          "objectives": [
+            "Treat prototypes as question-answering tools instead of mini-products.",
+            "Match component fidelity to the design question you are trying to answer.",
+            "Accelerate iteration by keeping emotional attachment low and learning speed high."
+          ],
+          "content": "<p>A prototype is a physical argument with reality. It exists so players can show you what your design actually does, not what you hoped it did. That is why prototype quality should match the question you are asking. If you are testing whether a resource curve creates tension, handwritten cards are enough. If you are testing icon recognition from across the table, visual clarity suddenly matters much more.</p><p>Many new designers accidentally polish too early because polish feels like progress. Beautiful components can be motivating, but they can also slow learning. When the prototype becomes precious, you become less willing to cut, reorder, or replace what is not working. Cheap materials protect your courage.</p><p>Board Game Design Lab's playtesting guidance is especially helpful here because it treats prototypes as instruments for discovery. Ask one or two major questions per prototype. Build only enough fidelity to answer those questions. Then revise based on evidence. This is how iteration gains tempo.</p><h3>Match prototype form to the test</h3><ul><li><strong>Core loop test:</strong> index cards, tokens, rough tracks</li><li><strong>Pacing test:</strong> clear turn aids, provisional scoring, visible round structure</li><li><strong>Usability test:</strong> cleaner layout, readable icons, drafted reference sheets</li><li><strong>Blind test:</strong> organized components, rulebook draft, terminology discipline</li></ul><p>Each step asks for a different level of finish. The trap is jumping to blind-test fidelity before you have learned whether the underlying system deserves it.</p><p>Great prototypes are honest. They do not pretend to be done. They invite change. That is one of the healthiest mindsets you can bring into tabletop design.</p>",
+          "checklist": [
+            "Define the one or two biggest questions your next prototype should answer.",
+            "Choose the minimum component fidelity needed for those questions.",
+            "Remove one polishing task that does not improve learning.",
+            "List which parts of the game players must read quickly and which they can reference slowly."
+          ],
+          "reflectionQuestions": [
+            "What would feel delightfully disposable in your next prototype, and how might that make you braver about changing the design?",
+            "If you only had one evening to build a testable version, what would you keep and what would you unapologetically fake?"
+          ],
+          "quiz": [
+            {
+              "prompt": "What is the main job of an early prototype?",
+              "choices": [
+                "To impress publishers with final production quality",
+                "To lock the component layout permanently",
+                "To answer a specific design question quickly and cheaply",
+                "To prevent future redesign"
+              ],
+              "correctIndex": 2,
+              "explanation": "Prototype quality should be driven by learning goals, not by the desire to look finished."
+            },
+            {
+              "prompt": "Why can early polish slow progress?",
+              "choices": [
+                "It makes the game less teachable.",
+                "It always confuses playtesters.",
+                "It removes the need for rulebooks.",
+                "It can make the designer more emotionally attached and less willing to cut weak ideas."
+              ],
+              "correctIndex": 3,
+              "explanation": "Precious prototypes often discourage the fast revision that early design needs."
+            },
+            {
+              "prompt": "When does higher component fidelity become more important?",
+              "choices": [
+                "Only after publisher acquisition",
+                "When you are testing readability, usability, or blind-teach clarity",
+                "Never; rough prototypes are always better",
+                "Only for solo games"
+              ],
+              "correctIndex": 1,
+              "explanation": "Certain questions, especially about usability and communication, require cleaner prototype materials."
+            }
+          ],
+          "resources": [
+            "How to Playtest like a Boss"
+          ],
+          "previousLessonId": "boardgame-lesson-04",
+          "nextLessonId": "boardgame-lesson-06"
+        },
+        {
+          "id": "boardgame-lesson-06",
+          "slug": "playtesting-for-evidence",
+          "title": "Playtesting for Evidence",
+          "durationMinutes": 80,
+          "objectives": [
+            "Run playtests that generate actionable evidence rather than vague opinion piles.",
+            "Distinguish designer tests, guided external tests, and blind playtests.",
+            "Ask questions that reveal where the design is confusing, slow, or strategically thin."
+          ],
+          "content": "<p>Playtesting is where game design stops being mostly imagination and starts becoming mostly evidence. But evidence does not appear automatically just because players sat at a table. A useful session has a purpose, a structure, and a way of recording what happened. Otherwise you leave with a swirl of impressions and no clear next move.</p><p>Board Game Design Lab's playtesting work is strong on this point: treat each session like an inquiry. What are you trying to learn today? Is the target the teach, the pacing, the economy, the decision pressure, the comeback space, or the rules clarity? A session that tries to answer everything often answers nothing clearly.</p><p>Different playtest modes serve different questions. <strong>Designer tests</strong> are for rapid iteration and permission to intervene. <strong>Guided external tests</strong> reveal where players misunderstand or approach the game differently than you expected. <strong>Blind playtests</strong>, a major emphasis in League of Gamemakers writing, show whether the game can survive without the designer patching the experience in real time. That is one of the highest-value tests you can run.</p><h3>What to watch during play</h3><ul><li>Where do players hesitate because choices are hard in a good way?</li><li>Where do they hesitate because the game is unclear?</li><li>Which actions draw excitement, and which draw obligation?</li><li>What do players forget repeatedly?</li><li>When do they stop caring about the outcome?</li></ul><p>Notice the difference between statements and evidence. 'The game felt slow' is a statement. 'Round three took twelve minutes longer than round two, and two players checked out during upkeep' is evidence. Evidence tells you where to look.</p><h3>Blind tests are design truth serum</h3><p>A blind playtest asks whether the game's language, structure, and rulebook carry enough of the teaching burden on their own. If players misread a rule, the goal is not to defend your intention. The goal is to discover what the game actually communicated. This is humbling, but it is also precious. Blind tests reveal the version of the game the world will meet, not the version in your head.</p>",
+          "checklist": [
+            "Choose the specific question your next playtest is meant to answer.",
+            "Prepare a short observation sheet with moments of confusion, excitement, slowdown, and repeated mistakes.",
+            "Decide whether the session should be a designer test, guided external test, or blind playtest.",
+            "Write three post-session questions that will produce evidence instead of generic praise or criticism."
+          ],
+          "reflectionQuestions": [
+            "Which kind of playtest feedback tends to sting a little because it threatens a cherished assumption, and why might that be exactly the feedback your game needs?",
+            "If you silently watched strangers teach your game to each other, what moment would you be most nervous and most curious to observe?"
+          ],
+          "quiz": [
+            {
+              "prompt": "What makes a playtest especially useful?",
+              "choices": [
+                "It includes only close friends who already understand the game",
+                "It produces actionable evidence about a specific design question",
+                "It happens after art is finished",
+                "It avoids any note-taking so reactions stay natural"
+              ],
+              "correctIndex": 1,
+              "explanation": "Good playtests are structured around learning goals and captured evidence."
+            },
+            {
+              "prompt": "Why are blind playtests so valuable?",
+              "choices": [
+                "They show whether the game can communicate itself without designer intervention.",
+                "They guarantee players will enjoy the game more.",
+                "They replace every earlier testing mode.",
+                "They are only useful after manufacturing quotes arrive."
+              ],
+              "correctIndex": 0,
+              "explanation": "Blind tests reveal what the game actually teaches on its own."
+            },
+            {
+              "prompt": "Which note is strongest evidence from a session?",
+              "choices": [
+                "The game felt weird somehow.",
+                "Players probably liked the actions.",
+                "Two players repeatedly forgot upkeep and the score leader disengaged during round three downtime.",
+                "The table vibes were mixed."
+              ],
+              "correctIndex": 2,
+              "explanation": "Specific observed behavior is far more actionable than broad feelings."
+            },
+            {
+              "prompt": "What is a common mistake in playtesting?",
+              "choices": [
+                "Entering a session with a clear learning goal",
+                "Choosing the test mode that matches the question",
+                "Recording where players hesitate or disengage",
+                "Trying to learn everything at once and leaving with muddled conclusions"
+              ],
+              "correctIndex": 3,
+              "explanation": "Overly broad sessions usually produce more noise than useful insight."
+            }
+          ],
+          "resources": [
+            "How to Playtest like a Boss",
+            "Refining Your Game"
+          ],
+          "previousLessonId": "boardgame-lesson-05",
+          "nextLessonId": "boardgame-lesson-07"
+        }
+      ]
+    },
+    {
+      "id": "iteration-and-polish",
+      "title": "Iteration and Polish",
+      "description": "Turn evidence into revisions and make the game teach itself more clearly.",
+      "lessons": [
+        {
+          "id": "boardgame-lesson-07",
+          "slug": "choosing-what-to-change",
+          "title": "Choosing What to Change",
+          "durationMinutes": 65,
+          "objectives": [
+            "Turn raw playtest feedback into focused revision priorities.",
+            "Distinguish root problems from surface complaints.",
+            "Develop a change log and hypothesis habit that improves iteration quality."
+          ],
+          "content": "<p>After a rich playtest, the temptation is to change everything. That usually creates churn instead of progress. Strong iteration begins by identifying the root problem underneath the visible symptoms. A boring turn might really be a scarcity problem. A confusing rule might really be a terminology problem. A weak ending might really be an economy pacing problem. If you patch symptoms without naming the underlying issue, the game tends to get busier without getting better.</p><p>Daniel Cook's workshopping lens helps here: generate multiple possible solutions for the same constraint before committing. This keeps you from falling in love with the first fix. It also trains you to think like a designer rather than a defender of your current draft.</p><h3>Use a revision hypothesis</h3><p>For each meaningful change, write three lines:</p><pre><code>Problem:\nMidgame feels repetitive because players have too few contested priorities.\n\nHypothesis:\nAdding a rotating bonus objective will create more timing tension.\n\nSignal to watch:\nPlayers should disagree more about the best midgame action and talk more about timing.</code></pre><p>This is a deceptively powerful habit. It slows you down just enough to make changes intentional. It also gives you something concrete to evaluate in the next test.</p><p>Another important move is separating taste from failure. Not every comment deserves a rule change. Some feedback reveals the wrong audience, some reveals a misunderstanding you should fix, and some reveals a genuine mechanical issue. The work is in telling those apart.</p><p>Good iteration is not random walking. It is a sequence of increasingly informed experiments.</p>",
+          "checklist": [
+            "Choose one root problem from recent feedback and name it clearly.",
+            "Generate at least two possible fixes before picking one to test.",
+            "Write a revision hypothesis with a signal you expect to observe.",
+            "Start or update a change log so future tests can be understood in context."
+          ],
+          "reflectionQuestions": [
+            "What piece of feedback keeps returning in different disguises, suggesting a deeper issue than any one comment captures?",
+            "If you were not allowed to 'add more stuff' as a fix, what cleaner structural change might solve your current problem?"
+          ],
+          "quiz": [
+            {
+              "prompt": "Why is it risky to change everything after a playtest?",
+              "choices": [
+                "It makes the prototype too elegant.",
+                "It prevents future testing completely.",
+                "It means players can no longer learn the game.",
+                "It often creates churn without identifying the root problem."
+              ],
+              "correctIndex": 3,
+              "explanation": "Large unfocused change sets make it hard to learn which revision actually helped."
+            },
+            {
+              "prompt": "What is the value of writing a revision hypothesis?",
+              "choices": [
+                "It guarantees the change will work.",
+                "It helps avoid all future blind tests.",
+                "It forces you to connect a change to an expected effect you can observe.",
+                "It replaces the need for note-taking."
+              ],
+              "correctIndex": 2,
+              "explanation": "A hypothesis makes iteration more testable and less impulsive."
+            },
+            {
+              "prompt": "Which habit most supports intentional iteration?",
+              "choices": [
+                "Generating multiple possible fixes for the same constraint",
+                "Making many simultaneous rule changes with no log",
+                "Defending the current draft against difficult feedback",
+                "Assuming every player comment deserves direct implementation"
+              ],
+              "correctIndex": 0,
+              "explanation": "Exploring multiple candidate solutions keeps you focused on the problem instead of the first appealing patch."
+            }
+          ],
+          "resources": [
+            "The Workshopping Skill",
+            "How to Playtest like a Boss"
+          ],
+          "previousLessonId": "boardgame-lesson-06",
+          "nextLessonId": "boardgame-lesson-08"
+        },
+        {
+          "id": "boardgame-lesson-08",
+          "slug": "polish-before-pitch-or-print",
+          "title": "Polish Before Pitch or Print",
+          "durationMinutes": 75,
+          "objectives": [
+            "Understand what kind of polish matters before pitching, sharing, or refining production intent.",
+            "Improve rules communication, terminology, and player aids.",
+            "Distinguish meaningful polish from cosmetic distraction."
+          ],
+          "content": "<p>Polish is not one thing. Some polish improves communication. Some improves usability. Some improves first impressions. Some simply decorates unresolved design issues. Before pitching or seriously sharing a prototype, the most valuable polish is the kind that helps the game teach itself more clearly.</p><p>Rules-writing guidance is especially important here. A good rulebook is not just a storage place for all the rules. It is a teaching tool. It should establish the goal, describe components in service of play, teach turn structure in the order players experience it, and use examples wherever confusion is likely. If terminology shifts halfway through, or if key exceptions are buried, the game will feel rougher than it needs to.</p><p>Player aids and component language also matter. If players repeatedly ask the same question, that is often a sign that the answer belongs on the table, not only in the rulebook. Clarifying the surface of play can be a bigger improvement than adding another mechanism.</p><h3>Meaningful pre-pitch polish</h3><ul><li>Consistent terminology for actions, resources, and phases</li><li>A teachable turn summary or player aid</li><li>Examples for the most confusing rules or scoring cases</li><li>Component layouts that support scanning and memory</li><li>A rulebook order that follows the lived experience of play</li></ul><p>Notice what is not on that list: luxurious artwork, perfect graphic design, or maximum component count. Those can matter later, but they are rarely the highest-leverage forms of polish during active design.</p><p>The final mindset shift is generous but important: polish should serve understanding. If a game becomes clearer, easier to teach, and easier to evaluate, that is real polish. If it merely looks more finished while the design problems remain, it is theater.</p>",
+          "checklist": [
+            "Review your terminology and remove any inconsistent labels for the same concept.",
+            "Create or revise one player aid that answers the most common repeated question.",
+            "Choose two rules that need a worked example in the rulebook.",
+            "List one cosmetic task you are intentionally postponing because clarity work matters more right now."
+          ],
+          "reflectionQuestions": [
+            "When a new player first opens your rulebook or looks at the table, what do you most want them to understand within sixty seconds?",
+            "What piece of polish in your project would feel most lovingly useful rather than merely impressive?"
+          ],
+          "quiz": [
+            {
+              "prompt": "What kind of polish matters most before pitching or broadly sharing a prototype?",
+              "choices": [
+                "Lavish art that hides unresolved mechanical issues",
+                "The maximum number of custom components",
+                "Communication polish that makes the game easier to teach and play",
+                "A long appendix with every design note ever written"
+              ],
+              "correctIndex": 2,
+              "explanation": "Clarity and usability usually create more value than cosmetic finish during active design."
+            },
+            {
+              "prompt": "What is the main job of a good rulebook draft?",
+              "choices": [
+                "To preserve every possible edge case before teaching the goal",
+                "To teach the game in a logical order that matches the player experience",
+                "To impress readers with designer vocabulary",
+                "To replace all need for player aids"
+              ],
+              "correctIndex": 1,
+              "explanation": "A rulebook should support learning and reference, not simply store rules arbitrarily."
+            },
+            {
+              "prompt": "When should a repeated player question influence your polish work?",
+              "choices": [
+                "Only after manufacturing begins",
+                "Never; questions are part of discovery",
+                "Only if the question comes from expert players",
+                "When it suggests that a rule, aid, or component needs clearer communication"
+              ],
+              "correctIndex": 3,
+              "explanation": "Repeated questions are strong evidence that the game is not yet communicating something clearly enough."
+            },
+            {
+              "prompt": "What is a sign that polish has drifted into theater?",
+              "choices": [
+                "The surface looks more finished, but the core problems are still unresolved.",
+                "The game becomes easier to teach and evaluate.",
+                "A player aid reduces rules lookups.",
+                "Examples make a scoring rule easier to understand."
+              ],
+              "correctIndex": 0,
+              "explanation": "Cosmetic finish cannot substitute for design clarity or structural quality."
+            }
+          ],
+          "resources": [
+            "Writing Rules",
+            "Refining Your Game",
+            "How to Playtest like a Boss"
+          ],
+          "previousLessonId": "boardgame-lesson-07",
+          "nextLessonId": null
+        }
+      ]
+    }
+  ]
+}

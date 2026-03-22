@@ -1,0 +1,598 @@
+{
+  "id": "course-homelab",
+  "slug": "homelab-foundations",
+  "title": "Homelab Foundations",
+  "subtitle": "Build a reliable personal server stack step by step",
+  "description": "A deeper practical course on planning, deploying, backing up, and maintaining a personal server stack that stays useful after the setup excitement fades. The throughline is operational judgment: choose what to run, keep it reproducible, protect the data that matters, and make remote access safer than the usual port-forwarding trap.",
+  "coverImage": "assets/images/homelab-foundations-cover.svg",
+  "category": "Infrastructure",
+  "tags": [
+    "docker",
+    "storage",
+    "networking",
+    "ops"
+  ],
+  "difficulty": "Intermediate",
+  "estimatedHours": 18,
+  "modules": [
+    {
+      "id": "planning-your-homelab",
+      "title": "Planning Your Homelab",
+      "description": "Choose scope, operating standards, and failure tolerance before service sprawl begins.",
+      "lessons": [
+        {
+          "id": "homelab-lesson-01",
+          "slug": "defining-the-job-of-your-homelab",
+          "title": "Defining the Job of Your Homelab",
+          "durationMinutes": 55,
+          "objectives": [
+            "Define your homelab by the jobs it must perform rather than by a list of trendy tools.",
+            "Separate experimental services from useful services and useful services from critical ones.",
+            "Write a practical operating brief that will guide later hardware, storage, and security decisions."
+          ],
+          "content": "<p>A homelab becomes durable when it has a job description. That sounds almost boring, but it is the difference between a calm personal system and a pile of half-maintained containers. The job description does not need to be corporate. It can be as simple as: host my notes app, back up family photos, run a private dashboard, and give me a safe place to learn containers. What matters is that the system exists to serve named outcomes.</p><p>The most useful planning move is to group services by consequence. <strong>Experimental</strong> services can break with little cost. <strong>Useful</strong> services are annoying to lose but survivable. <strong>Critical</strong> services hold irreplaceable data or support routines you actually rely on. That classification becomes the skeleton of your operating model. A critical backup repository deserves a different level of discipline than a test instance of a self-hosted RSS reader.</p><p>Good homelab design begins with honest limits. You are not designing for a staff of three. You are designing for your future self on a tired weeknight. That means the system should be explainable from a few documents, recoverable from a handful of known commands, and small enough that updates do not feel like ceremonial risk. If a plan requires constant vigilance, it is probably too large for a personal lab.</p><h3>Build an operating brief</h3><p>Write a single page with five headings: services, users, data, tolerance for downtime, and tolerance for data loss. Example categories help:</p><ul><li><strong>Services:</strong> media server, file sync, note app, code runner, dashboard</li><li><strong>Users:</strong> only me, me and household, a small friend group</li><li><strong>Data:</strong> disposable cache, convenient data, painful-to-lose data, irreplaceable data</li><li><strong>Downtime:</strong> minutes, hours, days, whenever I feel like fixing it</li><li><strong>Data loss:</strong> okay to recreate, annoying, unacceptable</li></ul><p>This brief is more than planning paperwork. It becomes a filter. When a new service looks interesting, you can ask: does it fit the actual job of this lab, or is it just adding another maintenance surface?</p><h3>Three beginner mistakes worth avoiding</h3><ol><li>Equating more services with a better lab. A smaller reliable stack teaches better habits than a larger fragile one.</li><li>Skipping data classification. Backups are only trustworthy when you know what must be backed up first.</li><li>Assuming motivation will stay high forever. Design for ordinary attention, not peak enthusiasm.</li></ol><p>If you do this lesson well, you will not only know what to build first. You will also know what to ignore, which is where a surprising amount of long-term reliability begins.</p>",
+          "checklist": [
+            "Write a one-page operating brief with services, users, data classes, downtime tolerance, and data-loss tolerance.",
+            "Classify each planned service as experimental, useful, or critical.",
+            "Pick one service that does not belong in version one and explicitly postpone it.",
+            "Define what a successful first month of homelab use would look like."
+          ],
+          "reflectionQuestions": [
+            "If your homelab had to justify its existence to tired future-you six months from now, which two jobs would make it worth keeping?",
+            "Which imagined service feels exciting right now but would quietly increase maintenance far more than it would increase value?"
+          ],
+          "quiz": [
+            {
+              "prompt": "Which planning question creates the strongest foundation for a new homelab?",
+              "choices": [
+                "Which YouTube stack should I copy first?",
+                "Which rack accessories make the setup look serious?",
+                "What jobs should this system reliably perform for me?",
+                "How many services can I fit onto one host?"
+              ],
+              "correctIndex": 2,
+              "explanation": "A job-based definition keeps every later choice tied to actual value rather than novelty."
+            },
+            {
+              "prompt": "Why is service criticality useful to define early?",
+              "choices": [
+                "It changes backup, restore, and maintenance expectations.",
+                "It guarantees lower electricity use.",
+                "It tells you which tools are most fashionable.",
+                "It removes the need for documentation."
+              ],
+              "correctIndex": 0,
+              "explanation": "Critical services deserve stricter recovery and maintenance habits than purely experimental ones."
+            },
+            {
+              "prompt": "What is the healthiest design assumption for a personal homelab?",
+              "choices": [
+                "I should build for an imaginary future team.",
+                "I can rely on motivation to stay high forever.",
+                "The best lab is the biggest lab I can assemble.",
+                "The system should remain understandable on an ordinary tired evening."
+              ],
+              "correctIndex": 3,
+              "explanation": "Personal infrastructure lasts when it is sized for the operator's real time and attention."
+            }
+          ],
+          "resources": [
+            "Compose File Reference",
+            "Restic Documentation",
+            "Tailscale SSH"
+          ],
+          "previousLessonId": null,
+          "nextLessonId": "homelab-lesson-02"
+        },
+        {
+          "id": "homelab-lesson-02",
+          "slug": "hardware-network-and-os-decisions",
+          "title": "Hardware, Network, and OS Decisions",
+          "durationMinutes": 60,
+          "objectives": [
+            "Match hardware to workload shape instead of vague future-proofing.",
+            "Design a stable network identity for the host and the services it exposes.",
+            "Choose an operating system and update model you can realistically maintain."
+          ],
+          "content": "<p>Homelab hardware decisions become easier when you think in bottlenecks rather than prestige. Most personal services care far more about memory, storage behavior, and uptime calmness than about headline CPU power. A used business mini PC with enough RAM and an SSD often outperforms a more glamorous machine that runs hotter, idles inefficiently, or tempts you into needless complexity.</p><p>Start with workload shape. Media transcoding pushes you toward hardware acceleration. Databases and search tools care about storage latency and memory. Light web apps, dashboards, and automation tools are often satisfied with modest CPU. Virtual machines add a different memory and storage profile than containers. Write those shapes down instead of shopping from vibes.</p><h3>Think about the network before you deploy</h3><p>A homelab is easier to trust when it has a stable identity on the LAN. That usually means a DHCP reservation or static assignment at the router, a hostname you will actually remember, and a simple naming scheme for services. A small example:</p><pre><code>host: atlas\nlan name: atlas.home\nservices:\n- notes.home\n- media.home\n- dash.home</code></pre><p>You do not need a perfect DNS architecture to benefit from predictability. The main goal is to stop your services from becoming a collection of forgotten IP addresses and browser bookmarks.</p><p>Your OS choice should optimize for clarity. Debian, Ubuntu Server, and similar Linux distributions remain common because documentation is deep and the container ecosystem fits them well. The winning question is not which OS is theoretically best. It is which one you can patch, inspect, and debug with confidence. If the update process feels mysterious, the platform will accumulate emotional friction.</p><h3>Decision frame: enough, not maximum</h3><ul><li><strong>CPU:</strong> enough for your peak concurrent tasks, not enough to win benchmarks.</li><li><strong>RAM:</strong> sized for containers, caches, and headroom during updates.</li><li><strong>Storage:</strong> planned around persistence, backups, and growth by service class.</li><li><strong>Network:</strong> stable addressing, simple naming, known remote-access path.</li><li><strong>OS:</strong> documented defaults, predictable package and update habits.</li></ul><p>A mature homelab grows from a good base. A shaky base forces every later decision to compensate for uncertainty you could have removed at the start.</p>",
+          "checklist": [
+            "Estimate RAM, storage, and CPU needs for your first wave of services based on workload shape.",
+            "Reserve a stable LAN address and pick a hostname you will still like in a year.",
+            "Choose an OS and write a one-sentence patching plan for it.",
+            "Identify one piece of hardware you are deliberately not buying yet and why."
+          ],
+          "reflectionQuestions": [
+            "If you had to explain your hardware plan to a practical friend who dislikes waste, which choice would sound most justified and which would sound least justified?",
+            "Which part of your network setup feels like solid ground already, and which part still feels like a black box you hope not to touch?"
+          ],
+          "quiz": [
+            {
+              "prompt": "What usually makes the best first homelab hardware choice?",
+              "choices": [
+                "The newest device with the highest benchmark numbers",
+                "The machine that best matches current workloads and is easy to maintain",
+                "A gaming rig repurposed without regard to power draw or noise",
+                "Any machine as long as it has many RGB components"
+              ],
+              "correctIndex": 1,
+              "explanation": "Sane matching beats vague future-proofing in personal infrastructure."
+            },
+            {
+              "prompt": "Why does a stable host address matter?",
+              "choices": [
+                "It reduces the number of backups required.",
+                "It lets Docker avoid using volumes.",
+                "It automatically secures internet exposure.",
+                "It makes service endpoints, DNS, and administration paths predictable."
+              ],
+              "correctIndex": 3,
+              "explanation": "Predictable addressing lowers cognitive load across administration, reverse proxies, and troubleshooting."
+            },
+            {
+              "prompt": "Which OS selection principle is strongest for a personal homelab?",
+              "choices": [
+                "Choose the platform you can patch and debug calmly.",
+                "Choose the rarest distro to learn the most quickly.",
+                "Choose whatever most closely resembles production Kubernetes.",
+                "Choose the one with the most advanced installer graphics."
+              ],
+              "correctIndex": 0,
+              "explanation": "Operational confidence matters more than abstract elegance in a one-person system."
+            }
+          ],
+          "resources": [
+            "Compose File Reference",
+            "Docker Storage Guide",
+            "Tailscale Serve"
+          ],
+          "previousLessonId": "homelab-lesson-01",
+          "nextLessonId": "homelab-lesson-03"
+        }
+      ]
+    },
+    {
+      "id": "docker-basics",
+      "title": "Docker Basics",
+      "description": "Model services as reproducible units instead of host-level improvisation.",
+      "lessons": [
+        {
+          "id": "homelab-lesson-03",
+          "slug": "containers-as-operating-units",
+          "title": "Containers as Operating Units",
+          "durationMinutes": 65,
+          "objectives": [
+            "Understand the operating model containers create for personal infrastructure.",
+            "Separate images, containers, volumes, and networks clearly enough to reason about failure.",
+            "Adopt a replacement mindset instead of hand-tuning live containers."
+          ],
+          "content": "<p>Containers are valuable in a homelab because they improve repeatability. They are not an excuse to avoid understanding the software. In fact, the better you understand a service, the more value you get from containerizing it. A containerized service is easier to recreate, easier to document, and easier to move because its runtime assumptions are expressed more explicitly.</p><p>The four concepts that matter most are worth learning cleanly. An <strong>image</strong> is a packaged blueprint. A <strong>container</strong> is a running instance created from that blueprint. A <strong>volume</strong> stores persistent data outside the ephemeral container filesystem. A <strong>network</strong> determines who can talk to whom. When beginners blur those layers, they create the classic failure modes: rebuilding the wrong thing, deleting persistent data by accident, or publishing ports that never needed exposure.</p><p>Docker's official storage guidance is especially useful here because it forces the right question: what data belongs outside the container? Databases, uploads, configuration you expect to preserve, and application state usually need deliberate persistence. Temporary caches and throwaway build artifacts often do not. Once you get that separation right, containers stop feeling magical and start feeling manageable.</p><h3>Think in terms of replacement</h3><p>Imagine one service fails to start after an update. If your operating model is healthy, you should be able to answer these questions:</p><ul><li>Where is the source definition for the service?</li><li>Which data path or named volume contains the persistent state?</li><li>Which environment values must be present?</li><li>Which other services does it depend on?</li><li>How will I know the replacement is healthy?</li></ul><p>That is why containerization is so powerful in a personal lab. It turns operations from memory and shell history into an inspectable system.</p><h3>Common anti-patterns</h3><ol><li>Making edits inside running containers and forgetting to capture them in source configuration.</li><li>Using bind mounts everywhere without a naming convention or ownership plan.</li><li>Publishing every service port directly to the LAN.</li><li>Treating the host as a place to improvise rather than a platform that runs declared services.</li></ol><p>If you want a practical mantra for this lesson, use this one: containers are not the application. They are a disciplined way of running the application.</p>",
+          "checklist": [
+            "Write one-sentence definitions for image, container, volume, and network without looking them up.",
+            "For each planned service, identify exactly what data must persist outside the container.",
+            "List one service behavior you should never rely on if it only exists inside a running container.",
+            "Pick one service and describe how you would recreate it from source definition plus persisted data."
+          ],
+          "reflectionQuestions": [
+            "Which part of containerization still feels fuzzy enough that it could cause a bad restore decision under pressure?",
+            "If your host machine vanished tonight, which service would be easiest to rebuild tomorrow and which would expose the weakest part of your operating model?"
+          ],
+          "quiz": [
+            {
+              "prompt": "What is the main operational value of containers in a homelab?",
+              "choices": [
+                "They eliminate the need to understand the service you are running.",
+                "They guarantee better security than any host setup.",
+                "They make services easier to declare, recreate, and inspect.",
+                "They replace backup planning."
+              ],
+              "correctIndex": 2,
+              "explanation": "The real gain is reproducibility and clearer service boundaries, not magic."
+            },
+            {
+              "prompt": "Which statement best describes a named volume?",
+              "choices": [
+                "A list of Docker images available on Docker Hub",
+                "A place to store persistent data outside the container instance",
+                "A network policy that controls service reachability",
+                "A container image optimized for databases"
+              ],
+              "correctIndex": 1,
+              "explanation": "Volumes exist to hold state that should survive container replacement."
+            },
+            {
+              "prompt": "What is a risky anti-pattern in container operations?",
+              "choices": [
+                "Capturing service settings in a Compose file",
+                "Separating persisted data from ephemeral runtime state",
+                "Naming volumes intentionally",
+                "Editing a running container by hand and not recording the change elsewhere"
+              ],
+              "correctIndex": 3,
+              "explanation": "Live-only changes create configuration drift that is hard to recover from later."
+            },
+            {
+              "prompt": "Why is thinking in terms of replacement so useful?",
+              "choices": [
+                "It forces you to distinguish source configuration from persistent state.",
+                "It encourages you to delete and recreate the host weekly.",
+                "It reduces the need to understand dependencies.",
+                "It means health checks no longer matter."
+              ],
+              "correctIndex": 0,
+              "explanation": "A replacement mindset reveals whether your system is actually modeled clearly enough to recover."
+            }
+          ],
+          "resources": [
+            "Docker Storage Guide",
+            "Compose File Reference"
+          ],
+          "previousLessonId": "homelab-lesson-02",
+          "nextLessonId": "homelab-lesson-04"
+        },
+        {
+          "id": "homelab-lesson-04",
+          "slug": "docker-compose-basics",
+          "title": "Docker Compose Basics",
+          "durationMinutes": 70,
+          "objectives": [
+            "Use Compose as a durable system definition rather than a convenience wrapper for long commands.",
+            "Model services, ports, volumes, networks, and health expectations in a readable way.",
+            "Understand how startup order and service readiness affect real stacks."
+          ],
+          "content": "<p>Compose is where a container-based homelab becomes maintainable. The Compose file is not just a launch shortcut. It is a declaration of what the stack is, what it depends on, and how it should come back after change. That makes it one of the highest-value documents in the entire lab.</p><p>The Docker Compose reference is worth studying because it shows you the vocabulary of a stack: <code>services</code>, <code>volumes</code>, <code>networks</code>, environment settings, restart policies, and health checks. Instead of one giant command, you express intent in a file that future-you can actually read. Consider this minimal example:</p><pre><code>services:\n  notes:\n    image: my-notes-app:latest\n    ports:\n      - 8080:8080\n    environment:\n      - APP_ENV=prod\n    volumes:\n      - notes-data:/var/lib/notes\n    restart: unless-stopped\n\nvolumes:\n  notes-data:</code></pre><p>That file tells a meaningful story. A notes service exists. It exposes one port. It keeps persistent data in a named volume. It should restart if the machine reboots. Even a tiny Compose file is better operational history than a terminal command copied from memory.</p><p>As your stack grows, Compose also becomes where you enforce restraint. Internal-only services can live on a private network without publishing ports. Secrets can stay out of the file and in a more controlled mechanism. Volumes can be named consistently. Health checks can help you distinguish a started container from a ready service. Those details matter because many stack problems are not crashes. They are partial starts, silent misconfigurations, or services that came up in the wrong order.</p><h3>Readiness is not the same as startup</h3><p>This is one of the most important practical lessons from Docker documentation. A container can start before its dependency is ready. If your app needs a database, it may need health checks, retry logic, or explicit dependency handling rather than just optimism. In personal infrastructure, this is where seemingly random flakiness often begins.</p><h3>Compose habits that age well</h3><ul><li>Name services and volumes in a way that reveals purpose.</li><li>Expose only the ports that need to be reachable.</li><li>Add comments only when they explain intent, not the obvious.</li><li>Treat the Compose file as source of truth, not a note after the fact.</li><li>Review changes to the file as if they could affect recovery, because they can.</li></ul><p>If you keep this discipline, Compose becomes one of the strongest forms of change control you can have without turning your homelab into a full-time DevOps hobby.</p>",
+          "checklist": [
+            "Draft a Compose file for one service using an image, a named volume, a restart policy, and only the necessary published ports.",
+            "Identify one dependency in your stack that might need health checks or readiness handling.",
+            "Choose a naming convention for services, volumes, and Compose projects.",
+            "Write down which settings belong in the Compose file and which should live elsewhere."
+          ],
+          "reflectionQuestions": [
+            "If someone you trust had to understand your homelab from one file during an emergency, what would you want that file to make instantly obvious?",
+            "Where might your stack be relying on startup luck right now instead of explicitly modeled readiness?"
+          ],
+          "quiz": [
+            {
+              "prompt": "What is Compose doing at its best in a homelab?",
+              "choices": [
+                "Replacing the need to understand networking",
+                "Turning deployment history into readable, reusable configuration",
+                "Guaranteeing secure defaults for every image",
+                "Removing the need for service documentation"
+              ],
+              "correctIndex": 1,
+              "explanation": "Compose captures deployment intent in a form you can review, reuse, and recover from."
+            },
+            {
+              "prompt": "Why should many internal services avoid published ports?",
+              "choices": [
+                "Internal services can often communicate privately without extra exposure.",
+                "Published ports break named volumes.",
+                "Containers cannot talk to each other unless they are all public.",
+                "LAN exposure is required for health checks."
+              ],
+              "correctIndex": 0,
+              "explanation": "Publishing fewer ports reduces accidental exposure and keeps the reachable surface smaller."
+            },
+            {
+              "prompt": "What does a health check help distinguish?",
+              "choices": [
+                "Whether a service is popular",
+                "Whether the host has enough RGB lighting",
+                "Whether a container has started versus whether the service is actually ready",
+                "Whether backups are encrypted"
+              ],
+              "correctIndex": 2,
+              "explanation": "Startup and readiness are not the same thing, especially in multi-service stacks."
+            },
+            {
+              "prompt": "Why can startup order still produce flaky behavior even with Compose?",
+              "choices": [
+                "Because Compose forces all containers to wait indefinitely",
+                "Because volumes can only mount after network creation",
+                "Because restart policies disable retries",
+                "Because container start does not guarantee dependency readiness"
+              ],
+              "correctIndex": 3,
+              "explanation": "Many real failures happen when one service begins work before another service is actually ready to serve requests."
+            }
+          ],
+          "resources": [
+            "Compose File Reference",
+            "Docker Storage Guide"
+          ],
+          "previousLessonId": "homelab-lesson-03",
+          "nextLessonId": "homelab-lesson-05"
+        }
+      ]
+    },
+    {
+      "id": "storage-and-backups",
+      "title": "Storage and Backups",
+      "description": "Protect what matters by separating convenient storage from credible recovery.",
+      "lessons": [
+        {
+          "id": "homelab-lesson-05",
+          "slug": "storage-layout-that-ages-well",
+          "title": "Storage Layout That Ages Well",
+          "durationMinutes": 60,
+          "objectives": [
+            "Organize service data so migrations, audits, and restores are easier to reason about.",
+            "Separate configuration, application state, media, cache, and backups clearly.",
+            "Choose storage boundaries that match how the data changes and how much it matters."
+          ],
+          "content": "<p>Storage problems are often classification problems wearing a capacity costume. A surprising amount of pain comes not from running out of space, but from not knowing what lives where, what can be regenerated, and what must never be mixed with backup repositories or transient cache data. A clean layout reduces both stress and mistakes.</p><p>Docker's storage guidance helps because it nudges you to ask where state belongs. Some data should live in named volumes. Some may live in carefully managed bind mounts. Some belongs on a separate disk, and some should be treated as disposable. The right answer is not one global rule. The right answer is a set of boundaries that mirror how the data behaves.</p><h3>A practical directory model</h3><p>Many personal labs benefit from an intentionally boring structure:</p><pre><code>/srv/compose        # compose files, env files, service definitions\n/srv/data          # persistent service data by app\n/srv/media         # large media libraries or archives\n/srv/backups       # local staging area or repository targets\n/mnt/external      # mounted external disks, labeled and documented</code></pre><p>Inside <code>/srv/data</code>, keep one clearly named path per service. That makes ownership, migration, and backup selection simpler. Inside <code>/srv/compose</code>, keep service definitions readable and versioned if possible. The goal is not elegance for its own sake. The goal is to make your system legible at a glance.</p><p>You also want to think in failure domains. If your primary data and your only backup repository live on the same failing disk, you do not really have a recovery strategy. If mount points are undocumented and ownership rules are inconsistent, even a small migration can become risky. Written structure is a kindness to future-you.</p><h3>Questions that improve storage design</h3><ul><li>Can this data be regenerated, or is it authoritative?</li><li>Does it change often, and does it need snapshot-friendly treatment?</li><li>Would I back this up differently from the rest of the service?</li><li>Would a restore be clearer if this lived in its own path?</li></ul><p>Storage layout is infrastructure pedagogy. Every folder teaches you what the system believes is important. Make sure the lesson is clear.</p>",
+          "checklist": [
+            "Map every service into configuration, persistent state, media, cache, and backup buckets.",
+            "Choose root paths for service definitions, persistent data, and backups.",
+            "Document mount points, disk labels, and any ownership expectations you will rely on later.",
+            "Identify one place where important data is currently mixed with temporary or confusing data."
+          ],
+          "reflectionQuestions": [
+            "If you had to restore your most important service onto a new machine with no internet search, which part of your storage layout would feel refreshingly obvious and which part would feel like archaeology?",
+            "Where are you still trusting your memory more than your directory structure?"
+          ],
+          "quiz": [
+            {
+              "prompt": "What is the main benefit of a clearly separated storage layout?",
+              "choices": [
+                "It automatically encrypts all service data.",
+                "It lets every container use the same path for everything.",
+                "It eliminates the need for mount documentation.",
+                "It makes migrations, backups, and restores easier to reason about."
+              ],
+              "correctIndex": 3,
+              "explanation": "Clear boundaries lower confusion and reduce the chance of backing up or restoring the wrong thing."
+            },
+            {
+              "prompt": "Why is it risky to mix primary data and backup data carelessly?",
+              "choices": [
+                "Because Docker blocks restores from mixed paths",
+                "Because backup tools only work with media files",
+                "Because it makes failure domains and recovery logic harder to understand",
+                "Because it prevents using named volumes"
+              ],
+              "correctIndex": 2,
+              "explanation": "When roles blur, retention, restore targets, and failure consequences become much harder to reason about."
+            },
+            {
+              "prompt": "Which question most directly improves storage boundaries?",
+              "choices": [
+                "Which folder name looks most advanced?",
+                "Can this data be regenerated, or is it authoritative?",
+                "How many top-level directories can I create?",
+                "Would using one giant shared path save typing?"
+              ],
+              "correctIndex": 1,
+              "explanation": "Understanding whether data is disposable or authoritative is central to layout and backup choices."
+            }
+          ],
+          "resources": [
+            "Docker Storage Guide",
+            "Restic Documentation"
+          ],
+          "previousLessonId": "homelab-lesson-04",
+          "nextLessonId": "homelab-lesson-06"
+        },
+        {
+          "id": "homelab-lesson-06",
+          "slug": "backup-plans-you-can-trust",
+          "title": "Backup Plans You Can Trust",
+          "durationMinutes": 75,
+          "objectives": [
+            "Build a backup plan around restore confidence rather than backup frequency alone.",
+            "Understand how restic approaches repositories, snapshots, integrity checks, and restores.",
+            "Define a lightweight retention and restore-testing rhythm for a personal lab."
+          ],
+          "content": "<p>The most common backup mistake in personal infrastructure is counting jobs instead of measuring recoverability. A backup system is not trustworthy because it ran. It is trustworthy because you know what it captured, where it stored it, how you would restore from it, and how you would notice corruption or silent failure. That is a much stronger standard, and it is worth adopting.</p><p>A helpful mental model is the classic 3-2-1 rule: at least three copies of important data, on two kinds of media, with one copy offsite. You do not have to implement that in a maximalist way on day one, but it is still a powerful frame. The key lesson is to avoid a single-disk illusion of safety.</p><p>Restic is a strong fit for homelabs because the documentation emphasizes the whole lifecycle: initialize a repository, create snapshots, list them, forget old ones according to retention policy, check integrity, and restore specific data. In other words, the tool encourages backup as an operational system rather than a one-way dump command. That mindset is more important than the exact tool.</p><h3>Designing a backup policy that a human can keep</h3><ul><li><strong>Scope:</strong> which directories or volumes are included, and which are intentionally excluded</li><li><strong>Frequency:</strong> how often snapshots run for critical versus merely useful data</li><li><strong>Destination:</strong> local repository, external disk, remote target, or more than one</li><li><strong>Retention:</strong> how many daily, weekly, and monthly points you want to keep</li><li><strong>Verification:</strong> when you will run integrity checks and sample restores</li></ul><p>A small example policy might be: snapshot notes and documents daily, media metadata daily, media library weekly, run a repository check monthly, and perform one real restore drill each quarter. That is already far better than the common pattern of running a script and never testing it.</p><h3>Restore drills are the real curriculum</h3><p>Choose one service and practice recovering a single file, then a full directory, then a configuration file plus data set together. The point is not drama. The point is muscle memory. During a real failure, your future self should be following a written path, not inventing one while stressed.</p><p>If you only remember one sentence from this lesson, make it this: the backup you trust is the backup you have restored from, even in miniature.</p>",
+          "checklist": [
+            "Define backup scope, frequency, destination, retention, and verification for your most important data.",
+            "Write down one restic repository location and one restore target you would use for practice.",
+            "Schedule a simple integrity check cadence and one restore drill in the next month or quarter.",
+            "Identify one data set that needs offsite protection rather than local-disk optimism."
+          ],
+          "reflectionQuestions": [
+            "If you woke up tomorrow to discover one critical service corrupted, what part of your response plan would feel confident and what part would feel like hopeful improvisation?",
+            "What would it take for you to emotionally trust your backup system instead of merely assuming it probably works?"
+          ],
+          "quiz": [
+            {
+              "prompt": "What is the strongest test of a backup system?",
+              "choices": [
+                "You can restore from it with confidence.",
+                "The job runs often and prints success messages.",
+                "The repository is large.",
+                "It uses an encrypted external drive."
+              ],
+              "correctIndex": 0,
+              "explanation": "Backups matter because of recovery, not because jobs happen frequently."
+            },
+            {
+              "prompt": "Why is restic a good fit for disciplined personal backups?",
+              "choices": [
+                "It focuses only on copying files once.",
+                "It avoids any need for retention decisions.",
+                "It works only for very large enterprise clusters.",
+                "It treats snapshots, integrity checks, and restores as part of one workflow."
+              ],
+              "correctIndex": 3,
+              "explanation": "Restic encourages a full recovery lifecycle rather than a one-step backup ritual."
+            },
+            {
+              "prompt": "What does the 3-2-1 rule mainly protect against?",
+              "choices": [
+                "Having too many backup tools installed",
+                "Single-point-of-failure thinking",
+                "Publishing too many ports",
+                "Container image sprawl"
+              ],
+              "correctIndex": 1,
+              "explanation": "The point is to avoid trusting one copy or one storage location too much."
+            },
+            {
+              "prompt": "Why run restore drills even when everything seems fine?",
+              "choices": [
+                "To make backup jobs finish faster",
+                "To increase compression ratios",
+                "To build practical recovery knowledge before a real failure",
+                "To eliminate the need for retention policies"
+              ],
+              "correctIndex": 2,
+              "explanation": "Practice makes recovery a procedure instead of an anxious guess."
+            }
+          ],
+          "resources": [
+            "Restic Documentation"
+          ],
+          "previousLessonId": "homelab-lesson-05",
+          "nextLessonId": "homelab-lesson-07"
+        }
+      ]
+    },
+    {
+      "id": "remote-access-and-security",
+      "title": "Remote Access and Security",
+      "description": "Expose less, authenticate better, and keep the lab operable over time.",
+      "lessons": [
+        {
+          "id": "homelab-lesson-07",
+          "slug": "remote-access-without-regret",
+          "title": "Remote Access Without Regret",
+          "durationMinutes": 65,
+          "objectives": [
+            "Choose safer remote-access patterns than blanket public exposure.",
+            "Understand why identity-based access control is a strong fit for homelabs.",
+            "Use Tailscale SSH and related patterns to reduce attack surface."
+          ],
+          "content": "<p>Remote access is where many homelabs quietly turn from useful to risky. The usual temptation is to expose a port, set up dynamic DNS, and promise yourself you will harden it later. Sometimes that works for a while. Too often it becomes an unfinished security story that sits on the public internet longer than intended.</p><p>A healthier frame is to ask what needs to be reachable, by whom, and under what identity. Tailscale's documentation is valuable here because it shifts the mental model from public exposure to authenticated membership in a private network. Tailscale SSH goes a step further by applying identity-aware access controls to SSH sessions, which is a much calmer pattern for personal administration than leaving port 22 open to the world.</p><p>For web services that you want accessible privately rather than publicly, Tailscale Serve is also a strong pattern. It lets you share local services inside your tailnet without turning every internal dashboard into an internet-facing endpoint. That is especially attractive for homelab tools that are useful remotely but do not need public reachability.</p><h3>Remote access design questions</h3><ul><li>Does this service need public access, private remote access, or local-only access?</li><li>Is the identity model strong enough to survive a password mistake?</li><li>Could I remove public exposure entirely and still get the convenience I want?</li><li>Do I have logs or at least a known path to understand access attempts?</li></ul><p>Security in a homelab is not about theatrical paranoia. It is about removing unnecessary exposure while preserving usefulness. The smaller the reachable surface, the fewer things you need to worry about at 10 p.m.</p><h3>Practical posture improvements</h3><ol><li>Prefer private remote-access overlays or identity-based access over raw port forwarding when possible.</li><li>Expose only the services that truly need broader reach.</li><li>Keep admin paths separate from public user paths.</li><li>Document how to revoke access, rotate secrets, and verify who can reach what.</li></ol><p>The goal is not a perfectly hardened fortress. The goal is a personal system that avoids the most common, preventable mistakes.</p>",
+          "checklist": [
+            "List each service as local-only, private-remote, or public by necessity.",
+            "Choose one administrative path that should use identity-based access rather than public exposure.",
+            "Document how you would revoke remote access for a device or identity.",
+            "Identify one port-forwarding habit you can avoid with a safer pattern."
+          ],
+          "reflectionQuestions": [
+            "Which service in your lab feels most tempting to expose publicly just because it is convenient, and what safer path could give you most of the same value?",
+            "When you imagine checking your homelab from a coffee shop, what would make that experience feel both useful and non-anxious?"
+          ],
+          "quiz": [
+            {
+              "prompt": "What is a major advantage of identity-based remote access in a homelab?",
+              "choices": [
+                "It always makes services faster.",
+                "It lets you skip documentation entirely.",
+                "It can reduce public exposure while tying access to known identities.",
+                "It replaces backups and monitoring."
+              ],
+              "correctIndex": 2,
+              "explanation": "Identity-aware access reduces attack surface and clarifies who should be able to connect."
+            },
+            {
+              "prompt": "Why is blanket port forwarding often a weak default?",
+              "choices": [
+                "Because it exposes more surface area than many personal services actually need",
+                "Because Docker does not support it",
+                "Because all remote access must be public to work",
+                "Because it prevents using DNS"
+              ],
+              "correctIndex": 0,
+              "explanation": "Many homelab services only need private remote access, not public internet reachability."
+            },
+            {
+              "prompt": "What kind of service is especially well suited to Tailscale Serve?",
+              "choices": [
+                "A service that must be reachable by anonymous internet users",
+                "A private internal dashboard you want available remotely without public exposure",
+                "A backup repository that should never be network-accessible",
+                "A container image registry that only exists locally for one minute"
+              ],
+              "correctIndex": 1,
+              "explanation": "Serve is valuable when a service should be reachable inside a trusted private network rather than publicly."
+            }
+          ],
+          "resources": [
+            "Tailscale SSH",
+            "Tailscale Serve"
+          ],
+          "previousLessonId": "homelab-lesson-06",
+          "nextLessonId": "homelab-lesson-08"
+        },
+        {
+          "id": "homelab-lesson-08",
+          "slug": "maintenance-habits-and-change-control",
+          "title": "Maintenance Habits and Change Control",
+          "durationMinutes": 70,
+          "objectives": [
+            "Create a lightweight maintenance rhythm that keeps the lab trustworthy over time.",
+            "Use change control habits that reduce accidental breakage and recovery confusion.",
+            "Know when to pause growth and improve system quality instead."
+          ],
+          "content": "<p>A stable homelab is less about one heroic setup weekend and more about a set of recurring habits. Updates need a rhythm. Backups need a quick glance. Storage needs occasional review. Documentation needs to stay close enough to reality that you can rely on it. The good news is that this does not require enterprise ceremony. It requires consistency.</p><p>Change control sounds formal, but in a personal lab it can be simple. Before changing a service, know what file defines it, what data it depends on, what your rollback path is, and how you will verify success. After the change, write down what happened. That small pause between impulse and action dramatically reduces the number of mysterious breakages you create for yourself.</p><p>One of the most underrated skills in personal infrastructure is knowing when not to add something new. If monitoring is half-configured, backups are untested, and three services still depend on memory instead of notes, then the highest-value improvement is not another application. It is system quality. Reliability compounds just as surely as complexity does.</p><h3>A workable monthly rhythm</h3><ul><li>Review pending OS and container image updates.</li><li>Spot-check disk usage and any unusual growth.</li><li>Verify that backups ran and schedule or perform a small restore drill.</li><li>Review remote-access memberships and exposed services.</li><li>Update the tiny documents you actually depend on: service map, restore notes, and change log.</li></ul><p>You do not need ten dashboards if five written truths will do. The point is to keep the lab legible.</p><h3>When to call a system mature enough</h3><p>A personal stack is in good shape when you can describe it clearly, update it without dread, recover the important parts, and explain the remote-access story without hand-waving. At that point, growth becomes a choice instead of a compulsion. That is a strong ending for a foundations course because it reframes the win: not maximal self-hosting, but a system that genuinely supports your life and learning.</p>",
+          "checklist": [
+            "Create a monthly maintenance checklist covering updates, storage review, backup verification, and access review.",
+            "Write a small pre-change template with source file, dependency, rollback path, and success signal.",
+            "Start a simple change log for meaningful service edits.",
+            "Choose one system-quality improvement that should happen before you add another service."
+          ],
+          "reflectionQuestions": [
+            "What would make your homelab feel less like an exciting project and more like a dependable room in your digital house?",
+            "If you banned yourself from adding any new service for the next month, which maintenance habit would most increase the lab's real value?"
+          ],
+          "quiz": [
+            {
+              "prompt": "Why is lightweight change control valuable in a personal homelab?",
+              "choices": [
+                "It slows you down enough to avoid learning new tools.",
+                "It guarantees zero downtime.",
+                "It makes documentation unnecessary.",
+                "It reduces the chance that a change breaks something without a recovery path."
+              ],
+              "correctIndex": 3,
+              "explanation": "A small amount of deliberate change planning prevents many avoidable self-inflicted outages."
+            },
+            {
+              "prompt": "What is a strong sign that maintenance is being neglected?",
+              "choices": [
+                "You can describe the stack clearly.",
+                "You keep adding services while backups and notes remain half-finished.",
+                "Your update and restore habits are documented.",
+                "You review access memberships periodically."
+              ],
+              "correctIndex": 1,
+              "explanation": "Service growth should not outrun the quality and recoverability of the system."
+            },
+            {
+              "prompt": "Which monthly habit offers the most direct evidence that your recovery story is real?",
+              "choices": [
+                "Reading about backup theory",
+                "Installing another dashboard",
+                "Running or scheduling a small restore drill",
+                "Checking social media for homelab inspiration"
+              ],
+              "correctIndex": 2,
+              "explanation": "Actual restore practice is much stronger evidence than backup optimism."
+            },
+            {
+              "prompt": "When is a homelab mature enough to be considered healthy?",
+              "choices": [
+                "When it is understandable, maintainable, and recoverable",
+                "When it uses more than twenty containers",
+                "When every service is public on the internet",
+                "When it looks impressive in screenshots"
+              ],
+              "correctIndex": 0,
+              "explanation": "A healthy personal system is defined by operability and recovery confidence, not by size."
+            }
+          ],
+          "resources": [
+            "Restic Documentation",
+            "Tailscale SSH",
+            "Tailscale Serve",
+            "Compose File Reference"
+          ],
+          "previousLessonId": "homelab-lesson-07",
+          "nextLessonId": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,263 @@
+[
+  {
+    "id": "res-mlx-docs",
+    "title": "MLX Documentation",
+    "type": "reference",
+    "description": "Apple's official MLX documentation explains the Apple-silicon-first model: unified memory, lazy evaluation, multi-device execution, and LLM examples.",
+    "url": "https://ml-explore.github.io/mlx/build/html/index.html",
+    "tags": ["mac", "mlx", "apple-silicon", "official"],
+    "relatedCourseId": "course-local-models"
+  },
+  {
+    "id": "res-llamacpp-readme",
+    "title": "llama.cpp README",
+    "type": "reference",
+    "description": "The most cited primary source for GGUF-based local inference, Apple Metal support, quantization tradeoffs, and OpenAI-compatible local serving.",
+    "url": "https://github.com/ggml-org/llama.cpp",
+    "tags": ["llama.cpp", "gguf", "metal", "official"],
+    "relatedCourseId": "course-local-models"
+  },
+  {
+    "id": "res-ollama-macos",
+    "title": "Ollama macOS Docs",
+    "type": "reference",
+    "description": "Official guidance for installing and running Ollama on macOS, including the local runtime and service behavior developers build on top of.",
+    "url": "https://docs.ollama.com/macos",
+    "tags": ["ollama", "mac", "setup", "official"],
+    "relatedCourseId": "course-local-models"
+  },
+  {
+    "id": "res-ollama-tool-calling",
+    "title": "Ollama Tool Calling Docs",
+    "type": "reference",
+    "description": "Official docs for tool calling, structured arguments, and the multi-turn orchestration pattern that turns local chat into agent behavior.",
+    "url": "https://docs.ollama.com/capabilities/tool-calling",
+    "tags": ["ollama", "tool-calling", "agents", "official"],
+    "relatedCourseId": "course-local-models"
+  },
+  {
+    "id": "res-aider-ollama",
+    "title": "Aider with Ollama",
+    "type": "article",
+    "description": "A respected practical guide to using local models for real coding workflows, including context-window expectations and model-selection caveats.",
+    "url": "https://aider.chat/docs/llms/ollama.html",
+    "tags": ["aider", "ollama", "coding", "workflow"],
+    "relatedCourseId": "course-local-models"
+  },
+  {
+    "id": "res-compose-spec",
+    "title": "Compose File Reference",
+    "type": "reference",
+    "description": "Docker's canonical Compose specification for defining services, networks, volumes, restart behavior, and multi-container applications.",
+    "url": "https://docs.docker.com/compose/compose-file/",
+    "tags": ["docker", "compose", "official"],
+    "relatedCourseId": "course-homelab"
+  },
+  {
+    "id": "res-docker-storage",
+    "title": "Docker Storage Guide",
+    "type": "reference",
+    "description": "Official Docker guidance on writable layers, named volumes, bind mounts, and when each persistence choice is appropriate.",
+    "url": "https://docs.docker.com/engine/storage/",
+    "tags": ["docker", "storage", "volumes", "official"],
+    "relatedCourseId": "course-homelab"
+  },
+  {
+    "id": "res-restic-docs",
+    "title": "Restic Documentation",
+    "type": "reference",
+    "description": "The official restic documentation covers repositories, backup commands, retention policy, integrity checks, and restore procedures.",
+    "url": "https://restic.readthedocs.io/en/stable/",
+    "tags": ["backup", "restic", "restore", "official"],
+    "relatedCourseId": "course-homelab"
+  },
+  {
+    "id": "res-tailscale-ssh",
+    "title": "Tailscale SSH",
+    "type": "reference",
+    "description": "Official Tailscale docs on identity-based SSH, access controls, and safer remote administration without exposing a public port.",
+    "url": "https://tailscale.com/docs/features/tailscale-ssh",
+    "tags": ["tailscale", "ssh", "remote-access", "official"],
+    "relatedCourseId": "course-homelab"
+  },
+  {
+    "id": "res-tailscale-serve",
+    "title": "Tailscale Serve",
+    "type": "reference",
+    "description": "Official guidance on sharing local services privately within a tailnet, a strong pattern for homelabs that should not be internet-public.",
+    "url": "https://tailscale.com/kb/1312/serve",
+    "tags": ["tailscale", "serve", "services", "official"],
+    "relatedCourseId": "course-homelab"
+  },
+  {
+    "id": "res-stonemaier-mechanism",
+    "title": "What Makes a Good Game Mechanism?",
+    "type": "article",
+    "description": "Jamey Stemaier's design article on the qualities of strong mechanisms, especially meaningful choices, intuitive structure, and tension.",
+    "url": "https://stonemaiergames.com/kickstarter/lesson-66-what-makes-a-good-game-mechanism/",
+    "tags": ["board-games", "mechanisms", "design"],
+    "relatedCourseId": "course-boardgame"
+  },
+  {
+    "id": "res-lostgarden-workshopping",
+    "title": "The Workshopping Skill",
+    "type": "article",
+    "description": "Daniel Cook's respected design essay on constraints, iteration, ego-detachment, and generating multiple solutions to the same design problem.",
+    "url": "https://lostgarden.com/2022/11/12/the-workshopping-skill/",
+    "tags": ["board-games", "iteration", "constraints", "design-theory"],
+    "relatedCourseId": "course-boardgame"
+  },
+  {
+    "id": "res-bgdl-playtest",
+    "title": "How to Playtest like a Boss",
+    "type": "article",
+    "description": "Board Game Design Lab's in-depth playtesting guide, focused on turning sessions into useful evidence instead of vague opinions.",
+    "url": "https://boardgamedesignlab.com/playtest-like-a-boss/",
+    "tags": ["board-games", "playtesting", "feedback"],
+    "relatedCourseId": "course-boardgame"
+  },
+  {
+    "id": "res-league-refining",
+    "title": "Refining Your Game",
+    "type": "article",
+    "description": "A practical League of Gamemakers piece on staged testing, blind playtests, and how to treat harsh sessions as design data instead of personal failure.",
+    "url": "https://www.leagueofgamemakers.com/refining-your-game/",
+    "tags": ["board-games", "blind-playtests", "iteration"],
+    "relatedCourseId": "course-boardgame"
+  },
+  {
+    "id": "res-bgdl-writing-rules",
+    "title": "Writing Rules",
+    "type": "article",
+    "description": "Board Game Design Lab's rules-writing hub on organization, terminology, examples, and teaching through the rulebook instead of designer presence.",
+    "url": "https://boardgamedesignlab.com/writing-rules/",
+    "tags": ["board-games", "rulebook", "clarity"],
+    "relatedCourseId": "course-boardgame"
+  },
+  {
+    "id": "res-markdown-gruber",
+    "title": "John Gruber's Markdown Syntax",
+    "type": "reference",
+    "description": "The original Markdown syntax guide and philosophy statement, still the canonical source for readability-first Markdown writing.",
+    "url": "https://daringfireball.net/projects/markdown/syntax",
+    "tags": ["markdown", "spec", "official", "writing"],
+    "relatedCourseId": "course-markdown"
+  },
+  {
+    "id": "res-commonmark-spec",
+    "title": "CommonMark Spec",
+    "type": "reference",
+    "description": "The current CommonMark specification, with detailed examples that clarify ambiguous behaviors across renderers.",
+    "url": "https://spec.commonmark.org/0.31.2/",
+    "tags": ["markdown", "commonmark", "spec", "reference"],
+    "relatedCourseId": "course-markdown"
+  },
+  {
+    "id": "res-commonmark-tutorial",
+    "title": "CommonMark Tutorial",
+    "type": "reference",
+    "description": "A learner-friendly interactive tutorial that turns the CommonMark rules into short practice lessons and examples.",
+    "url": "https://commonmark.org/help/tutorial/",
+    "tags": ["markdown", "commonmark", "tutorial"],
+    "relatedCourseId": "course-markdown"
+  },
+  {
+    "id": "res-gfm-spec",
+    "title": "GitHub Flavored Markdown Spec",
+    "type": "reference",
+    "description": "GitHub's formal Markdown dialect spec covering tables, task lists, strikethrough, autolinks, and other conventions encountered in modern workflows.",
+    "url": "https://github.github.io/gfm/",
+    "tags": ["markdown", "gfm", "github", "spec"],
+    "relatedCourseId": "course-markdown"
+  },
+  {
+    "id": "res-mdn-markdown",
+    "title": "MDN Markdown Writing Guide",
+    "type": "article",
+    "description": "A high-quality editorial example of using Markdown in real documentation work, including practical style choices and authoring habits.",
+    "url": "https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Howto/Markdown_in_MDN",
+    "tags": ["markdown", "mdn", "documentation", "writing"],
+    "relatedCourseId": "course-markdown"
+  },
+  {
+    "id": "res-pro-git",
+    "title": "Pro Git",
+    "type": "reference",
+    "description": "The canonical free Git book by Scott Chacon and Ben Straub. It is still one of the best primary sources for understanding Git's model, commands, branching, remotes, and history.",
+    "url": "https://git-scm.com/book/en/v2",
+    "tags": ["git", "version-control", "official", "book"],
+    "relatedCourseId": "course-git-github"
+  },
+  {
+    "id": "res-github-add-local-code",
+    "title": "Adding locally hosted code to GitHub",
+    "type": "reference",
+    "description": "GitHub's official guide for turning an existing local project into a GitHub repository from the command line.",
+    "url": "https://docs.github.com/en/get-started/git-basics/adding-locally-hosted-code-to-github",
+    "tags": ["github", "git", "publish", "official"],
+    "relatedCourseId": "course-git-github"
+  },
+  {
+    "id": "res-github-remote-repos",
+    "title": "About remote repositories",
+    "type": "reference",
+    "description": "GitHub's explanation of remotes, remote URLs, and how local Git repositories connect to GitHub.",
+    "url": "https://docs.github.com/en/get-started/git-basics/about-remote-repositories",
+    "tags": ["git", "github", "remotes", "official"],
+    "relatedCourseId": "course-git-github"
+  },
+  {
+    "id": "res-github-ssh",
+    "title": "Generating a new SSH key and adding it to the ssh-agent",
+    "type": "reference",
+    "description": "GitHub's official SSH setup guide for creating keys, loading them into your agent, and using SSH with GitHub more comfortably.",
+    "url": "https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent",
+    "tags": ["git", "github", "ssh", "official"],
+    "relatedCourseId": "course-git-github"
+  },
+  {
+    "id": "res-github-forks",
+    "title": "Working with forks",
+    "type": "reference",
+    "description": "GitHub's official guide to what forks are, how they relate to upstream repositories, and when they make sense in real Git workflows.",
+    "url": "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks",
+    "tags": ["git", "github", "forks", "official"],
+    "relatedCourseId": "course-git-github"
+  },
+  {
+    "id": "res-github-desktop-existing",
+    "title": "Adding an existing project to GitHub using GitHub Desktop",
+    "type": "reference",
+    "description": "Official GitHub Desktop documentation for publishing an existing local repository through the desktop client.",
+    "url": "https://docs.github.com/en/desktop/adding-and-cloning-repositories/adding-an-existing-project-to-github-using-github-desktop",
+    "tags": ["github", "desktop", "git", "official"],
+    "relatedCourseId": "course-git-github"
+  },
+  {
+    "id": "res-github-add-file",
+    "title": "Adding a file to a repository",
+    "type": "reference",
+    "description": "GitHub's web UI guide for adding files to a repository, useful as a contrast to a full Git-based workflow.",
+    "url": "https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository",
+    "tags": ["github", "web-ui", "git", "official"],
+    "relatedCourseId": "course-git-github"
+  },
+  {
+    "id": "res-fcc-git-video",
+    "title": "Git and GitHub for Beginners - Crash Course",
+    "type": "video",
+    "description": "A widely respected beginner-friendly video from freeCodeCamp that walks through Git basics, GitHub, and core command-line workflows.",
+    "url": "https://www.youtube.com/watch?v=RGOj5yH7evk",
+    "tags": ["git", "github", "video", "beginner"],
+    "relatedCourseId": "course-git-github"
+  },
+  {
+    "id": "res-kevin-git-video",
+    "title": "Git and GitHub Tutorial for Beginners",
+    "type": "video",
+    "description": "A practical beginner video by Kevin Stratvert that covers Git fundamentals, GitHub setup, and a command-line-first workflow clearly.",
+    "url": "https://www.youtube.com/watch?v=tRZGeaHPoaw",
+    "tags": ["git", "github", "video", "beginner"],
+    "relatedCourseId": "course-git-github"
+  }
+]
