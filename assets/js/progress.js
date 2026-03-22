@@ -1,24 +1,49 @@
 import {
   getActivityLog,
   getChecklistState,
-  getCompletedLessons,
   getLastVisitedLesson,
   getLessonEngagement,
+  getNote,
   getQuizResults,
   isLessonCompleted,
 } from "./storage.js";
 import { formatMinutes } from "./learning.js";
 
+export function lessonHasQuiz(lesson) {
+  return Array.isArray(lesson.quiz) && lesson.quiz.length > 0;
+}
+
+export function isLessonQuizSubmitted(lesson) {
+  return Boolean(getQuizResults()[lesson.id]);
+}
+
+export function isLessonCoreComplete(lesson) {
+  return isLessonCompleted(lesson.id) && (!lessonHasQuiz(lesson) || isLessonQuizSubmitted(lesson));
+}
+
+export function getLessonExtraCreditDetails(lesson) {
+  const checklistCompleted = (getChecklistState()[lesson.id] || []).length;
+  const checklistTotal = lesson.checklist?.length || 0;
+  const notesSaved = Boolean(getNote(lesson.id));
+  return {
+    checklistCompleted,
+    checklistTotal,
+    notesSaved,
+    hasChecklistExtraCredit: checklistCompleted > 0,
+    hasAnyExtraCredit: checklistCompleted > 0 || notesSaved,
+  };
+}
+
 export function getLessonState(lesson) {
-  if (isLessonCompleted(lesson.id)) {
+  if (isLessonCoreComplete(lesson)) {
     return "completed";
   }
 
   const engagement = getLessonEngagement()[lesson.id];
-  const checklistCount = (getChecklistState()[lesson.id] || []).length;
-  const quizSubmitted = Boolean(getQuizResults()[lesson.id]);
+  const quizSubmitted = isLessonQuizSubmitted(lesson);
+  const manuallyMarkedComplete = isLessonCompleted(lesson.id);
 
-  if (checklistCount > 0 || quizSubmitted) {
+  if (manuallyMarkedComplete || quizSubmitted) {
     return "in-progress";
   }
 
@@ -30,23 +55,20 @@ export function getLessonState(lesson) {
 }
 
 export function getLessonProgress(lesson) {
-  const completedLessons = getCompletedLessons();
   const engagement = getLessonEngagement();
-  const checklistState = getChecklistState();
-  const quizResults = getQuizResults();
-  const checklistCount = lesson.checklist?.length || 0;
-  const checkedCount = (checklistState[lesson.id] || []).length;
-  const checklistRatio = checklistCount ? checkedCount / checklistCount : 1;
-  const isComplete = completedLessons.includes(lesson.id) ? 1 : 0;
-  const hasQuiz = Array.isArray(lesson.quiz) && lesson.quiz.length > 0;
-  const quizSubmitted = hasQuiz && quizResults[lesson.id] ? 1 : hasQuiz ? 0 : 1;
   const started = engagement[lesson.id] ? 1 : 0;
+  const manuallyMarkedComplete = isLessonCompleted(lesson.id) ? 1 : 0;
+  const hasQuiz = lessonHasQuiz(lesson);
+  const quizSubmitted = isLessonQuizSubmitted(lesson) ? 1 : 0;
+
+  if (isLessonCoreComplete(lesson)) {
+    return 100;
+  }
 
   const weights = [
-    { weight: 0.15, value: started },
-    { weight: checklistCount ? 0.25 : 0, value: checklistRatio },
-    { weight: hasQuiz ? 0.2 : 0, value: quizSubmitted },
-    { weight: 0.4, value: isComplete },
+    { weight: 0.2, value: started },
+    { weight: 0.45, value: manuallyMarkedComplete },
+    { weight: hasQuiz ? 0.35 : 0, value: quizSubmitted },
   ].filter((item) => item.weight > 0);
 
   const totalWeight = weights.reduce((sum, item) => sum + item.weight, 0) || 1;
@@ -103,21 +125,20 @@ export function getCourseState(course) {
 }
 
 export function getCompletedLessonCount(course) {
-  return course.modules.flatMap((module) => module.lessons).filter((lesson) => isLessonCompleted(lesson.id)).length;
+  return course.modules.flatMap((module) => module.lessons).filter((lesson) => isLessonCoreComplete(lesson)).length;
 }
 
 export function getProgressSummary(courses) {
   const lessons = courses.flatMap((course) => course.modules.flatMap((module) => module.lessons));
-  const completedLessons = getCompletedLessons();
   const quizResults = getQuizResults();
   const checklistState = getChecklistState();
   const activityLog = getActivityLog();
-  const lessonsCompletedTotal = lessons.filter((lesson) => completedLessons.includes(lesson.id)).length;
+  const lessonsCompletedTotal = lessons.filter((lesson) => isLessonCoreComplete(lesson)).length;
   const lessonsStartedTotal = lessons.filter((lesson) => getLessonState(lesson) !== "not-started").length;
   const modulesCompletedTotal = courses.reduce((sum, course) => {
     return (
       sum +
-      course.modules.filter((module) => module.lessons.every((lesson) => completedLessons.includes(lesson.id))).length
+      course.modules.filter((module) => module.lessons.every((lesson) => isLessonCoreComplete(lesson))).length
     );
   }, 0);
   const coursesStartedTotal = courses.filter((course) => getCourseState(course) === "started").length;
@@ -133,11 +154,16 @@ export function getProgressSummary(courses) {
       sum +
       course.modules
         .flatMap((module) => module.lessons)
-        .filter((lesson) => isLessonCompleted(lesson.id))
+        .filter((lesson) => isLessonCoreComplete(lesson))
         .reduce((lessonSum, lesson) => lessonSum + (lesson.timing?.totalMinutes || 0), 0)
     );
   }, 0);
   const activityDays = new Set(activityLog.map((entry) => entry.timestamp?.slice(0, 10)).filter(Boolean));
+  const notesSavedTotal = lessons.filter((lesson) => Boolean(getNote(lesson.id))).length;
+  const extraCreditChecklistCompletedTotal = Object.values(checklistState).reduce(
+    (sum, items) => sum + (Array.isArray(items) ? items.length : 0),
+    0
+  );
   return {
     lessonsCompletedTotal,
     lessonsStartedTotal,
@@ -151,6 +177,8 @@ export function getProgressSummary(courses) {
     completedStudyMinutes,
     remainingStudyMinutes: Math.max(totalStudyMinutes - completedStudyMinutes, 0),
     activityDays: activityDays.size,
+    notesSavedTotal,
+    extraCreditChecklistCompletedTotal,
   };
 }
 
@@ -192,7 +220,7 @@ export function getRecentCompletions(courses, recentLessons) {
 export function getCompletionMinutes(course) {
   return course.modules
     .flatMap((module) => module.lessons)
-    .filter((lesson) => isLessonCompleted(lesson.id))
+    .filter((lesson) => isLessonCoreComplete(lesson))
     .reduce((sum, lesson) => sum + (lesson.timing?.totalMinutes || 0), 0);
 }
 
@@ -206,6 +234,23 @@ export function getCourseProgressDetails(course) {
   const startedLessons = states.filter((state) => state !== "not-started").length;
   const completedLessons = states.filter((state) => state === "completed").length;
   const inProgressLessons = states.filter((state) => state === "in-progress").length;
+  const extraCredit = lessons.reduce(
+    (sum, lesson) => {
+      const details = getLessonExtraCreditDetails(lesson);
+      return {
+        checklistCompleted: sum.checklistCompleted + details.checklistCompleted,
+        checklistTotal: sum.checklistTotal + details.checklistTotal,
+        notesSavedLessons: sum.notesSavedLessons + (details.notesSaved ? 1 : 0),
+        lessonsWithExtraCredit: sum.lessonsWithExtraCredit + (details.hasAnyExtraCredit ? 1 : 0),
+      };
+    },
+    {
+      checklistCompleted: 0,
+      checklistTotal: 0,
+      notesSavedLessons: 0,
+      lessonsWithExtraCredit: 0,
+    }
+  );
   return {
     state: getCourseState(course),
     progress: getCourseProgress(course),
@@ -217,6 +262,10 @@ export function getCourseProgressDetails(course) {
     remainingMinutes: getRemainingMinutes(course),
     completionTimeLabel: formatMinutes(getCompletionMinutes(course)),
     remainingTimeLabel: formatMinutes(getRemainingMinutes(course)),
+    checklistCompleted: extraCredit.checklistCompleted,
+    checklistTotal: extraCredit.checklistTotal,
+    notesSavedLessons: extraCredit.notesSavedLessons,
+    lessonsWithExtraCredit: extraCredit.lessonsWithExtraCredit,
   };
 }
 

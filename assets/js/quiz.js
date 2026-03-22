@@ -44,7 +44,7 @@ export function renderQuiz(lesson) {
         .join("")}
       <div class="button-row">
         <button class="button" type="submit">Submit quiz</button>
-        <p class="muted">A submitted quiz counts toward lesson progress even if some answers are wrong.</p>
+        <p class="muted">When a lesson includes a quiz, submitting it counts toward completion even if some answers are wrong.</p>
       </div>
     </form>
   `;

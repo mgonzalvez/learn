@@ -7,6 +7,7 @@ import {
   getCourseProgress,
   getCourseProgressDetails,
   getCourseState,
+  getLessonExtraCreditDetails,
   getLessonProgress,
   getLessonState,
   getProgressSummary,
@@ -300,6 +301,8 @@ async function renderDashboardPage() {
           ${renderInsightStat(`${stats.lessonsStartedTotal}`, "Lessons started")}
           ${renderInsightStat(`${stats.lessonsCompletedTotal}`, "Lessons completed")}
           ${renderInsightStat(`${stats.modulesCompletedTotal}`, "Modules completed")}
+          ${renderInsightStat(`${stats.extraCreditChecklistCompletedTotal}`, "Extra-credit steps")}
+          ${renderInsightStat(`${stats.notesSavedTotal}`, "Lessons with notes")}
           ${renderInsightStat(`${stats.activityDays}`, "Active learning days")}
         </div>
         ${renderHeatmap(heatmap)}
@@ -483,6 +486,8 @@ async function renderCoursePage() {
                 ${progressBar(progress, `${course.title} progress`)}
                 <div class="meta-row">
                   <span class="muted">${details.completedLessons}/${totalLessons} lessons completed</span>
+                  <span class="muted">${details.checklistCompleted}/${details.checklistTotal || 0} extra-credit steps</span>
+                  <span class="muted">${details.notesSavedLessons} lessons with notes</span>
                   <span class="muted">${details.remainingTimeLabel} remaining</span>
                 </div>
               </div>
@@ -506,6 +511,8 @@ async function renderCoursePage() {
           ${renderInsightStat(`${course.moduleCount}`, "Modules", `${course.lessonCount} lessons`)}
           ${renderInsightStat(`${relatedResources.length}`, "Source spine", "trusted references")}
           ${renderInsightStat(details.remainingTimeLabel, "Time remaining", `${details.completionTimeLabel} completed`)}
+          ${renderInsightStat(`${details.checklistCompleted}/${details.checklistTotal || 0}`, "Extra-credit checklist", "optional")}
+          ${renderInsightStat(`${details.notesSavedLessons}`, "Lessons with notes", "optional")}
         </section>
 
         <section class="page-section">
@@ -593,8 +600,8 @@ async function renderLessonPage() {
   const nextHref = lesson.nextLessonId ? lessonHrefFromId(course, lesson.nextLessonId) : "";
   const lessonTone = getLessonTone(course);
   const lessonState = getLessonState(lesson);
-  const checklistCompleted = (getChecklistState()[lesson.id] || []).length;
-  const quizCompleted = lesson.quiz?.length ? "Not submitted" : "No quiz";
+  const extraCredit = getLessonExtraCreditDetails(lesson);
+  const quizCompleted = lesson.quiz?.length ? "Required for completion" : "No quiz required";
   const noteValue = getNote(lesson.id);
 
   return `
@@ -611,9 +618,9 @@ async function renderLessonPage() {
           </div>
           <div class="lesson-meta-stack">
             <div><span>State</span><strong data-lesson-state-label>${renderStateLabel(lessonState)}</strong></div>
-            <div><span>Checklist</span><strong data-lesson-checklist-status>${checklistCompleted}/${lesson.checklist.length}</strong></div>
+            <div><span>Checklist extra credit</span><strong data-lesson-checklist-status>${extraCredit.checklistCompleted}/${extraCredit.checklistTotal}</strong></div>
             <div><span>Knowledge check</span><strong data-lesson-quiz-status>${quizCompleted}</strong></div>
-            <div><span>Notes</span><strong data-lesson-note-status>${noteValue ? "Saved" : "Empty"}</strong></div>
+            <div><span>Notes optional</span><strong data-lesson-note-status>${noteValue ? "Saved" : "Empty"}</strong></div>
           </div>
         </div>
       </aside>
@@ -626,7 +633,7 @@ async function renderLessonPage() {
             ${renderInsightStat(formatMinutes(lesson.timing.coreMinutes), "Core read")}
             ${renderInsightStat(formatMinutes(lesson.timing.practiceMinutes), "Practice")}
             ${renderInsightStat(`${lesson.quiz?.length || 0}`, "Knowledge checks")}
-            ${renderInsightStat(`${lesson.checklist?.length || 0}`, "Action steps")}
+            ${renderInsightStat(`${lesson.checklist?.length || 0}`, "Extra-credit steps")}
           </div>
           ${
             lessonTone.intro
@@ -658,6 +665,7 @@ async function renderLessonPage() {
         <section class="panel panel-body">
           <div class="eyebrow">${escapeHtml(lessonTone.checklistEyebrow)}</div>
           <h2>${escapeHtml(lessonTone.checklistHeading)}</h2>
+          <p class="muted">Optional extra credit. These steps reinforce the lesson, but they do not block lesson or course completion.</p>
           <ul class="checklist">
             ${lesson.checklist
               .map(
@@ -691,6 +699,7 @@ async function renderLessonPage() {
         <section class="panel panel-body">
           <div class="eyebrow">${escapeHtml(lessonTone.notesEyebrow)}</div>
           <h2>${escapeHtml(lessonTone.notesHeading)}</h2>
+          <p class="muted">Notes are optional and personal. Saving notes helps you study, but it does not count against completion.</p>
           <textarea class="textarea-control" rows="8" data-lesson-notes placeholder="Capture takeaways, commands, pitfalls, or questions...">${escapeHtml(noteValue)}</textarea>
           <p class="save-status" data-save-status></p>
         </section>
@@ -726,6 +735,7 @@ async function renderProgressPage() {
           <div class="eyebrow">Progress Overview</div>
           <h1>See the shape of your momentum.</h1>
           <p class="section-copy">Course state, lesson progression, estimated study time, and recent activity all update from local browser state in real time.</p>
+          <p class="muted">Checklist work and notes are tracked as optional extra credit. Required completion is based on lesson completion plus the knowledge check when a lesson includes one.</p>
         </div>
       </div>
       <div class="toolbar" style="grid-template-columns:1fr 1fr;">
@@ -744,6 +754,8 @@ async function renderProgressPage() {
         </article>
         <article class="stat-card"><strong>${summary.lessonsCompletedTotal}</strong><span class="muted">Lessons completed</span></article>
         <article class="stat-card"><strong>${formatMinutes(summary.completedStudyMinutes)}</strong><span class="muted">Estimated time completed</span></article>
+        <article class="stat-card"><strong>${summary.extraCreditChecklistCompletedTotal}</strong><span class="muted">Extra-credit steps finished</span></article>
+        <article class="stat-card"><strong>${summary.notesSavedTotal}</strong><span class="muted">Lessons with notes</span></article>
         <article class="stat-card"><strong>${streak || 0}</strong><span class="muted">Current active streak</span></article>
       </div>
       <div class="bento-grid progress-bento">
@@ -759,7 +771,7 @@ async function renderProgressPage() {
             <div><strong>${summary.coursesInProgressTotal}</strong><span>In progress</span></div>
             <div><strong>${summary.coursesCompletedTotal}</strong><span>Completed</span></div>
           </div>
-          <p class="muted">Started means you have touched the material. In progress means you have real completion signals, not just a first click.</p>
+          <p class="muted">Started means you have touched the material. In progress means required completion is underway. Checklist work and notes are tracked separately as extra credit.</p>
         </article>
         <article class="panel panel-body spotlight-card">
           <div class="section-heading">
@@ -788,6 +800,8 @@ async function renderProgressPage() {
                   ${progressBar(details.progress, `${course.title} progress`)}
                   <div class="meta-row">
                     <span class="muted">${details.remainingTimeLabel} remaining</span>
+                    <span class="muted">${details.checklistCompleted}/${details.checklistTotal || 0} extra credit</span>
+                    <span class="muted">${details.notesSavedLessons} notes</span>
                     <span class="muted">${formatStudySplit(course.timing)}</span>
                   </div>
                   <div class="button-row" style="margin-top:16px;">
@@ -997,13 +1011,13 @@ async function hydrateLessonPage() {
 
   const refreshLessonMeta = () => {
     const lessonProgress = getLessonProgress(lesson);
-    const checklistCount = (getChecklistState()[lesson.id] || []).length;
+    const extraCredit = getLessonExtraCreditDetails(lesson);
     const quizResult = getQuizResults()[lesson.id];
     progressMeter.innerHTML = progressBar(lessonProgress, `${lesson.title} progress`);
     statusNode.innerHTML = statusPill(lessonProgress);
     stateNode.textContent = renderStateLabel(getLessonState(lesson));
-    checklistNode.textContent = `${checklistCount}/${lesson.checklist.length}`;
-    quizNode.textContent = lesson.quiz?.length ? (quizResult ? `${quizResult.correctCount}/${quizResult.totalQuestions}` : "Not submitted") : "No quiz";
+    checklistNode.textContent = `${extraCredit.checklistCompleted}/${extraCredit.checklistTotal}`;
+    quizNode.textContent = lesson.quiz?.length ? (quizResult ? `${quizResult.correctCount}/${quizResult.totalQuestions} submitted` : "Required for completion") : "No quiz required";
     noteNode.textContent = getNote(lesson.id) ? "Saved" : "Empty";
   };
 
@@ -1028,7 +1042,13 @@ async function hydrateLessonPage() {
     logActivity(isLessonCompleted(lesson.id) ? "lesson-complete" : "lesson-reopen", { lessonId: lesson.id, courseSlug: course.slug });
     completeButton.textContent = isLessonCompleted(lesson.id) ? "Mark incomplete" : "Mark complete";
     refreshLessonMeta();
-    toast(isLessonCompleted(lesson.id) ? "Lesson marked complete" : "Lesson marked incomplete");
+    toast(
+      isLessonCompleted(lesson.id)
+        ? lesson.quiz?.length
+          ? "Lesson marked complete. Submit the knowledge check to finish it."
+          : "Lesson marked complete"
+        : "Lesson marked incomplete"
+    );
   });
 
   if (noteArea) {
@@ -1192,6 +1212,8 @@ function renderCourseCard(course) {
           <span class="muted">${formatMinutes(course.timing?.totalMinutes || 0)} guided</span>
           <span class="muted">${course.lessonCount} lessons</span>
           <span class="muted">${course.completedLessons || 0}/${course.totalLessons || course.lessonCount} complete</span>
+          <span class="muted">${course.checklistCompleted || 0}/${course.checklistTotal || 0} extra credit</span>
+          <span class="muted">${course.notesSavedLessons || 0} notes</span>
           <span class="muted">${escapeHtml(course.category)}</span>
         </div>
         <div style="margin:16px 0 14px;">${progressBar(course.progress || 0, `${course.title} progress`)}</div>
