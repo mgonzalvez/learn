@@ -356,6 +356,19 @@
     "relatedCourseId": "course-local-models"
   },
   {
+    "id": "res-openclaw-local-lab-apple-silicon-ollama-quickstart",
+    "title": "Ollama Quickstart",
+    "type": "guide",
+    "description": "The official Ollama quickstart for running local models and confirming the local runtime is available before OpenClaw depends on it.",
+    "url": "https://docs.ollama.com/quickstart",
+    "tags": [
+      "official",
+      "ollama",
+      "runtime"
+    ],
+    "relatedCourseId": "course-openclaw-local-lab"
+  },
+  {
     "id": "res-ollama-tool-calling",
     "title": "Ollama Tool Calling Docs",
     "type": "reference",
@@ -368,6 +381,136 @@
       "official"
     ],
     "relatedCourseId": "course-local-models"
+  },
+  {
+    "id": "res-openclaw-local-lab-apple-silicon-openclaw-dashboard-guide",
+    "title": "OpenClaw Dashboard Guide",
+    "type": "guide",
+    "description": "High-value reference for the Control UI, token handling, and the critical rule that the dashboard is an admin surface and should not be publicly exposed.",
+    "url": "https://docs.openclaw.ai/web/dashboard",
+    "tags": [
+      "official",
+      "dashboard",
+      "security"
+    ],
+    "relatedCourseId": "course-openclaw-local-lab"
+  },
+  {
+    "id": "res-openclaw-local-lab-apple-silicon-openclaw-docker-guide",
+    "title": "OpenClaw Docker Guide",
+    "type": "guide",
+    "description": "The official explanation of when Docker is worth using, how the containerized gateway works, what persists, and which Docker-specific security and troubleshooting details matter.",
+    "url": "https://docs.openclaw.ai/install/docker",
+    "tags": [
+      "official",
+      "docker",
+      "deployment"
+    ],
+    "relatedCourseId": "course-openclaw-local-lab"
+  },
+  {
+    "id": "res-openclaw-local-lab-apple-silicon-openclaw-getting-started",
+    "title": "OpenClaw Getting Started",
+    "type": "guide",
+    "description": "The best official beginner sequence for install, onboarding, gateway verification, and opening the dashboard.",
+    "url": "https://docs.openclaw.ai/start/getting-started",
+    "tags": [
+      "official",
+      "getting-started",
+      "onboarding"
+    ],
+    "relatedCourseId": "course-openclaw-local-lab"
+  },
+  {
+    "id": "res-openclaw-local-lab-apple-silicon-openclaw-github-readme",
+    "title": "OpenClaw GitHub README",
+    "type": "reference",
+    "description": "The main source for recommended install paths, platform expectations, and the project's own framing of security defaults and operational posture.",
+    "url": "https://github.com/openclaw/openclaw",
+    "tags": [
+      "official",
+      "repository",
+      "install"
+    ],
+    "relatedCourseId": "course-openclaw-local-lab"
+  },
+  {
+    "id": "res-openclaw-local-lab-apple-silicon-openclaw-local-models",
+    "title": "OpenClaw Local Models",
+    "type": "guide",
+    "description": "Official guidance on local-model tradeoffs, why OpenClaw benefits from strong models, and why pure local operation is possible but more demanding than many people expect.",
+    "url": "https://docs.openclaw.ai/gateway/local-models",
+    "tags": [
+      "official",
+      "local-models",
+      "model-selection"
+    ],
+    "relatedCourseId": "course-openclaw-local-lab"
+  },
+  {
+    "id": "res-openclaw-local-lab-apple-silicon-openclaw-ollama-provider",
+    "title": "OpenClaw Ollama Provider",
+    "type": "guide",
+    "description": "The best practical source for connecting Ollama to OpenClaw, including native API usage, tool-calling caveats, auto-discovery, and starter model examples.",
+    "url": "https://docs.openclaw.ai/providers/ollama",
+    "tags": [
+      "official",
+      "ollama",
+      "local-models"
+    ],
+    "relatedCourseId": "course-openclaw-local-lab"
+  },
+  {
+    "id": "res-openclaw-local-lab-apple-silicon-openclaw-overview",
+    "title": "OpenClaw Overview",
+    "type": "reference",
+    "description": "The clearest official summary of what OpenClaw is, who it is for, and the role of the Gateway, dashboard, channels, and model stack.",
+    "url": "https://docs.openclaw.ai/",
+    "tags": [
+      "official",
+      "overview",
+      "architecture"
+    ],
+    "relatedCourseId": "course-openclaw-local-lab"
+  },
+  {
+    "id": "res-openclaw-local-lab-apple-silicon-openclaw-security-cli",
+    "title": "OpenClaw Security CLI",
+    "type": "reference",
+    "description": "Documents `openclaw security audit`, which is one of the best beginner-friendly safety checks in the project because it turns risky config into visible warnings.",
+    "url": "https://docs.openclaw.ai/cli/security",
+    "tags": [
+      "official",
+      "cli",
+      "security"
+    ],
+    "relatedCourseId": "course-openclaw-local-lab"
+  },
+  {
+    "id": "res-openclaw-local-lab-apple-silicon-openclaw-security-guide",
+    "title": "OpenClaw Security Guide",
+    "type": "guide",
+    "description": "The most important operational source in this course. It explains prompt injection, session logs on disk, admin-surface risk, network exposure, DM policy, and hardening priorities.",
+    "url": "https://docs.openclaw.ai/gateway/security",
+    "tags": [
+      "official",
+      "security",
+      "hardening"
+    ],
+    "relatedCourseId": "course-openclaw-local-lab"
+  },
+  {
+    "id": "res-openclaw-local-lab-apple-silicon-openclaw-updating-guide",
+    "title": "OpenClaw Updating Guide",
+    "type": "guide",
+    "description": "Useful because it reinforces the habit of running `openclaw doctor` after updates and when switching install methods.",
+    "url": "https://docs.openclaw.ai/install/updating",
+    "tags": [
+      "official",
+      "maintenance",
+      "updates"
+    ],
+    "relatedCourseId": "course-openclaw-local-lab"
   },
   {
     "id": "res-medium-weight-worker-placement-tableau-design-workshop-paladins-of-the-west-kingdom",

@@ -130,5 +130,28 @@
     "lessonCount": 8,
     "featured": true,
     "lastUpdated": "2026-03-22"
+  },
+  {
+    "id": "course-openclaw-local-lab",
+    "slug": "openclaw-local-lab-apple-silicon",
+    "title": "OpenClaw Local Lab on Apple Silicon",
+    "subtitle": "Install it carefully, run it locally, and learn where it shines and where it can bite you",
+    "description": "A step-by-step beginner course for installing and evaluating OpenClaw on an Apple silicon Mac with a local-model bias. It explains what OpenClaw is, what it is good at, where it is risky, how Docker compares with native install, how to harden a local deployment, and how to choose practical local models for a 64 GB machine.",
+    "coverImage": "assets/images/openclaw-local-lab-apple-silicon-cover.svg",
+    "category": "AI Engineering",
+    "tags": [
+      "openclaw",
+      "local-models",
+      "ollama",
+      "docker",
+      "security",
+      "apple-silicon"
+    ],
+    "difficulty": "Beginner",
+    "estimatedHours": 3.7,
+    "moduleCount": 4,
+    "lessonCount": 8,
+    "featured": true,
+    "lastUpdated": "2026-03-22"
   }
 ]

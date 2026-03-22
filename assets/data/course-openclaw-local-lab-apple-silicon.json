@@ -1,0 +1,571 @@
+{
+  "id": "course-openclaw-local-lab",
+  "slug": "openclaw-local-lab-apple-silicon",
+  "title": "OpenClaw Local Lab on Apple Silicon",
+  "subtitle": "Install it carefully, run it locally, and learn where it shines and where it can bite you",
+  "description": "A step-by-step beginner course for installing and evaluating OpenClaw on an Apple silicon Mac with a local-model bias. It explains what OpenClaw is, what it is good at, where it is risky, how Docker compares with native install, how to harden a local deployment, and how to choose practical local models for a 64 GB machine.",
+  "coverImage": "assets/images/openclaw-local-lab-apple-silicon-cover.svg",
+  "category": "AI Engineering",
+  "tags": [
+    "openclaw",
+    "local-models",
+    "ollama",
+    "docker",
+    "security",
+    "apple-silicon"
+  ],
+  "difficulty": "Beginner",
+  "estimatedHours": 3.7,
+  "featured": true,
+  "lastUpdated": null,
+  "sourceType": "markdown",
+  "sourcePath": "authoring/courses/openclaw-local-lab-apple-silicon",
+  "modules": [
+    {
+      "id": "module-01-understand-the-system",
+      "title": "Understand the System",
+      "description": "Learn what OpenClaw is, why people care about it, and why a self-hosted agent should be treated as a powerful tool rather than a toy.",
+      "lessons": [
+        {
+          "id": "openclaw-local-lab-apple-silicon--what-openclaw-is-why-people-like-it-and-why-you-should-be-careful",
+          "slug": "what-openclaw-is-why-people-like-it-and-why-you-should-be-careful",
+          "title": "What OpenClaw Is, Why People Like It, and Why You Should Be Careful",
+          "durationMinutes": 25,
+          "objectives": [
+            "Understand OpenClaw as a self-hosted gateway for an always-available AI assistant rather than a normal chatbot tab.",
+            "Identify the benefits that make OpenClaw compelling for a solo builder.",
+            "Recognize the risks that make a careful first setup more important than a flashy one."
+          ],
+          "content": "<p>OpenClaw is easiest to understand if you stop thinking of it as &quot;a model&quot; and start thinking of it as a <strong>control plane for a personal AI assistant</strong>.</p><p>The official docs describe it as a self-hosted gateway that connects your chat surfaces, tools, memory, sessions, and models. In plain English, that means one process on your machine can become the place where your assistant lives. Instead of opening a browser tab and starting from scratch every time, you can give the assistant a home base with persistent sessions, a dashboard, and optional channels like Telegram, Discord, or iMessage.</p><p>That is the appeal.</p><p>It is also the danger.</p><p>OpenClaw is powerful because it does not just answer questions. It can manage sessions, use tools, touch files, talk to external services, and in some setups run commands on your machine. The official security docs are very explicit about the trust model: inbound messages are untrusted input, the dashboard is an admin surface, and local session logs live on disk. That is not a &quot;maybe someday&quot; warning. It is the starting point.</p><p>So what is OpenClaw genuinely good for?</p><table><thead><tr><th>Strength</th><th>Why it matters</th></tr></thead><tbody><tr><td>A single home for your assistant</td><td>You get persistent sessions, memory, and routing instead of starting from zero every time.</td></tr><tr><td>Multi-surface access</td><td>You can keep the same assistant available through a dashboard now and messaging channels later.</td></tr><tr><td>Local control</td><td>The gateway runs on your machine, under your rules, and can stay close to your own files and workflows.</td></tr><tr><td>Model flexibility</td><td>You can switch providers and local runtimes instead of being locked into one vendor.</td></tr><tr><td>Tool-driven workflows</td><td>It is designed for agent-style work rather than plain one-shot chat.</td></tr></tbody></table><p>Those are real benefits. But OpenClaw is not a free lunch.</p><table><thead><tr><th>Pitfall</th><th>Why beginners get tripped up</th></tr></thead><tbody><tr><td>Treating it like a toy</td><td>A self-hosted agent with tool access deserves the same seriousness as any admin tool.</td></tr><tr><td>Starting too broad</td><td>If you connect channels, tools, browser control, and remote access all at once, you make debugging and security much harder.</td></tr><tr><td>Over-trusting weak local models</td><td>The OpenClaw docs repeatedly push people toward strong models because weaker ones handle long context and prompt injection more poorly.</td></tr><tr><td>Public exposure too early</td><td>The dashboard is an admin surface. The docs say not to expose it publicly.</td></tr><tr><td>Confusing &quot;local&quot; with &quot;safe&quot;</td><td>Running on your own Mac helps with privacy, but it does not erase prompt injection, bad skills, over-permissive tools, or sloppy network exposure.</td></tr></tbody></table><p>That last point matters a lot. &quot;Local&quot; is not the same thing as &quot;invulnerable.&quot; A local system can still do foolish things if it is pointed at untrusted content, given broad permissions, or connected to the open internet too casually.</p><p>This course is therefore built around a deliberate beginner path:</p><ol><li>Start with the gateway on your Mac.</li><li>Use the dashboard first, not public channels.</li><li>Use a local model first, because your bias is local and cost-free.</li><li>Keep the trust boundary narrow.</li><li>Add complexity only after the boring path works.</li></ol><blockquote class=\"md-callout md-callout-tip\"><p><strong>Tip.</strong></p><p>If a setup choice makes the system feel more magical but also harder to explain, delay it. Beginners learn faster from boring success than from exciting ambiguity.</p></blockquote><p>Your M1 Max with 64 GB of unified memory is a strong personal lab machine. It is much better than the average laptop people try this on. But the OpenClaw local-model docs are still worth taking seriously: the project expects large context windows and strong models. So the right mental model is not &quot;my Mac can run anything.&quot; It is &quot;my Mac can run a serious local experiment if I stay honest about model quality and scope.&quot;</p><p>For this course, the first success target is simple:</p><ul><li>local-only</li><li>dashboard-only</li><li>one local model runtime</li><li>no public exposure</li><li>no broad automation yet</li></ul><p>That is enough to learn the shape of the system without turning your machine into a chaos lab.</p>",
+          "checklist": [
+            "Write one sentence in your notes describing OpenClaw as a gateway rather than a chatbot.",
+            "Name one benefit that makes OpenClaw interesting to you personally.",
+            "Name one risk that makes you want to start with a smaller, local-only lab.",
+            "Commit to a dashboard-first setup before adding any messaging channel."
+          ],
+          "reflectionQuestions": [
+            "If OpenClaw worked exactly as advertised, which part would matter most to you: persistent memory, tool use, multi-surface access, or local control?",
+            "Which kind of mistake feels more likely for you personally: exposing too much too early, or spending too long fiddling with models before the gateway itself works?"
+          ],
+          "quiz": [
+            {
+              "prompt": "What is the best beginner mental model for OpenClaw?",
+              "choices": [
+                "A self-hosted gateway that coordinates an always-available AI assistant across tools, sessions, and optional channels",
+                "A single local model runtime that replaces Ollama",
+                "A GitHub Pages app for running browser prompts",
+                "A plugin manager for Docker containers"
+              ],
+              "correctIndex": 0,
+              "explanation": "OpenClaw is larger than a single model or chat tab. The gateway is the core concept."
+            },
+            {
+              "prompt": "Why is the dashboard worth treating seriously?",
+              "choices": [
+                "Because it is mostly decorative and easy to ignore",
+                "Because it is an admin surface for chat, config, and approvals",
+                "Because it replaces the need for model configuration",
+                "Because it is meant to be exposed publicly by default"
+              ],
+              "correctIndex": 1,
+              "explanation": "The official dashboard docs explicitly say the Control UI is an admin surface and should not be publicly exposed."
+            },
+            {
+              "prompt": "Which statement best matches the course's recommended starting posture?",
+              "choices": [
+                "Connect every channel immediately so you test the full product",
+                "Start with the smallest model possible because cost is always the main concern",
+                "Begin with a local-only, dashboard-first lab and add complexity gradually",
+                "Skip security thinking until the system proves useful"
+              ],
+              "correctIndex": 2,
+              "explanation": "A narrow first lab gives you cleaner debugging, safer experimentation, and a much better shot at actually learning the system."
+            }
+          ],
+          "resources": [
+            "OpenClaw Overview",
+            "OpenClaw GitHub README",
+            "OpenClaw Security Guide",
+            "OpenClaw Dashboard Guide"
+          ],
+          "previousLessonId": null,
+          "nextLessonId": "openclaw-local-lab-apple-silicon--choose-native-vs-docker-and-pick-a-first-lab-that-will-actually-teach-you-something"
+        },
+        {
+          "id": "openclaw-local-lab-apple-silicon--choose-native-vs-docker-and-pick-a-first-lab-that-will-actually-teach-you-something",
+          "slug": "choose-native-vs-docker-and-pick-a-first-lab-that-will-actually-teach-you-something",
+          "title": "Choose Native vs Docker and Pick a First Lab That Will Actually Teach You Something",
+          "durationMinutes": 25,
+          "objectives": [
+            "Compare native and Docker-based OpenClaw deployment in a practical way.",
+            "Choose a first lab path that matches both the official docs and your real goals.",
+            "Understand what Docker does and does not solve for a self-hosted agent."
+          ],
+          "content": "<p>There is a tempting beginner thought that goes something like this:</p><p>&quot;Docker makes things safer and easier to undo, so I should put the whole thing in Docker from day one.&quot;</p><p>That instinct is not crazy. It is also not the whole story.</p><p>The official OpenClaw Docker guide is refreshingly blunt. It says Docker is optional, that it is useful when you want an isolated throwaway gateway environment or when you are running OpenClaw on a host without local installs, and that <strong>if you are running on your own machine and just want the fastest dev loop, you should use the normal install flow instead</strong>.</p><p>That is the key design choice for this course.</p><p>We are not choosing between &quot;safe&quot; and &quot;unsafe.&quot; We are choosing between:</p><ul><li>the <strong>clearest beginner path</strong></li><li>and the <strong>most disposable packaging</strong></li></ul><p>Those are not always the same thing.</p><p>Here is the practical comparison:</p><table><thead><tr><th>Choice</th><th>What it is good for</th><th>What it costs you</th></tr></thead><tbody><tr><td>Native install</td><td>Fastest first success, fewer moving pieces, easiest dashboard-first learning path on your own Mac</td><td>Less disposable if you like to nuke and repave everything</td></tr><tr><td>Docker gateway</td><td>Easy to tear down and rebuild, good for experimentation, good for running on a separate host</td><td>More moving pieces, more networking confusion, more bind/persistence questions</td></tr><tr><td>Native gateway + Docker sandbox</td><td>Strong compromise: easy main install plus isolated tool execution later</td><td>More advanced than a first-day lab</td></tr></tbody></table><p>For your situation, I recommend:</p><p><strong>Native gateway first, local-only, dashboard-first, local Ollama model first.</strong></p><p>Why?</p><ol><li>You are on your own Apple silicon Mac, not a remote server.</li><li>You want handholding and low confusion.</li><li>You care about local models and controlled cost.</li><li>The official docs themselves say the normal install flow is the better first move on your own machine.</li></ol><p>This does <strong>not</strong> mean Docker is bad.</p><p>Docker remains genuinely useful in three situations:</p><ul><li>you want an easy wipe-and-rebuild lab</li><li>you want the gateway more separate from the host</li><li>you later want to compare packaging styles and understand persistence more clearly</li></ul><p>But Docker does not magically erase agent risk. If you expose the wrong port, keep sloppy tokens, connect untrusted channels, or let a weak model roam too broadly, Docker will not save you from bad decisions. It changes the packaging and isolation story, not the need for judgment.</p><p>The course lab sequence is therefore:</p><table><thead><tr><th>Phase</th><th>Goal</th></tr></thead><tbody><tr><td>Phase 1</td><td>Native install, dashboard only, local model only</td></tr><tr><td>Phase 2</td><td>Security hardening, audit, and recovery habits</td></tr><tr><td>Phase 3</td><td>Optional Docker gateway experiment</td></tr><tr><td>Phase 4</td><td>Evaluate usefulness before expanding channels or automation</td></tr></tbody></table><p>That sequence protects you from a classic mistake: solving the wrong problem first.</p><p>Many beginners spend hours arguing with Docker networking, volumes, and bind modes before they have even sent one successful message through the OpenClaw dashboard. That is backward. First prove the gateway, model, and dashboard stack can work together. Then earn the right to complicate the packaging.</p><blockquote class=\"md-callout md-callout-tip\"><p><strong>Tip.</strong></p><p>Use Docker when you have a reason, not because it feels like the responsible thing by default. The most responsible first move is often the one you can understand and repair.</p></blockquote><p>There is one more subtle point worth keeping: the OpenClaw docs separate <strong>running the gateway in Docker</strong> from <strong>using Docker for agent sandboxing</strong>. Those are different decisions. You can keep the gateway native and later use Docker-backed sandboxing for tool execution. That is often a better safety upgrade than containerizing the gateway purely out of habit.</p><p>So your first lab choice should be boring and specific:</p><ul><li>Gateway on the Mac</li><li>Dashboard on localhost</li><li>Ollama on the same machine</li><li>No channels yet</li><li>No public exposure</li><li>Docker reserved for the optional comparison lesson</li></ul><p>That setup is not only safer. It is also more teachable.</p>",
+          "checklist": [
+            "Write down whether your first lab will be native or Docker based.",
+            "If you chose Docker, write one concrete reason beyond \"it feels safer.\"",
+            "State your first success condition in one sentence, such as \"I can open the dashboard and get a reply from a local model.\"",
+            "Promise yourself you will not add a chat channel until that first success condition is stable."
+          ],
+          "reflectionQuestions": [
+            "When something new feels intimidating, do you usually over-containerize it, or do you tend to run too much natively and hope for the best?",
+            "Would a throwaway lab make you bolder in a good way, or would it tempt you to avoid learning the actual moving parts?"
+          ],
+          "quiz": [
+            {
+              "prompt": "According to the official Docker guidance, when is Docker a strong fit?",
+              "choices": [
+                "Whenever you are on your own Mac and want the fastest first setup",
+                "Only when using hosted models",
+                "Never; OpenClaw does not support Docker",
+                "When you want an isolated, throwaway gateway environment or you are running on a host without local installs"
+              ],
+              "correctIndex": 3,
+              "explanation": "The Docker docs say Docker is optional and useful for isolation or non-local-install hosts."
+            },
+            {
+              "prompt": "What is the best recommendation for this course's first lab on your Mac?",
+              "choices": [
+                "Native gateway, local-only dashboard, and a local model first",
+                "Public dashboard plus hosted fallback model",
+                "Docker gateway plus external channels on day one",
+                "Native gateway plus browser automation immediately"
+              ],
+              "correctIndex": 0,
+              "explanation": "That path has the lowest confusion and best aligns with the official guidance for a machine you personally control."
+            },
+            {
+              "prompt": "What is a common beginner mistake with Docker in this context?",
+              "choices": [
+                "Using it for sandboxing later",
+                "Solving packaging complexity before proving the gateway, model, and dashboard work together",
+                "Keeping a local-only lab at first",
+                "Delaying public exposure"
+              ],
+              "correctIndex": 1,
+              "explanation": "Docker can become a distraction when it arrives before basic end-to-end validation."
+            }
+          ],
+          "resources": [
+            "OpenClaw Docker Guide",
+            "OpenClaw Getting Started",
+            "OpenClaw GitHub README"
+          ],
+          "previousLessonId": "openclaw-local-lab-apple-silicon--what-openclaw-is-why-people-like-it-and-why-you-should-be-careful",
+          "nextLessonId": "openclaw-local-lab-apple-silicon--prepare-your-mac-and-local-model-runtime-before-you-install-the-gateway"
+        }
+      ]
+    },
+    {
+      "id": "module-02-build-the-first-safe-lab",
+      "title": "Build the First Safe Lab",
+      "description": "Prepare your Mac, choose a starter local model, and get a first dashboard-only OpenClaw setup running one step at a time.",
+      "lessons": [
+        {
+          "id": "openclaw-local-lab-apple-silicon--prepare-your-mac-and-local-model-runtime-before-you-install-the-gateway",
+          "slug": "prepare-your-mac-and-local-model-runtime-before-you-install-the-gateway",
+          "title": "Prepare Your Mac and Local Model Runtime Before You Install the Gateway",
+          "durationMinutes": 28,
+          "objectives": [
+            "Prepare the basic dependencies for a local-first OpenClaw lab.",
+            "Choose a realistic first local model for an M1 Max with 64 GB of RAM.",
+            "Verify your model runtime before OpenClaw depends on it."
+          ],
+          "content": "<p>One of the easiest ways to make OpenClaw feel flaky is to install it before your model runtime is behaving. If the gateway, onboarding flow, and model stack are all uncertain at the same time, every symptom becomes harder to read.</p><p>So we will do the cleaner thing:</p><ol><li>prepare the machine</li><li>bring up the local model runtime</li><li>verify the runtime</li><li>then install and configure OpenClaw</li></ol><h3>What you need</h3><p>From the official docs, the important baseline is:</p><ul><li>Node 24 recommended, or Node 22.16+ supported</li><li>a model provider</li><li>the OpenClaw CLI</li></ul><p>Because you want a local-first, no-token-cost setup, the local model provider in this course is <strong>Ollama</strong>.</p><p>Why Ollama first?</p><ul><li>the OpenClaw docs have a dedicated Ollama provider page</li><li>it is beginner-friendly compared with hand-rolled local proxies</li><li>it supports tool calling through the native API path</li><li>it fits the &quot;local, practical, easy to undo&quot; goal well</li></ul><h3>Choose a sensible first model</h3><p>The OpenClaw local-model docs are unusually candid: local use is doable, but the project expects large context and strong defenses against prompt injection. The docs explicitly say smaller or aggressively quantized models raise risk.</p><p>That means your job is not to chase the cutest tiny model. Your job is to pick the strongest model your Mac can run <em>comfortably enough for learning</em>.</p><p>For your M1 Max with 64 GB, this is a practical beginner ladder:</p><table><thead><tr><th>Model</th><th>Why start here</th><th>Tradeoff</th></tr></thead><tbody><tr><td><code>gpt-oss:20b</code></td><td>Strong practical first choice for a local OpenClaw lab, manageable size, useful for general assistant work</td><td>Not the strongest model OpenClaw would ideally want</td></tr><tr><td><code>qwen2.5-coder:32b</code></td><td>Stronger for code-heavy tasks and useful comparison against GPT-OSS 20B</td><td>Heavier, slower, and more demanding</td></tr><tr><td><code>llama3.3</code></td><td>Easy mainstream option if you want a general assistant baseline</td><td>May feel less specialized for coding-style tasks</td></tr><tr><td><code>deepseek-r1:32b</code></td><td>Interesting if you want a reasoning-style comparison</td><td>Often slower and not my first pick for a calm beginner lab</td></tr></tbody></table><p>My recommendation for this course:</p><ul><li>start with <code>gpt-oss:20b</code></li><li>add <code>qwen2.5-coder:32b</code> as your second comparison model</li></ul><p>That gives you a balanced first pass without pretending your laptop is a rack of GPU servers.</p><h3>Install and verify Ollama</h3><p>Use Ollama&#39;s official macOS install path from their docs, then verify the CLI is available.</p><p>Once Ollama is installed, the practical lab commands are:</p><pre><code class=\"language-bash\">ollama pull gpt-oss:20b\nollama pull qwen2.5-coder:32b\nollama list</code></pre><p>If Ollama is not already serving requests, start it:</p><pre><code class=\"language-bash\">ollama serve</code></pre><p>Then confirm the local API responds:</p><pre><code class=\"language-bash\">curl http://localhost:11434/api/tags</code></pre><p>That curl check matters. It tells you whether your local runtime is reachable <strong>before</strong> OpenClaw gets involved.</p><h3>Tell OpenClaw that Ollama exists</h3><p>The official OpenClaw Ollama docs say any value works for <code>OLLAMA_API_KEY</code> because Ollama does not require a real key locally. That means you can use a simple local marker:</p><pre><code class=\"language-bash\">export OLLAMA_API_KEY=&quot;ollama-local&quot;</code></pre><p>If you want that to persist, add it to your shell profile later. For a first lab, exporting it in the active shell is enough.</p><h3>Why not jump straight to LM Studio?</h3><p>The OpenClaw local-model docs currently describe LM Studio plus full-size MiniMax M2.5 as the best local stack. That is valuable guidance, but it is not the easiest beginner path and it pushes toward very powerful hardware. For this course, Ollama is the right first lab choice because:</p><ul><li>it gets you moving faster</li><li>it keeps the model-runtime story simple</li><li>it makes it easier to separate &quot;gateway issue&quot; from &quot;runtime issue&quot;</li></ul><p>Later, if OpenClaw proves useful enough to deserve a more ambitious local model stack, LM Studio becomes a serious next experiment.</p><blockquote class=\"md-callout md-callout-tip\"><p><strong>Tip.</strong></p><p>A local model runtime is part of your infrastructure now. Treat &quot;is it running?&quot; as a first-class troubleshooting question, not as a side note.</p></blockquote><h3>Your pre-install checkpoint</h3><p>Before touching the OpenClaw install, you want to be able to say:</p><ul><li>Node is ready</li><li>Ollama is installed</li><li>at least one local model is pulled</li><li>the Ollama API responds on <code>localhost:11434</code></li></ul><p>That is a much calmer place to begin.</p>",
+          "checklist": [
+            "Confirm your Node version meets the OpenClaw requirement.",
+            "Pull `gpt-oss:20b` and one second comparison model.",
+            "Run `curl http://localhost:11434/api/tags` successfully.",
+            "Export `OLLAMA_API_KEY=\"ollama-local\"` in the shell you plan to use for the install."
+          ],
+          "reflectionQuestions": [
+            "Do you usually try to validate dependencies one by one, or do you tend to pile them together and hope the error messages tell a story?",
+            "Which matters more to you in this lab: a model that feels fast enough to keep momentum, or one that feels strong enough to earn more trust?"
+          ],
+          "quiz": [
+            {
+              "prompt": "Why is it smart to verify Ollama before installing OpenClaw?",
+              "choices": [
+                "Because OpenClaw cannot use local models at all",
+                "Because verifying the runtime reduces ambiguity when something goes wrong later",
+                "Because it separates runtime problems from gateway problems",
+                "Because the dashboard requires Ollama to open in a browser"
+              ],
+              "correctIndex": 2,
+              "explanation": "A clean dependency chain makes troubleshooting far easier."
+            },
+            {
+              "prompt": "Which starter model is the recommended first stop in this course?",
+              "choices": [
+                "`deepseek-r1:32b`",
+                "`llama3.3`",
+                "`qwen2.5-coder:32b`",
+                "`gpt-oss:20b`"
+              ],
+              "correctIndex": 3,
+              "explanation": "`gpt-oss:20b` is a practical first model for this local-first lab, with `qwen2.5-coder:32b` as the next comparison step."
+            },
+            {
+              "prompt": "What does `OLLAMA_API_KEY=\"ollama-local\"` do in this setup?",
+              "choices": [
+                "It gives OpenClaw the marker it expects to enable and check the local Ollama provider",
+                "It purchases hosted Ollama usage credits",
+                "It turns Ollama into a Docker container",
+                "It disables model discovery"
+              ],
+              "correctIndex": 0,
+              "explanation": "The OpenClaw Ollama docs say any value works locally; the point is enabling the provider path, not authenticating to a paid service."
+            }
+          ],
+          "resources": [
+            "OpenClaw Ollama Provider",
+            "OpenClaw Local Models",
+            "Ollama Quickstart"
+          ],
+          "previousLessonId": "openclaw-local-lab-apple-silicon--choose-native-vs-docker-and-pick-a-first-lab-that-will-actually-teach-you-something",
+          "nextLessonId": "openclaw-local-lab-apple-silicon--install-openclaw-and-get-your-first-local-reply"
+        },
+        {
+          "id": "openclaw-local-lab-apple-silicon--install-openclaw-and-get-your-first-local-reply",
+          "slug": "install-openclaw-and-get-your-first-local-reply",
+          "title": "Install OpenClaw and Get Your First Local Reply",
+          "durationMinutes": 28,
+          "objectives": [
+            "Install OpenClaw using the normal beginner-friendly path.",
+            "Point the gateway at a local Ollama model.",
+            "Verify that the dashboard works and that your first reply is coming from your local stack."
+          ],
+          "content": "<p>This lesson is the heart of the practical lab. We are aiming for one clean outcome:</p><p><strong>You can open the OpenClaw dashboard on your Mac and get a reply from a local model.</strong></p><p>That is enough. We are not adding channels yet, and we are not chasing fancy agent behavior yet.</p><h3>Step 1: Install OpenClaw</h3><p>The official getting started guide recommends this install path on macOS and Linux:</p><pre><code class=\"language-bash\">curl -fsSL https://openclaw.ai/install.sh | bash</code></pre><p>Once that finishes, verify the CLI exists:</p><pre><code class=\"language-bash\">openclaw --help</code></pre><p>If the shell does not find <code>openclaw</code>, open a new terminal window or reload your shell profile.</p><h3>Step 2: Run onboarding</h3><p>The recommended setup path is:</p><pre><code class=\"language-bash\">openclaw onboard --install-daemon</code></pre><p>This step matters because onboarding installs and configures the gateway service so it can stay running in the background.</p><p>If the wizard strongly nudges you toward hosted providers, remember your goal in this course is different: you want the gateway up and then you want the model set to your local Ollama runtime. So treat onboarding as the gateway/bootstrap step, not as a reason to abandon the local plan.</p><h3>Step 3: Verify the gateway service</h3><p>After onboarding, check the gateway:</p><pre><code class=\"language-bash\">openclaw gateway status</code></pre><p>You want confirmation that the gateway is running and listening on port <code>18789</code>.</p><h3>Step 4: Set the default model to Ollama</h3><p>Now point the default model at your local runtime:</p><pre><code class=\"language-bash\">openclaw config set agents.defaults.model.primary &quot;ollama/gpt-oss:20b&quot;\nopenclaw config set agents.defaults.model.fallbacks &#39;[&quot;ollama/qwen2.5-coder:32b&quot;]&#39;\nopenclaw config set models.providers.ollama.apiKey &quot;ollama-local&quot;</code></pre><p>Then inspect what OpenClaw sees:</p><pre><code class=\"language-bash\">openclaw models list\nopenclaw models status</code></pre><p>You are looking for a clean story:</p><ul><li>your primary model resolves to <code>ollama/gpt-oss:20b</code></li><li>OpenClaw can see your local models</li><li>there is no missing-auth confusion for the local runtime</li></ul><h3>Step 5: Open the dashboard</h3><p>Use the official dashboard command:</p><pre><code class=\"language-bash\">openclaw dashboard</code></pre><p>That should open the Control UI in your browser. If it asks for a token, the official dashboard docs say the token source is <code>gateway.auth.token</code> or <code>OPENCLAW_GATEWAY_TOKEN</code>.</p><p>If needed:</p><pre><code class=\"language-bash\">openclaw config get gateway.auth.token</code></pre><p>Paste that token into the dashboard&#39;s auth field.</p><h3>Step 6: Send a boring first message</h3><p>Do not test with something huge. Start with one or two simple prompts that tell you the pipeline is working.</p><p>Good first prompts:</p><ul><li>&quot;Give me a three-line summary of what OpenClaw is.&quot;</li><li>&quot;List two benefits and two risks of running a local AI assistant on my Mac.&quot;</li><li>&quot;Tell me whether you are using a local model or a hosted model in this setup.&quot;</li></ul><p>Why boring prompts first?</p><p>Because you are testing:</p><ul><li>gateway health</li><li>dashboard auth</li><li>model routing</li><li>reply behavior</li></ul><p>You are <strong>not</strong> yet testing brilliance.</p><h3>Step 7: Verify the reply is truly local enough for your goal</h3><p>A beginner trap is assuming &quot;the dashboard replied, therefore the local plan worked.&quot; Slow down.</p><p>Check the model status and your config. Make sure you did not accidentally leave a hosted primary in place during onboarding.</p><p>Useful follow-up commands:</p><pre><code class=\"language-bash\">openclaw models status\nopenclaw config get agents.defaults.model.primary</code></pre><p>If those point to Ollama, you are in good shape.</p><h3>A minimal first-lab command sequence</h3><p>Here is the practical sequence in one place:</p><pre><code class=\"language-bash\">export OLLAMA_API_KEY=&quot;ollama-local&quot;\n\ncurl -fsSL https://openclaw.ai/install.sh | bash\nopenclaw onboard --install-daemon\nopenclaw gateway status\n\nopenclaw config set agents.defaults.model.primary &quot;ollama/gpt-oss:20b&quot;\nopenclaw config set agents.defaults.model.fallbacks &#39;[&quot;ollama/qwen2.5-coder:32b&quot;]&#39;\nopenclaw config set models.providers.ollama.apiKey &quot;ollama-local&quot;\n\nopenclaw models list\nopenclaw models status\nopenclaw dashboard</code></pre><p>That is the first real win condition for the course.</p><blockquote class=\"md-callout md-callout-tip\"><p><strong>Tip.</strong></p><p>If you can open the dashboard and get a simple reply from a local model, resist the urge to celebrate by connecting five other things. Freeze the system, write down what worked, and only then proceed.</p></blockquote>",
+          "checklist": [
+            "Run the OpenClaw install successfully.",
+            "Complete onboarding with the gateway daemon installed.",
+            "Verify `openclaw gateway status` shows a healthy gateway.",
+            "Set the primary model to `ollama/gpt-oss:20b` and confirm it with `openclaw models status`.",
+            "Open the dashboard and get a first reply."
+          ],
+          "reflectionQuestions": [
+            "Which part of the setup felt most uncertain to you: install, onboarding, model routing, or dashboard auth?",
+            "If your first reply worked but felt slow, would you rather improve speed first or security confidence first?"
+          ],
+          "quiz": [
+            {
+              "prompt": "What is the clearest success condition for this lesson?",
+              "choices": [
+                "Connecting WhatsApp and Telegram at the same time",
+                "Opening the dashboard and getting a reply from a local model",
+                "Enabling every available tool",
+                "Running the gateway in Docker"
+              ],
+              "correctIndex": 1,
+              "explanation": "A narrow first win is the right target for a beginner lab."
+            },
+            {
+              "prompt": "Why is `openclaw models status` useful right after onboarding?",
+              "choices": [
+                "It builds the Docker image",
+                "It opens the dashboard",
+                "It confirms which model OpenClaw actually plans to use and whether auth is missing",
+                "It erases old sessions"
+              ],
+              "correctIndex": 2,
+              "explanation": "This command helps you verify that the gateway is truly pointed at the local model you intended."
+            },
+            {
+              "prompt": "Why should your first prompts be boring?",
+              "choices": [
+                "Because OpenClaw rejects long prompts by default",
+                "Because the dashboard cannot render rich answers",
+                "Because local models cannot answer practical questions",
+                "Because simple prompts test the plumbing without mixing in too many variables"
+              ],
+              "correctIndex": 3,
+              "explanation": "You want to validate the system path before you try to evaluate its intelligence."
+            }
+          ],
+          "resources": [
+            "OpenClaw Getting Started",
+            "OpenClaw GitHub README",
+            "OpenClaw Dashboard Guide",
+            "OpenClaw Ollama Provider"
+          ],
+          "previousLessonId": "openclaw-local-lab-apple-silicon--prepare-your-mac-and-local-model-runtime-before-you-install-the-gateway",
+          "nextLessonId": "openclaw-local-lab-apple-silicon--lock-it-down-before-you-get-clever"
+        }
+      ]
+    },
+    {
+      "id": "module-03-harden-and-recover",
+      "title": "Harden and Recover",
+      "description": "Lock down the basic security posture, understand what Docker helps with and what it does not, and learn how to avoid common beginner mistakes.",
+      "lessons": [
+        {
+          "id": "openclaw-local-lab-apple-silicon--lock-it-down-before-you-get-clever",
+          "slug": "lock-it-down-before-you-get-clever",
+          "title": "Lock It Down Before You Get Clever",
+          "durationMinutes": 29,
+          "objectives": [
+            "Apply the most important beginner-friendly security habits for a local OpenClaw lab.",
+            "Understand what the official security tooling can catch for you.",
+            "Avoid the common mistake of expanding capabilities before hardening the basics."
+          ],
+          "content": "<p>You now have a working local lab. Good. This is the exact moment when many people make it worse.</p><p>They think:</p><p>&quot;It works. Now let&#39;s add remote access, connect a channel, enable browser control, and see what happens.&quot;</p><p>That is how beginner labs become messy and hard to trust.</p><p>The official OpenClaw security docs give you a much better order of operations. They repeatedly steer you toward the simple truth that <strong>access control comes before intelligence</strong>. A mediocre but tightly contained setup is safer than a brilliant but overexposed one.</p><h3>Rule 1: Keep the dashboard local</h3><p>The official dashboard docs say the Control UI is an admin surface for chat, config, and exec approvals, and that you should not expose it publicly. For a beginner lab, the safest default is:</p><ul><li>open it on <code>http://127.0.0.1:18789/</code></li><li>do not put it on the public internet</li><li>if you later need remote access, prefer Tailscale Serve or an SSH tunnel</li></ul><p>That one rule removes a lot of unnecessary risk.</p><h3>Rule 2: Run the security audit</h3><p>OpenClaw gives you a genuinely helpful command:</p><pre><code class=\"language-bash\">openclaw security audit</code></pre><p>And for a deeper pass:</p><pre><code class=\"language-bash\">openclaw security audit --deep</code></pre><p>This is one of the highest-value beginner commands in the project because it turns invisible bad decisions into visible warnings. It is not a magic shield, but it is exactly the kind of boring, trustworthy tool you want in a system like this.</p><h3>Rule 3: Remember that local session logs live on disk</h3><p>The official security guide says session transcripts live under:</p><pre><code class=\"language-text\">~/.openclaw/agents/&lt;agentId&gt;/sessions/*.jsonl</code></pre><p>That means disk access is part of your trust boundary. In practical terms:</p><ul><li>do not assume the system is private just because it is local</li><li>remember that stored sessions can contain sensitive prompts and outputs</li><li>be thoughtful about what you ask OpenClaw to process</li></ul><p>If you need much stronger isolation later, the docs recommend separate OS users or separate hosts for stronger trust separation.</p><h3>Rule 4: Stay narrow with tools</h3><p>A beginner-friendly local lab does not need every powerful capability on day one.</p><p>What to keep narrow:</p><ul><li>no public channels yet</li><li>no broad remote access yet</li><li>no casual use of command execution just because it is available</li><li>no assumption that local models are good enough to safely interpret every messy input</li></ul><p>The local-model docs are clear that weaker local setups have weaker prompt-injection defenses. That does not mean &quot;never use local.&quot; It means &quot;use local with humility.&quot;</p><h3>Rule 5: Build the habit of repair</h3><p>Two commands deserve a permanent place in your mental toolkit:</p><pre><code class=\"language-bash\">openclaw doctor\nopenclaw security audit</code></pre><p><code>openclaw doctor</code> is the project’s repair-and-migrate command. The updating guide treats it as the safe, boring maintenance command, which is exactly the right energy.</p><h3>A practical hardening mini-routine</h3><p>After your first working install, do this:</p><pre><code class=\"language-bash\">openclaw security audit\nopenclaw doctor\nopenclaw models status\nopenclaw gateway status</code></pre><p>That gives you a quick answer to four important questions:</p><ul><li>Is the config obviously risky?</li><li>Is the install healthy?</li><li>Is the intended model still selected?</li><li>Is the gateway service up?</li></ul><h3>What not to do yet</h3><p>Do not do these in your first security pass:</p><ul><li>expose the dashboard publicly</li><li>assume &quot;localhost&quot; and &quot;publicly safe&quot; are the same thing if you later add tunnels without reading the docs</li><li>let curiosity talk you into broad tool permissioning</li><li>trust that a cheap or weak model will handle adversarial or messy input gracefully</li></ul><blockquote class=\"md-callout md-callout-tip\"><p><strong>Tip.</strong></p><p>Security maturity often looks boring from the outside. That is a compliment.</p></blockquote><p>If you can keep the system local, verify it regularly, and expand only when you understand what each new capability changes, you are already ahead of a lot of self-hosting mistakes.</p>",
+          "checklist": [
+            "Run `openclaw security audit` and save any warnings you see.",
+            "Run `openclaw doctor` once after the install stabilizes.",
+            "Confirm you are opening the dashboard only on localhost.",
+            "Write down where session logs live on disk.",
+            "Delay public channels or remote exposure until after you can explain your current trust boundary."
+          ],
+          "reflectionQuestions": [
+            "Which feels more natural to you: tightening scope before adding features, or adding features and cleaning up later?",
+            "If a future-you forgets that session logs live on disk, what kind of mistake do you most want to avoid?"
+          ],
+          "quiz": [
+            {
+              "prompt": "What is the safest beginner posture for the dashboard?",
+              "choices": [
+                "Keep it on localhost and do not expose it publicly",
+                "Publish it publicly with a memorable URL for convenience",
+                "Use it only through Discord",
+                "Disable auth because the Mac is already yours"
+              ],
+              "correctIndex": 0,
+              "explanation": "The official dashboard docs explicitly warn that the Control UI is an admin surface and should not be publicly exposed."
+            },
+            {
+              "prompt": "Why is `openclaw security audit` especially valuable for beginners?",
+              "choices": [
+                "It guarantees there are no model hallucinations",
+                "It surfaces risky configuration choices in a way you can act on",
+                "It permanently blocks all prompt injection",
+                "It converts the whole system to Docker"
+              ],
+              "correctIndex": 1,
+              "explanation": "It is useful because it makes security posture more visible, not because it solves every risk automatically."
+            },
+            {
+              "prompt": "Why should you care that session logs live on disk?",
+              "choices": [
+                "Because OpenClaw cannot reply without internet access",
+                "Because it means Docker is required",
+                "Because local transcript files become part of your trust boundary",
+                "Because it disables model fallback"
+              ],
+              "correctIndex": 2,
+              "explanation": "Local storage can contain sensitive prompts and outputs, so filesystem access matters."
+            }
+          ],
+          "resources": [
+            "OpenClaw Security Guide",
+            "OpenClaw Security CLI",
+            "OpenClaw Dashboard Guide",
+            "OpenClaw Updating Guide"
+          ],
+          "previousLessonId": "openclaw-local-lab-apple-silicon--install-openclaw-and-get-your-first-local-reply",
+          "nextLessonId": "openclaw-local-lab-apple-silicon--use-docker-when-you-mean-it-not-by-reflex"
+        },
+        {
+          "id": "openclaw-local-lab-apple-silicon--use-docker-when-you-mean-it-not-by-reflex",
+          "slug": "use-docker-when-you-mean-it-not-by-reflex",
+          "title": "Use Docker When You Mean It, Not by Reflex",
+          "durationMinutes": 29,
+          "objectives": [
+            "Understand the practical Docker flow for OpenClaw.",
+            "Know when Docker improves your lab and when it mostly adds confusion.",
+            "Learn the common Docker-specific mistakes that trip up beginners."
+          ],
+          "content": "<p>Now that you have a working native lab, Docker becomes educational instead of overwhelming.</p><p>The official Docker guide is one of the best places in the docs because it tells the truth plainly:</p><ul><li>Docker is optional</li><li>it is good for a throwaway environment</li><li>it is not the recommended first move on your own machine if you just want the fastest loop</li></ul><p>That means the right question is not &quot;Should everything be Docker all the time?&quot;</p><p>The right question is:</p><p><strong>What problem am I solving by moving the gateway into Docker?</strong></p><p>Good answers:</p><ul><li>&quot;I want to test a disposable gateway setup.&quot;</li><li>&quot;I want to understand the containerized flow.&quot;</li><li>&quot;I want a cleaner rebuild story.&quot;</li></ul><p>Weak answers:</p><ul><li>&quot;It feels more advanced.&quot;</li><li>&quot;I hope it will automatically solve security.&quot;</li><li>&quot;I do not want to learn the normal install flow.&quot;</li></ul><h3>The official Docker flow</h3><p>From the docs, the containerized gateway flow looks like this:</p><pre><code class=\"language-bash\">./scripts/docker/setup.sh</code></pre><p>That setup script:</p><ul><li>builds or pulls the image</li><li>runs onboarding</li><li>generates a gateway token and writes it to <code>.env</code></li><li>starts the gateway with Docker Compose</li></ul><p>The manual flow is:</p><pre><code class=\"language-bash\">docker build -t openclaw:local -f Dockerfile .\ndocker compose run --rm openclaw-cli onboard\ndocker compose up -d openclaw-gateway</code></pre><p>And to reopen the dashboard link:</p><pre><code class=\"language-bash\">docker compose run --rm openclaw-cli dashboard --no-open</code></pre><h3>What Docker buys you</h3><table><thead><tr><th>Benefit</th><th>Why it can help</th></tr></thead><tbody><tr><td>Easy rebuild story</td><td>You can stop, recreate, and compare environments more cleanly</td></tr><tr><td>Packaging consistency</td><td>The gateway environment is more standardized</td></tr><tr><td>Better host separation</td><td>The gateway process is less mixed into your day-to-day host setup</td></tr></tbody></table><h3>What Docker does not buy you automatically</h3><table><thead><tr><th>Myth</th><th>Reality</th></tr></thead><tbody><tr><td>&quot;Docker makes the system safe&quot;</td><td>It changes packaging and isolation, but bad permissions, prompt injection, and public exposure can still bite you</td></tr><tr><td>&quot;Docker makes setup simpler&quot;</td><td>It can add networking, volume, bind, and permission complexity</td></tr><tr><td>&quot;Docker means I do not need to understand persistence&quot;</td><td>The docs explicitly explain what persists and where</td></tr></tbody></table><h3>The three Docker mistakes to avoid</h3><h4>1. Misreading bind and networking behavior</h4><p>The Docker docs note that the setup script defaults <code>OPENCLAW_GATEWAY_BIND=lan</code> so host access to <code>http://127.0.0.1:18789</code> works with published ports.</p><p>That is helpful, but it also means you need to understand what you are exposing and why.</p><h4>2. Forgetting what persists</h4><p>The docs say Docker Compose bind-mounts the config and workspace directories so they survive container replacement. In other words: deleting a container is not the same as wiping the whole lab.</p><p>That is important for both safety and expectations.</p><h4>3. Assuming Docker and sandboxing are the same decision</h4><p>The Docker guide explains that sandboxing can use Docker even when the gateway itself stays on the host. That is a better mental model than &quot;put everything in Docker because agents are scary.&quot;</p><h3>When I would recommend Docker for you</h3><p>Use the Docker track if one of these becomes true:</p><ul><li>you want a second lab path you can tear down without touching the native install</li><li>you want to compare native vs containerized behavior</li><li>you want to rehearse a future remote-host deployment</li></ul><p>Otherwise, your native first lab is still the best home base.</p><h3>A practical Docker evaluation routine</h3><p>If you decide to test Docker, keep the scope tight:</p><ol><li>Build or run the setup script.</li><li>Open the dashboard.</li><li>Confirm you can reach the gateway.</li><li>Verify persistence and model config.</li><li>Tear it down and note what actually remained.</li></ol><p>That turns Docker into a learning exercise instead of a vague comfort blanket.</p><blockquote class=\"md-callout md-callout-tip\"><p><strong>Tip.</strong></p><p>Docker is best used as a deliberate experiment or packaging choice. It is a poor substitute for understanding your trust boundary.</p></blockquote>",
+          "checklist": [
+            "Decide whether Docker solves a real problem for your lab right now.",
+            "If you test Docker, write down what persists after container replacement.",
+            "Confirm you understand the difference between a Dockerized gateway and Docker-backed sandboxing.",
+            "Save the dashboard recovery command for the Docker flow."
+          ],
+          "reflectionQuestions": [
+            "When you reach for Docker, are you usually solving a packaging problem or an anxiety problem?",
+            "Would a second disposable lab help you learn, or would it tempt you to split your attention before the first lab is mature?"
+          ],
+          "quiz": [
+            {
+              "prompt": "According to the official docs, what is one of Docker's clearest strengths here?",
+              "choices": [
+                "It guarantees public-safe exposure",
+                "It removes the need for onboarding",
+                "It automatically upgrades weak models into stronger ones",
+                "It gives you an isolated, throwaway gateway environment"
+              ],
+              "correctIndex": 3,
+              "explanation": "That is one of the Docker guide's clearest recommended use cases."
+            },
+            {
+              "prompt": "What is a common Docker misconception in this setup?",
+              "choices": [
+                "Thinking Docker automatically solves the security problem",
+                "Thinking Docker can be useful for disposable testing",
+                "Thinking persistence matters",
+                "Thinking networking needs attention"
+              ],
+              "correctIndex": 0,
+              "explanation": "Docker changes the packaging story, but it does not eliminate prompt injection, bad exposure choices, or sloppy trust boundaries."
+            },
+            {
+              "prompt": "Why is it important to distinguish gateway Dockerization from sandboxing?",
+              "choices": [
+                "Because only Dockerized gateways can use local models",
+                "Because sandboxing can use Docker even when the gateway itself stays native",
+                "Because sandboxing disables the dashboard",
+                "Because the dashboard requires a second gateway"
+              ],
+              "correctIndex": 1,
+              "explanation": "Those are separate architectural choices, and confusing them leads to bad tradeoffs."
+            }
+          ],
+          "resources": [
+            "OpenClaw Docker Guide",
+            "OpenClaw Security Guide",
+            "OpenClaw GitHub README"
+          ],
+          "previousLessonId": "openclaw-local-lab-apple-silicon--lock-it-down-before-you-get-clever",
+          "nextLessonId": "openclaw-local-lab-apple-silicon--choose-better-local-models-for-your-m1-max-instead-of-guessing"
+        }
+      ]
+    },
+    {
+      "id": "module-04-decide-whether-it-earns-a-spot",
+      "title": "Decide Whether It Earns a Spot",
+      "description": "Tune model choices for your hardware, evaluate useful real-world workflows, and decide whether to keep, reset, or expand your setup.",
+      "lessons": [
+        {
+          "id": "openclaw-local-lab-apple-silicon--choose-better-local-models-for-your-m1-max-instead-of-guessing",
+          "slug": "choose-better-local-models-for-your-m1-max-instead-of-guessing",
+          "title": "Choose Better Local Models for Your M1 Max Instead of Guessing",
+          "durationMinutes": 28,
+          "objectives": [
+            "Use your M1 Max and 64 GB of RAM intelligently rather than optimistically.",
+            "Build a simple local-model ladder for OpenClaw.",
+            "Understand when Ollama is enough and when LM Studio might become worth the effort."
+          ],
+          "content": "<p>Model choice is where a lot of local AI setups become self-deception.</p><p>People say &quot;it runs,&quot; when what they really mean is:</p><ul><li>it runs slowly</li><li>it loses context</li><li>it handles tool calls inconsistently</li><li>it feels impressive in demos but unreliable in repeated use</li></ul><p>The OpenClaw local-model docs are useful because they resist that self-deception. They say local is doable, but the system expects large context and strong defenses against prompt injection. They even recommend aiming high in hardware terms and avoiding overly small or aggressively quantized models.</p><p>That does not mean your M1 Max is inadequate. It means you should use it <strong>strategically</strong>.</p><h3>A good local-model strategy for your machine</h3><p>Think in layers:</p><table><thead><tr><th>Layer</th><th>Model idea</th><th>Job</th></tr></thead><tbody><tr><td>Everyday local starter</td><td><code>gpt-oss:20b</code></td><td>First stable lab, general assistant tasks, lightweight workflow testing</td></tr><tr><td>Stronger code-oriented comparison</td><td><code>qwen2.5-coder:32b</code></td><td>Better coding-style tasks and more demanding prompt comparisons</td></tr><tr><td>General fallback</td><td><code>llama3.3</code></td><td>Useful as a mainstream sanity-check model</td></tr><tr><td>Ambitious later experiment</td><td>LM Studio + larger MiniMax build</td><td>For the day you want to see how far better local models can push the experience</td></tr></tbody></table><p>The goal is not to collect models. The goal is to answer useful questions:</p><ul><li>Which model gives acceptable latency for your patience?</li><li>Which model follows instructions best in the dashboard?</li><li>Which model degrades most clearly when the task gets messier?</li><li>Which model would you trust for automation-adjacent behavior?</li></ul><h3>The honest recommendation</h3><p>For your local-only, no-paid-tokens bias:</p><ul><li>use <code>gpt-oss:20b</code> as the default first model</li><li>keep <code>qwen2.5-coder:32b</code> as your serious comparison</li><li>keep the gateway scope narrow because weaker-than-ideal models deserve tighter boundaries</li></ul><p>That last sentence matters. A weaker local model can still be useful, but it should earn less trust, not more.</p><h3>Example local-first config</h3><p>Once Ollama is working, this is a clean mental model for your defaults:</p><pre><code class=\"language-json\">{\n  &quot;agents&quot;: {\n    &quot;defaults&quot;: {\n      &quot;model&quot;: {\n        &quot;primary&quot;: &quot;ollama/gpt-oss:20b&quot;,\n        &quot;fallbacks&quot;: [&quot;ollama/qwen2.5-coder:32b&quot;, &quot;ollama/llama3.3&quot;]\n      }\n    }\n  }\n}</code></pre><p>Practical commands:</p><pre><code class=\"language-bash\">ollama pull gpt-oss:20b\nollama pull qwen2.5-coder:32b\nollama pull llama3.3\n\nopenclaw models list\nopenclaw models status</code></pre><h3>When Ollama is enough</h3><p>Ollama is enough when:</p><ul><li>you want a clean local lab</li><li>you are learning the OpenClaw system more than chasing the absolute best model quality</li><li>you value simpler operations</li><li>you are okay with some latency and occasional local-model rough edges</li></ul><h3>When LM Studio becomes worth a look</h3><p>The OpenClaw docs currently point to LM Studio plus MiniMax M2.5 as the strongest local path they have seen. That does not make it your first move. It makes it your <strong>advanced comparison path</strong>.</p><p>I would consider LM Studio later if:</p><ul><li>OpenClaw proves useful enough that model quality is your main bottleneck</li><li>you are comfortable editing provider configuration</li><li>you want to experiment with a more ambitious local stack</li></ul><h3>A practical evaluation rubric</h3><p>When you compare models, use the same three prompts across all of them:</p><ol><li>A short explanatory question</li><li>A task that requires following several constraints</li><li>A mildly messy real-world note you want organized</li></ol><p>Score each model on:</p><ul><li>latency</li><li>instruction-following</li><li>clarity</li><li>tendency to wander</li></ul><p>That is much more useful than vague &quot;this one feels smart&quot; impressions.</p><blockquote class=\"md-callout md-callout-tip\"><p><strong>Tip.</strong></p><p>Your best model is not the one with the coolest benchmark reputation. It is the one that helps you trust your workflow enough to keep using it.</p></blockquote>",
+          "checklist": [
+            "Keep `gpt-oss:20b` as your baseline model for the first full week of testing.",
+            "Pull one comparison model and test the same prompts on both.",
+            "Write down whether the stronger model feels worth the extra latency.",
+            "Resist adding more models until two or three meaningful comparisons are complete."
+          ],
+          "reflectionQuestions": [
+            "Do you tend to chase the strongest-looking setup before you know what work you actually want done?",
+            "What would make a local model feel \"good enough\" for you: speed, instruction-following, privacy, or zero-cost experimentation?"
+          ],
+          "quiz": [
+            {
+              "prompt": "What is the healthiest way to think about your M1 Max for this course?",
+              "choices": [
+                "It can run any local stack well enough that model choice barely matters",
+                "It is too weak for any OpenClaw lab at all",
+                "It is strong enough for a serious local lab, but still benefits from honest scope and model choices",
+                "It should only run hosted models"
+              ],
+              "correctIndex": 2,
+              "explanation": "Your Mac is a strong personal lab machine, but the project's own docs still warn against unrealistic expectations and weak-model overconfidence."
+            },
+            {
+              "prompt": "Why start with `gpt-oss:20b` instead of jumping immediately to a heavier local stack?",
+              "choices": [
+                "Because heavier models are forbidden by OpenClaw",
+                "Because `gpt-oss:20b` is always the smartest possible model",
+                "Because OpenClaw cannot use fallbacks",
+                "Because it is a practical baseline for learning the system before chasing more ambitious local setups"
+              ],
+              "correctIndex": 3,
+              "explanation": "A stable baseline helps you separate \"OpenClaw workflow\" questions from \"model ambition\" questions."
+            },
+            {
+              "prompt": "When does LM Studio become a more interesting path?",
+              "choices": [
+                "When OpenClaw already feels useful and model quality becomes the main bottleneck",
+                "Before you have sent your first dashboard message",
+                "Only if you abandon local models entirely",
+                "Only if Docker fails"
+              ],
+              "correctIndex": 0,
+              "explanation": "LM Studio is better treated as an advanced comparison path, not as the default beginner entry point."
+            }
+          ],
+          "resources": [
+            "OpenClaw Local Models",
+            "OpenClaw Ollama Provider",
+            "Ollama Quickstart"
+          ],
+          "previousLessonId": "openclaw-local-lab-apple-silicon--use-docker-when-you-mean-it-not-by-reflex",
+          "nextLessonId": "openclaw-local-lab-apple-silicon--decide-whether-openclaw-earns-a-permanent-place-on-your-mac"
+        },
+        {
+          "id": "openclaw-local-lab-apple-silicon--decide-whether-openclaw-earns-a-permanent-place-on-your-mac",
+          "slug": "decide-whether-openclaw-earns-a-permanent-place-on-your-mac",
+          "title": "Decide Whether OpenClaw Earns a Permanent Place on Your Mac",
+          "durationMinutes": 30,
+          "objectives": [
+            "Evaluate OpenClaw based on actual usefulness rather than novelty.",
+            "Identify use cases where a local-first OpenClaw setup can be genuinely valuable.",
+            "Learn the maintenance and recovery habits that make the system sustainable."
+          ],
+          "content": "<p>The best final question is not &quot;Can OpenClaw do cool things?&quot;</p><p>The better question is:</p><p><strong>Does OpenClaw earn the right to stay installed?</strong></p><p>That is a much healthier standard.</p><h3>Where OpenClaw can be genuinely useful</h3><p>For a solo user with a local-first bias, OpenClaw is most promising when it helps with:</p><table><thead><tr><th>Use case</th><th>Why it fits</th></tr></thead><tbody><tr><td>Persistent personal assistant notes</td><td>Sessions and memory matter more here than raw model brilliance</td></tr><tr><td>Repeated dashboard-driven workflows</td><td>You can keep useful context alive without starting over constantly</td></tr><tr><td>Light agentic help around your own projects</td><td>The gateway model, tools, and local control can be genuinely convenient</td></tr><tr><td>Experiments in self-hosted AI operations</td><td>You learn something durable about models, routing, auth, and trust boundaries</td></tr></tbody></table><h3>Where it can disappoint</h3><p>It is more likely to disappoint when:</p><ul><li>you expect local models to feel like top hosted frontier models</li><li>you broaden the trust boundary too quickly</li><li>you use it for high-risk automation before you trust the model behavior</li><li>you confuse &quot;interesting&quot; with &quot;reliable&quot;</li></ul><p>That is not a knock on the project. It is just the honest shape of self-hosted agent systems right now.</p><h3>A practical usefulness test</h3><p>Try this simple rule:</p><p>Keep OpenClaw only if, after one or two weeks, it does <strong>one recurring job</strong> better than your existing habit.</p><p>Good candidate jobs:</p><ul><li>keeping a running personal operations notebook</li><li>organizing rough ideas into next-step lists</li><li>serving as a local project companion in the dashboard</li><li>helping you reason through configuration or self-hosting chores</li></ul><p>Bad candidate jobs for the first phase:</p><ul><li>unsupervised automation you do not understand</li><li>broad internet-exposed workflows</li><li>heavy dependence on channels you have not secured well</li><li>high-stakes actions where model mistakes would be expensive</li></ul><h3>Your maintenance baseline</h3><p>If OpenClaw stays installed, keep this boring routine:</p><pre><code class=\"language-bash\">openclaw doctor\nopenclaw security audit\nopenclaw gateway status\nopenclaw models status</code></pre><p>Use the official updating flow when you upgrade:</p><pre><code class=\"language-bash\">openclaw update</code></pre><p>And if you used a Docker lab, remember that rebuilds are not the same as forgetting your persistence choices. Always know what survives and what does not.</p><h3>Signs the lab is ready to expand</h3><p>Only expand beyond the beginner lab when these are true:</p><ul><li>you understand your current trust boundary</li><li>you know which model you trust most locally</li><li>you can recover from a broken config without panic</li><li>you know whether you prefer native or Docker for your own temperament</li></ul><p>Then, and only then, consider:</p><ul><li>adding a single channel</li><li>testing remote access through Tailscale or SSH tunnel</li><li>experimenting with sandboxing</li><li>comparing Ollama against a stronger local LM Studio path</li></ul><h3>Signs it is time to nuke and repave</h3><p>Rebuild instead of endlessly patching if:</p><ul><li>you no longer know which config choices matter</li><li>you mixed too many experiments into one setup</li><li>you cannot explain whether the current model routing is local or hosted</li><li>the lab feels haunted</li></ul><p>There is no shame in a clean rebuild. In fact, with systems like this, controlled rebuilds are a sign of maturity.</p><blockquote class=\"md-callout md-callout-tip\"><p><strong>Tip.</strong></p><p>A good self-hosted tool should make your life calmer after the novelty wears off. If it mainly creates maintenance theater, that is useful information too.</p></blockquote><h3>My honest recommendation for your machine and goals</h3><p>For your M1 Max with 64 GB, local bias, and desire to avoid paid tokens:</p><ul><li>keep the gateway local</li><li>keep the dashboard local</li><li>keep the first model path on Ollama</li><li>treat OpenClaw as a personal lab and assistant, not as an all-powerful autopilot</li><li>only deepen the setup after it proves useful in one recurring workflow</li></ul><p>That gives you the best chance of learning something durable without letting the project become noise.</p>",
+          "checklist": [
+            "Define one real recurring job you want OpenClaw to help with this week.",
+            "Decide what would count as success after one week of use.",
+            "Save a short maintenance routine for updates and health checks.",
+            "Write down the trigger that would make you rebuild instead of endlessly tweaking."
+          ],
+          "reflectionQuestions": [
+            "If OpenClaw vanished tomorrow, which part of your workflow would you actually miss?",
+            "What would impress you more a month from now: a dazzling demo, or one genuinely calmer recurring habit?"
+          ],
+          "quiz": [
+            {
+              "prompt": "What is the healthiest standard for deciding whether to keep OpenClaw installed?",
+              "choices": [
+                "Whether it has the most exciting community buzz",
+                "Whether it reliably improves at least one recurring personal workflow",
+                "Whether it supports the largest number of channels",
+                "Whether it can automate something risky"
+              ],
+              "correctIndex": 1,
+              "explanation": "A durable tool should earn its keep through recurring value, not novelty."
+            },
+            {
+              "prompt": "Which expansion step makes sense only after the beginner lab is stable?",
+              "choices": [
+                "Opening the dashboard on localhost",
+                "Running `openclaw doctor`",
+                "Adding remote access or external channels",
+                "Checking `openclaw models status`"
+              ],
+              "correctIndex": 2,
+              "explanation": "Remote access and channels widen the trust boundary and should come after the local baseline is understood."
+            },
+            {
+              "prompt": "When is a rebuild the wiser move than more patching?",
+              "choices": [
+                "When a single prompt felt slow once",
+                "When you are curious about a new theme",
+                "When the dashboard replies correctly",
+                "When the setup has become confusing enough that you cannot explain how it is currently working"
+              ],
+              "correctIndex": 3,
+              "explanation": "Clean rebuilds are often the fastest path back to clarity when experimentation has piled up."
+            }
+          ],
+          "resources": [
+            "OpenClaw Updating Guide",
+            "OpenClaw Security Guide",
+            "OpenClaw Dashboard Guide",
+            "OpenClaw Local Models"
+          ],
+          "previousLessonId": "openclaw-local-lab-apple-silicon--choose-better-local-models-for-your-m1-max-instead-of-guessing",
+          "nextLessonId": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="900" viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">OpenClaw Local Lab on Apple Silicon</title>
+  <desc id="desc">Install it carefully, run it locally, and learn where it shines and where it can bite you</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f4c81"/>
+      <stop offset="100%" stop-color="#62c0ff"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#9fe2ff" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#9fe2ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <style>
+    .cover-kicker, .cover-title, .cover-subtitle {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+    }
+    .cover-kicker {
+      font-size: 22px;
+      letter-spacing: 0.04em;
+      fill: #dff4ff;
+      opacity: 0.9;
+    }
+    .cover-title {
+      font-size: 66px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      fill: white;
+    }
+    .cover-subtitle {
+      font-size: 27px;
+      font-weight: 520;
+      letter-spacing: -0.01em;
+      fill: #dff4ff;
+      opacity: 0.95;
+    }
+  </style>
+  <rect width="1200" height="900" rx="48" fill="url(#bg)"/>
+  <circle cx="1040" cy="140" r="210" fill="url(#glow)" opacity="0.55"/>
+  <circle cx="990" cy="700" r="260" fill="url(#glow)" opacity="0.18"/>
+  <circle cx="170" cy="760" r="220" fill="url(#glow)" opacity="0.12"/>
+  <rect x="48" y="48" width="1104" height="804" rx="40" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.14)"/>
+  <rect x="72" y="112" width="618" height="676" rx="34" fill="rgba(8,15,30,0.18)" stroke="rgba(255,255,255,0.1)"/>
+  <rect x="742" y="164" width="370" height="370" rx="44" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.16)"/>
+  <rect x="742" y="572" width="370" height="128" rx="32" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.14)"/>
+  <text x="72" y="94" class="cover-kicker">Personal Learning Hub</text>
+  <text x="72" y="208" class="cover-title">OpenClaw Local Lab</text><text x="72" y="286" class="cover-title">on Apple Silicon</text>
+  <text x="72" y="404" class="cover-subtitle">Install it carefully, run it locally, and</text><text x="72" y="438" class="cover-subtitle">learn where it shines and where it can bi…</text>
+  <g transform="translate(748 182)">
+    <circle cx="232" cy="120" r="44" fill="url(#glow)" opacity="0.75"/><path d="M232 78l10 28 28 10-28 10-10 28-10-28-28-10 28-10z" fill="white"/>
+  </g>
+  <text x="782" y="626" class="cover-kicker">Curated course</text>
+  <text x="782" y="666" class="cover-subtitle">Premium, self-paced learning</text>
+</svg>
