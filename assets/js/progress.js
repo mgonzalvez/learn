@@ -144,7 +144,7 @@ export function getProgressSummary(courses) {
   const coursesStartedTotal = courses.filter((course) => getCourseState(course) === "started").length;
   const coursesInProgressTotal = courses.filter((course) => getCourseState(course) === "in-progress").length;
   const coursesCompletedTotal = courses.filter((course) => getCourseState(course) === "completed").length;
-  const recentActivity = Object.values(quizResults).length + Object.keys(checklistState).length + completedLessons.length;
+  const recentActivity = Object.values(quizResults).length + Object.keys(checklistState).length + lessonsCompletedTotal;
   const averageProgress = courses.length
     ? Math.round(courses.reduce((sum, course) => sum + getCourseProgress(course), 0) / courses.length)
     : 0;
@@ -187,11 +187,11 @@ export function getResumeLesson(course) {
   const flatLessons = course.modules.flatMap((module) => module.lessons);
   if (lastVisited?.courseSlug === course.slug) {
     const matching = flatLessons.find((lesson) => lesson.slug === lastVisited.lessonSlug);
-    if (matching && !isLessonCompleted(matching.id)) {
+    if (matching && !isLessonCoreComplete(matching)) {
       return matching;
     }
   }
-  return flatLessons.find((lesson) => !isLessonCompleted(lesson.id)) || flatLessons[0];
+  return flatLessons.find((lesson) => !isLessonCoreComplete(lesson)) || flatLessons[0];
 }
 
 export function getRecentCompletions(courses, recentLessons) {
