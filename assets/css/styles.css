@@ -24,6 +24,8 @@
   --radius-md: 18px;
   --radius-sm: 12px;
   --content-width: 1240px;
+  --grid-gap: 24px;
+  --section-gap: 40px;
   --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
 }
 
@@ -299,14 +301,15 @@ img {
 }
 
 .page-wrap {
-  padding: 40px 0 64px;
+  padding: 44px 0 80px;
 }
 
 .hero {
   display: grid;
-  grid-template-columns: 1.3fr 0.9fr;
-  gap: 28px;
-  margin-bottom: 36px;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--grid-gap);
+  margin-bottom: var(--section-gap);
+  align-items: stretch;
 }
 
 .hero-premium {
@@ -343,6 +346,14 @@ img {
   background:
     linear-gradient(145deg, color-mix(in srgb, var(--surface-strong) 84%, transparent), color-mix(in srgb, var(--surface) 94%, transparent)),
     radial-gradient(circle at top right, color-mix(in srgb, var(--accent) 12%, transparent), transparent 32%);
+}
+
+.hero > :first-child {
+  grid-column: span 7;
+}
+
+.hero > :last-child {
+  grid-column: span 5;
 }
 
 .eyebrow {
@@ -416,7 +427,8 @@ p {
 .course-layout,
 .lesson-layout {
   display: grid;
-  gap: 22px;
+  gap: var(--grid-gap);
+  align-items: start;
 }
 
 .button-row {
@@ -480,6 +492,7 @@ p {
   background:
     linear-gradient(160deg, color-mix(in srgb, var(--accent) 7%, transparent), transparent 66%),
     var(--surface);
+  min-height: 100%;
 }
 
 .hero-focus {
@@ -497,11 +510,12 @@ p {
 
 .stats-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  margin-bottom: 36px;
+  gap: var(--grid-gap);
+  margin-bottom: var(--section-gap);
 }
 
 .premium-stats {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
 .stat-card strong {
@@ -515,21 +529,37 @@ p {
 .catalog-grid,
 .resource-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
 }
 
 .bento-grid {
   display: grid;
-  gap: 22px;
-  grid-template-columns: 1.15fr 0.85fr;
-  margin-bottom: 36px;
+  gap: var(--grid-gap);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  margin-bottom: var(--section-gap);
+  align-items: stretch;
 }
 
 .bento-grid > :first-child {
+  grid-column: span 7;
   min-height: 100%;
 }
 
+.bento-grid > :nth-child(2) {
+  grid-column: span 5;
+}
+
+.bento-grid > :nth-child(3),
+.bento-grid > :nth-child(4) {
+  grid-column: span 6;
+}
+
 .progress-bento {
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.progress-bento > * {
+  grid-column: span 6;
 }
 
 .spotlight-card {
@@ -538,14 +568,22 @@ p {
     radial-gradient(circle at top right, color-mix(in srgb, var(--accent) 9%, transparent), transparent 36%);
 }
 
+.ring-card {
+  display: grid;
+  align-content: start;
+  justify-items: stretch;
+}
+
 .insight-grid {
   display: grid;
   gap: 14px;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
 }
 
 .insight-grid.compact {
   margin-bottom: 18px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .insight-stat {
@@ -718,8 +756,9 @@ p {
 }
 
 .toolbar {
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: minmax(0, 2.2fr) repeat(3, minmax(180px, 1fr));
   margin-bottom: 24px;
+  align-items: stretch;
 }
 
 .filters-grid {
@@ -736,13 +775,12 @@ p {
 }
 
 .page-section {
-  margin-bottom: 36px;
+  margin-bottom: var(--section-gap);
 }
 
 .course-layout,
 .lesson-layout {
-  grid-template-columns: 280px minmax(0, 1fr);
-  align-items: start;
+  grid-template-columns: minmax(240px, 280px) minmax(0, 1fr);
 }
 
 .course-hero-card {
@@ -751,17 +789,19 @@ p {
 
 .course-hero-grid {
   display: grid;
-  grid-template-columns: 320px minmax(0, 1fr);
-  gap: 28px;
-  align-items: center;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--grid-gap);
+  align-items: stretch;
 }
 
 .course-cover-shell {
+  grid-column: span 4;
   padding: 12px;
   border-radius: 28px;
   background: linear-gradient(180deg, color-mix(in srgb, var(--surface-strong) 92%, transparent), color-mix(in srgb, var(--surface) 92%, transparent));
   border: 1px solid var(--border);
   box-shadow: var(--shadow-strong);
+  height: 100%;
 }
 
 .course-cover-large {
@@ -772,8 +812,10 @@ p {
 }
 
 .course-hero-copy {
+  grid-column: span 8;
   display: grid;
   gap: 18px;
+  align-content: start;
 }
 
 .course-hero-progress {
@@ -784,7 +826,7 @@ p {
 .course-summary-strip {
   display: grid;
   gap: 16px;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   margin-bottom: 34px;
 }
 
@@ -995,6 +1037,20 @@ p {
   margin: 0;
 }
 
+.hero > *,
+.bento-grid > *,
+.progress-bento > *,
+.dashboard-grid > *,
+.catalog-grid > *,
+.resource-grid > *,
+.stats-grid > *,
+.split-grid > *,
+.course-summary-strip > *,
+.lesson-intelligence-strip > * {
+  min-width: 0;
+  height: 100%;
+}
+
 .checklist {
   list-style: none;
   margin: 0;
@@ -1166,12 +1222,23 @@ p {
     grid-template-columns: 1fr;
   }
 
+  .hero > :first-child,
+  .hero > :last-child,
+  .bento-grid > :first-child,
+  .bento-grid > :nth-child(2),
+  .progress-bento > * {
+    grid-column: span 12;
+  }
+
   .course-hero-grid,
-  .course-summary-strip,
-  .lesson-intelligence-strip,
   .bento-grid,
   .progress-bento {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  .course-cover-shell,
+  .course-hero-copy {
+    grid-column: span 12;
   }
 
   .stats-grid,
@@ -1182,6 +1249,18 @@ p {
   .filters-grid,
   .insight-grid,
   .state-list.spacious {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .premium-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .course-summary-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .lesson-intelligence-strip {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1254,6 +1333,14 @@ p {
   .course-summary-strip,
   .bento-grid,
   .progress-bento {
+    grid-template-columns: 1fr;
+  }
+
+  .premium-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .insight-grid.compact {
     grid-template-columns: 1fr;
   }
 
