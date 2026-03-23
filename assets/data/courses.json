@@ -153,5 +153,28 @@
     "lessonCount": 8,
     "featured": true,
     "lastUpdated": "2026-03-22"
+  },
+  {
+    "id": "course-final-cut-pro-intro",
+    "slug": "introduction-to-final-cut-pro",
+    "title": "Introduction to Final Cut Pro",
+    "subtitle": "Level up from basic cuts to a cleaner, faster, more confident editing workflow",
+    "description": "A beginner-friendly course for someone who has already used Final Cut Pro at a basic level and wants to get sharper with workspace setup, libraries and file management, keyboard shortcuts, edit types, trimming, and the magnetic timeline.",
+    "coverImage": "assets/images/introduction-to-final-cut-pro-cover.svg",
+    "category": "Creative Tools",
+    "tags": [
+      "final-cut-pro",
+      "video-editing",
+      "apple",
+      "magnetic-timeline",
+      "media-management",
+      "shortcuts"
+    ],
+    "difficulty": "Beginner",
+    "estimatedHours": 3.7,
+    "moduleCount": 4,
+    "lessonCount": 8,
+    "featured": true,
+    "lastUpdated": "2026-03-23"
   }
 ]

@@ -83,6 +83,19 @@
     "relatedCourseId": "course-worker-placement-tableau-design"
   },
   {
+    "id": "res-introduction-to-final-cut-pro-change-the-workspace-layout-in-final-cut-pro",
+    "title": "Change the Workspace Layout in Final Cut Pro",
+    "type": "guide",
+    "description": "Apple’s guide to workspaces, layout changes, and custom workspace saving, which is perfect for helping beginners stop editing in a chaotic default view.",
+    "url": "https://support.apple.com/guide/final-cut-pro/ver6b3626147/mac",
+    "tags": [
+      "official",
+      "workspace",
+      "customization"
+    ],
+    "relatedCourseId": "course-final-cut-pro-intro"
+  },
+  {
     "id": "res-commonmark-spec",
     "title": "CommonMark Spec",
     "type": "reference",
@@ -123,6 +136,19 @@
     "relatedCourseId": "course-homelab"
   },
   {
+    "id": "res-introduction-to-final-cut-pro-connected-clips-in-final-cut-pro",
+    "title": "Connected Clips in Final Cut Pro",
+    "type": "guide",
+    "description": "Clear official explanation of connected clips and how they stay attached and synced to the primary storyline.",
+    "url": "https://support.apple.com/guide/final-cut-pro/connected-clip-ver8e3f35b1/mac",
+    "tags": [
+      "official",
+      "connected-clips",
+      "magnetic-timeline"
+    ],
+    "relatedCourseId": "course-final-cut-pro-intro"
+  },
+  {
     "id": "res-docker-storage",
     "title": "Docker Storage Guide",
     "type": "reference",
@@ -149,6 +175,45 @@
       "solo"
     ],
     "relatedCourseId": "course-worker-placement-tableau-design"
+  },
+  {
+    "id": "res-introduction-to-final-cut-pro-final-cut-pro-interface",
+    "title": "Final Cut Pro Interface",
+    "type": "guide",
+    "description": "The best official explanation of the Libraries sidebar, browser, viewer, and timeline as a unified workspace.",
+    "url": "https://support.apple.com/guide/final-cut-pro/ver92bd100a/mac",
+    "tags": [
+      "official",
+      "workspace",
+      "interface"
+    ],
+    "relatedCourseId": "course-final-cut-pro-intro"
+  },
+  {
+    "id": "res-introduction-to-final-cut-pro-final-cut-pro-user-guide",
+    "title": "Final Cut Pro User Guide",
+    "type": "reference",
+    "description": "The main official source for Final Cut Pro concepts, workflows, interface behavior, and editing tools.",
+    "url": "https://support.apple.com/guide/final-cut-pro/welcome/mac",
+    "tags": [
+      "official",
+      "apple",
+      "user-guide"
+    ],
+    "relatedCourseId": "course-final-cut-pro-intro"
+  },
+  {
+    "id": "res-introduction-to-final-cut-pro-final-cut-pro-workflow",
+    "title": "Final Cut Pro Workflow",
+    "type": "guide",
+    "description": "Apple’s overview of the editing process in Final Cut Pro, useful for teaching a clean mental model of how projects move from import through finishing.",
+    "url": "https://support.apple.com/guide/final-cut-pro/final-cut-pro-workflow-ver4340898f/mac",
+    "tags": [
+      "official",
+      "workflow",
+      "apple"
+    ],
+    "relatedCourseId": "course-final-cut-pro-intro"
   },
   {
     "id": "res-github-ssh",
@@ -272,6 +337,32 @@
     "relatedCourseId": "course-worker-placement-tableau-design"
   },
   {
+    "id": "res-introduction-to-final-cut-pro-intro-to-importing-media-in-final-cut-pro",
+    "title": "Intro to Importing Media in Final Cut Pro",
+    "type": "guide",
+    "description": "Official import workflow guidance, including event assignment, transcoding, analysis, and roles during import.",
+    "url": "https://support.apple.com/guide/final-cut-pro/verd0e77425/mac",
+    "tags": [
+      "official",
+      "import",
+      "organization"
+    ],
+    "relatedCourseId": "course-final-cut-pro-intro"
+  },
+  {
+    "id": "res-introduction-to-final-cut-pro-intro-to-the-command-editor-in-final-cut-pro",
+    "title": "Intro to the Command Editor in Final Cut Pro",
+    "type": "guide",
+    "description": "Important if you want to customize keyboard shortcuts, build command sets, or adapt the app to your own editing habits.",
+    "url": "https://support.apple.com/guide/final-cut-pro/ver8a33d500d/mac",
+    "tags": [
+      "official",
+      "command-editor",
+      "shortcuts"
+    ],
+    "relatedCourseId": "course-final-cut-pro-intro"
+  },
+  {
     "id": "res-markdown-gruber",
     "title": "John Gruber's Markdown Syntax",
     "type": "reference",
@@ -284,6 +375,19 @@
       "writing"
     ],
     "relatedCourseId": "course-markdown"
+  },
+  {
+    "id": "res-introduction-to-final-cut-pro-keyboard-shortcuts-in-final-cut-pro",
+    "title": "Keyboard Shortcuts in Final Cut Pro",
+    "type": "reference",
+    "description": "Apple’s master keyboard-shortcuts reference for navigation, editing, and faster day-to-day work.",
+    "url": "https://support.apple.com/guide/final-cut-pro/keyboard-shortcuts-ver90ba5929/mac",
+    "tags": [
+      "official",
+      "shortcuts",
+      "efficiency"
+    ],
+    "relatedCourseId": "course-final-cut-pro-intro"
   },
   {
     "id": "res-llamacpp-readme",
@@ -513,6 +617,19 @@
     "relatedCourseId": "course-openclaw-local-lab"
   },
   {
+    "id": "res-introduction-to-final-cut-pro-overwrite-clips-in-final-cut-pro",
+    "title": "Overwrite Clips in Final Cut Pro",
+    "type": "guide",
+    "description": "Useful official reference for one of the most important edit types and for understanding when Final Cut should or should not ripple the timeline.",
+    "url": "https://support.apple.com/guide/final-cut-pro/overwrite-clips-ver4e30026/mac",
+    "tags": [
+      "official",
+      "edits",
+      "overwrite"
+    ],
+    "relatedCourseId": "course-final-cut-pro-intro"
+  },
+  {
     "id": "res-medium-weight-worker-placement-tableau-design-workshop-paladins-of-the-west-kingdom",
     "title": "Paladins of the West Kingdom",
     "type": "reference",
@@ -579,6 +696,19 @@
       "official"
     ],
     "relatedCourseId": "course-homelab"
+  },
+  {
+    "id": "res-introduction-to-final-cut-pro-ripple-training-final-cut-pro-12-core-training",
+    "title": "Ripple Training Final Cut Pro 12 Core Training",
+    "type": "course",
+    "description": "A respected secondary source from one of the most established Final Cut Pro training teams, especially useful for structured beginner-to-intermediate progression.",
+    "url": "https://www.rippletraining.com/products/final-cut-pro/final-cut-pro-x-core-training/",
+    "tags": [
+      "respected",
+      "training",
+      "editing"
+    ],
+    "relatedCourseId": "course-final-cut-pro-intro"
   },
   {
     "id": "res-tailscale-serve",
@@ -663,6 +793,19 @@
     "relatedCourseId": "course-boardgame"
   },
   {
+    "id": "res-introduction-to-final-cut-pro-timeline-in-final-cut-pro",
+    "title": "Timeline in Final Cut Pro",
+    "type": "guide",
+    "description": "A high-value reference for the primary storyline, connected clips, and the editing environment where Final Cut Pro behaves differently from many other NLEs.",
+    "url": "https://support.apple.com/guide/final-cut-pro/timeline-ver4cdefe82/mac",
+    "tags": [
+      "official",
+      "timeline",
+      "magnetic-timeline"
+    ],
+    "relatedCourseId": "course-final-cut-pro-intro"
+  },
+  {
     "id": "res-medium-weight-worker-placement-tableau-design-workshop-underwater-cities",
     "title": "Underwater Cities",
     "type": "reference",
@@ -689,6 +832,19 @@
       "solo"
     ],
     "relatedCourseId": "course-worker-placement-tableau-design"
+  },
+  {
+    "id": "res-introduction-to-final-cut-pro-what-are-libraries-in-final-cut-pro",
+    "title": "What Are Libraries in Final Cut Pro?",
+    "type": "guide",
+    "description": "Core reference for understanding libraries, events, projects, and the difference between managed and external media.",
+    "url": "https://support.apple.com/guide/final-cut-pro/verfdd5c590e/mac",
+    "tags": [
+      "official",
+      "libraries",
+      "media-management"
+    ],
+    "relatedCourseId": "course-final-cut-pro-intro"
   },
   {
     "id": "res-stonemaier-mechanism",

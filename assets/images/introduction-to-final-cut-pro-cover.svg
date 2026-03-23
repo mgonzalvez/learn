@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="900" viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Introduction to Final Cut Pro</title>
+  <desc id="desc">Level up from basic cuts to a cleaner, faster, more confident editing workflow</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7f3b22"/>
+      <stop offset="100%" stop-color="#ffcf76"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#ffe3aa" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#ffe3aa" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <style>
+    .cover-kicker, .cover-title, .cover-subtitle {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+    }
+    .cover-kicker {
+      font-size: 22px;
+      letter-spacing: 0.04em;
+      fill: #fff5df;
+      opacity: 0.9;
+    }
+    .cover-title {
+      font-size: 66px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      fill: white;
+    }
+    .cover-subtitle {
+      font-size: 27px;
+      font-weight: 520;
+      letter-spacing: -0.01em;
+      fill: #fff5df;
+      opacity: 0.95;
+    }
+  </style>
+  <rect width="1200" height="900" rx="48" fill="url(#bg)"/>
+  <circle cx="1040" cy="140" r="210" fill="url(#glow)" opacity="0.55"/>
+  <circle cx="990" cy="700" r="260" fill="url(#glow)" opacity="0.18"/>
+  <circle cx="170" cy="760" r="220" fill="url(#glow)" opacity="0.12"/>
+  <rect x="48" y="48" width="1104" height="804" rx="40" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.14)"/>
+  <rect x="72" y="112" width="618" height="676" rx="34" fill="rgba(8,15,30,0.18)" stroke="rgba(255,255,255,0.1)"/>
+  <rect x="742" y="164" width="370" height="370" rx="44" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.16)"/>
+  <rect x="742" y="572" width="370" height="128" rx="32" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.14)"/>
+  <text x="72" y="94" class="cover-kicker">Personal Learning Hub</text>
+  <text x="72" y="208" class="cover-title">Introduction to</text><text x="72" y="286" class="cover-title">Final Cut Pro</text>
+  <text x="72" y="404" class="cover-subtitle">Level up from basic cuts to a cleaner,</text><text x="72" y="438" class="cover-subtitle">faster, more confident editing workflow</text>
+  <g transform="translate(748 182)">
+    <circle cx="236" cy="144" r="54" fill="none" stroke="white" stroke-width="8"/><path d="M214 166l18-52 22 18-40 34Z" fill="white"/>
+  </g>
+  <text x="782" y="626" class="cover-kicker">Curated course</text>
+  <text x="782" y="666" class="cover-subtitle">Premium, self-paced learning</text>
+</svg>
